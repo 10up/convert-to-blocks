@@ -5,14 +5,13 @@ import ClassicBlockTransformer from './transform/ClassicBlockTransformer';
  * Gutenbridge to Gutenberg JS.
  */
 class GutenbridgeEditorSupport {
-
 	/**
 	 * Returns the singleton instance of GutenbridgeEditorSupport.
 	 *
-	 * @return GutenbridgeEditorSupport
+	 * @returns {GutenbridgeEditorSupport}
 	 */
 	static getInstance() {
-		if ( ! this.instance ) {
+		if (!this.instance) {
 			this.instance = new GutenbridgeEditorSupport();
 		}
 
@@ -21,25 +20,18 @@ class GutenbridgeEditorSupport {
 
 	/**
 	 * Activates the GutenbridgeEditorSupport
-	 *
-	 * @return void
 	 */
 	enable() {
-		document.addEventListener(
-			'DOMContentLoaded', this.didBlockEditorLoad.bind( this )
-		);
+		document.addEventListener('DOMContentLoaded', this.didBlockEditorLoad.bind(this));
 	}
 
 	/**
 	 * Executes the classic to block transform.
-	 *
-	 * @return void
 	 */
 	didBlockEditorLoad() {
 		const transformer = new ClassicBlockTransformer();
 		transformer.execute();
 	}
-
 }
 
 const support = GutenbridgeEditorSupport.getInstance();

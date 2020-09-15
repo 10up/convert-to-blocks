@@ -5,7 +5,6 @@
  * Props: Ty Bailey & Gutenberg Core
  */
 class ClassicBlockTransformer {
-
 	/**
 	 * Saves a local wp object for later lookup.
 	 */
@@ -17,12 +16,12 @@ class ClassicBlockTransformer {
 	 * Runs the Classic to Gutenberg Block transform on the current document.
 	 */
 	execute() {
-		const coreEditor = this.wp.data.select( 'core/block-editor' );
-		const blocks     = coreEditor.getBlocks();
+		const coreEditor = this.wp.data.select('core/block-editor');
+		const blocks = coreEditor.getBlocks();
 
-		if ( this.validBlocks( blocks ) ) {
+		if (this.validBlocks(blocks)) {
 			/* Currently set to do 3 levels of recursion */
-			this.convertBlocks( blocks, 1, 3 );
+			this.convertBlocks(blocks, 1, 3);
 		}
 	}
 
@@ -36,20 +35,21 @@ class ClassicBlockTransformer {
 	 * @param {Array}  blocks The list of blocks to convert
 	 * @param {number} depth The current call stack depth
 	 * @param {number} maxDepth The maximum allowed depth
-	 * @return void
 	 */
-	convertBlocks( blocks, depth = 1, maxDepth = 3 ) {
+	convertBlocks(blocks, depth = 1, maxDepth = 3) {
 		const n = blocks.length;
-		let i, block, innerBlocks;
+		let i;
+		let block;
+		let innerBlocks;
 
-		for ( i = 0; i < n; i++ ) {
-			block       = blocks[i];
+		for (i = 0; i < n; i++) {
+			block = blocks[i];
 			innerBlocks = { block };
 
-			this.transform( block );
+			this.transform(block);
 
-			if ( depth <= maxDepth && this.validBlocks( innerBlocks ) ) {
-				this.convertBlocks( innerBlocks, depth + 1, maxDepth );
+			if (depth <= maxDepth && this.validBlocks(innerBlocks)) {
+				this.convertBlocks(innerBlocks, depth + 1, maxDepth);
 			}
 		}
 	}
@@ -58,15 +58,13 @@ class ClassicBlockTransformer {
 	 * If the specified block is a freeform / classic block, replaces it
 	 * with corresponding Gutenberg blocks
 	 *
-	 * @param {Object} block The current block object
-	 * @return void
+	 * @param {object} block The current block object
 	 */
-	transform( block ) {
-		if ( this.isFreeformBlock( block ) ) {
-			this.wp.data.dispatch( 'core/editor' ).replaceBlocks(
-				block.clientId,
-				this.blockHandler( block )
-			);
+	transform(block) {
+		if (this.isFreeformBlock(block)) {
+			this.wp.data
+				.dispatch('core/editor')
+				.replaceBlocks(block.clientId, this.blockHandler(block));
 		}
 	}
 
@@ -74,15 +72,15 @@ class ClassicBlockTransformer {
 	 * Uses the Core Raw HTML Block Handler to convert classic block to
 	 * corresponding blocks
 	 *
-	 * @param {Object} block The block object
-	 * @return object
+	 * @param {object} block The block object
+	 * @returns {object}
 	 */
-	blockHandler( block ) {
+	blockHandler(block) {
 		const { blocks } = this.wp;
 
-		return blocks.rawHandler( {
-			HTML: blocks.getBlockContent( block ),
-		} );
+		return blocks.rawHandler({
+			HTML: blocks.getBlockContent(block),
+		});
 	}
 
 	/* helpers */
@@ -91,23 +89,21 @@ class ClassicBlockTransformer {
 	 * Checks if the blocks specified are valid
 	 *
 	 * @param {Array} blocks The array of blocks
-	 * @return bool
+	 * @returns {boolean}
 	 */
-	validBlocks( blocks ) {
-		return blocks && 0 < blocks.length;
+	validBlocks(blocks) {
+		return blocks && blocks.length > 0;
 	}
 
 	/**
 	 * Checks if the specified block is a freeform/classic block
 	 *
-	 * @param {Object} block The block object
-	 * @return bool
+	 * @param {object} block The block object
+	 * @returns {boolean}
 	 */
-	isFreeformBlock( block ) {
-		return 'core/freeform' === block.name;
+	isFreeformBlock(block) {
+		return block.name === 'core/freeform';
 	}
-
 }
 
 export default ClassicBlockTransformer;
-

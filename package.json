@@ -37,11 +37,11 @@
     "url": "https://gitlab.com/10up-internal/gutenbridge"
   },
   "devDependencies": {
-    "@10up/eslint-config": "^1.0.9",
+    "@10up/eslint-config": "^2.1.1",
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@babel/register": "^7.7.7",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
@@ -52,7 +52,16 @@
     "core-js": "^3.6.1",
     "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
-    "eslint-loader": "^3.0.3",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^3.0.4",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^22.2.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "terser": "^4.6.0",
@@ -63,5 +72,8 @@
   },
   "engines": {
     "node": ">=8.11"
+  },
+  "dependencies": {
+    "prettier": "^2.1.1"
   }
 }
