@@ -1,5 +1,5 @@
 === Gutenbridge ===
-Contributors:      10up, tlovett1
+Contributors:      dsawardekar, tlovett1, 10up
 Tags: gutenberg, block, block migration, gutenberg migration, gutenberg conversion
 Requires at least: 5.4
 Tested up to:      5.5
