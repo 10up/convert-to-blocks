@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Gutenbridge
  * Description: Gutenberg Migration Support
- * Version:     0.1.0
- * Author:      Darshan Sawardekar, 10up
+ * Version:     1.0
+ * Author:      Darshan Sawardekar, Taylor Lovett, 10up
  * Author URI:  https://10up.com
  * Text Domain: gutenbridge
  * Domain Path: /languages
