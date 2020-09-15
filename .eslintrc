@@ -1,0 +1,9 @@
+{
+	"extends": "@10up/eslint-config",
+	"globals": {
+		"module": true,
+		"process": true,
+		"wp": true,
+		"lodash": true
+	}
+}

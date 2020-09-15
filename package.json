@@ -1,0 +1,67 @@
+{
+  "name": "gutenbridge",
+  "version": "1.0.0",
+  "description": "Gutenbridge",
+  "author": {
+    "name": "Darshan Sawardekar",
+    "email": "darshan@10up.com",
+    "url": "https://10up.com",
+    "role": "developer"
+  },
+  "scripts": {
+    "test": "phpunit",
+    "start": "composer install && npm install && npm run build",
+    "build": "NODE_ENV=production webpack --config config/webpack.prod.js",
+    "dev": "NODE_ENV=development webpack --config config/webpack.dev.js",
+    "watch": "NODE_ENV=development webpack --watch --config config/webpack.dev.js",
+    "build-release": "npm install && composer install --no-dev -o && npm run build",
+    "lint-release": "npm install && composer install && npm run lint",
+    "lint-js": "eslint assets/js",
+    "lint-php": "composer run lint",
+    "format-js": "eslint --fix assets/js",
+    "lint": "npm run lint-js && npm run lint-php",
+    "format": "npm run format-js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/10up-internal/gutenbridge"
+  },
+  "devDependencies": {
+    "@10up/eslint-config": "^1.0.9",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "browserslist": "^4.8.3",
+    "caniuse-db": "^1.0.30001019",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "core-js": "^3.6.1",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "terser": "^4.6.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2",
+    "webpackbar": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=8.11"
+  }
+}

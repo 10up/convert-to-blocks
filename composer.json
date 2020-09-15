@@ -1,0 +1,26 @@
+{
+  "name": "10up/gutenbridge",
+  "description": "Gutenberg Migration Bridge",
+  "authors": [
+    {
+      "name": "Darshan Sawardekar",
+      "email": "darshan@10up.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gutenbridge\\": "includes/Gutenbridge/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~7.5.0",
+    "10up/phpcs-composer": "dev-master"
+  },
+  "scripts": {
+    "lint": "phpcs .",
+    "lint-fix": "phpcbf ."
+  }
+}
