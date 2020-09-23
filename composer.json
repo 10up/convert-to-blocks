@@ -2,6 +2,7 @@
   "name": "10up/gutenbridge",
   "description": "Gutenbridge is a WordPress plugin that transforms classic editor content to Gutenberg blocks on the fly.",
   "type": "wordpress-plugin",
+  "license": "GPLv2 or later",
   "authors": [
     {
       "name": "10up",
