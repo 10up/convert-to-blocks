@@ -10,7 +10,7 @@ The following individuals are responsible for curating the list of issues, respo
 
 Thank you to all the people who have already contributed to this repository via bug reports, code, design, ideas, project management, translation, testing, etc.
 
-[Darshan Sawardekar (@dsawardekar)](https://github.com/dsawardekar), [Taylor Lovett (@tlovett1)](https://github.com/tlovett1), [Jeffrey Paul](https://github.com/jeffpaul).
+[Darshan Sawardekar (@dsawardekar)](https://github.com/dsawardekar), [Taylor Lovett (@tlovett1)](https://github.com/tlovett1), [Tyler Bailey (@TylerB24890)](https://github.com/TylerB24890), [Jeffrey Paul](https://github.com/jeffpaul).
 
 ## Libraries
 
