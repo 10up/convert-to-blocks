@@ -1,9 +1,12 @@
 === Gutenbridge ===
-Contributors:      dsawardekar, tlovett1, 10up
-Tags: gutenberg, block, block migration, gutenberg migration, gutenberg conversion
+Contributors:      10up, dsawardekar, tlovett1
+Tags:              gutenberg, block, block migration, gutenberg migration, gutenberg conversion
 Requires at least: 5.4
 Tested up to:      5.5
-Stable tag:        1.0
+Requires PHP:      7.0
+Stable tag:        1.0.0
+License:           GPLv2 or later
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
 Gutenbridge is a WordPress plugin that transforms classic editor content to Gutenberg blocks on the fly.
 
@@ -20,11 +23,11 @@ Gutenbridge is a WordPress plugin that transforms classic editor content to [Gut
 
 == Frequently Asked Questions ==
 
-__How Do I Know It's Working?__
+= How Do I Know It's Working? =
 
 Find a classic editor in the post, try to navigate away from the page. You will get an error saying your changes will be discarded. This is because Gutenbridge converted your content to blocks on the fly and those changes will be saved when you update the post.
 
-__Will Gutenbridge Handle My Custom Blocks?__
+= Will Gutenbridge Handle My Custom Blocks? =
 
 By default it will not.
 
@@ -33,5 +36,5 @@ By default it will not.
 
 == Changelog ==
 
-= 1.0 =
-* First release
+= 1.0.0 =
+* Initial private release of Gutenbridge.

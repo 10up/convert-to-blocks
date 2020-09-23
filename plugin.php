@@ -1,14 +1,18 @@
 <?php
 /**
- * Plugin Name: Gutenbridge
- * Description: Gutenberg Migration Support
- * Version:     1.0
- * Author:      Darshan Sawardekar, Taylor Lovett, 10up
- * Author URI:  https://10up.com
- * Text Domain: gutenbridge
- * Domain Path: /languages
+ * Plugin Name:       Gutenbridge
+ * Plugin URI:        https://github.com/10up/gutenbridge
+ * Description:       Gutenberg Migration Support
+ * Version:           1.0.0
+ * Requires at least: 5.4
+ * Requires PHP:      7.0
+ * Author:            10up
+ * Author URI:        https://10up.com
+ * License:           GPLv2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       gutenbridge
  *
- * @package Gutenbridge
+ * @package           Gutenbridge
  */
 
 /**
@@ -125,4 +129,3 @@ function gutenbridge_autoload_notice() {
 }
 
 gutenbridge_autorun();
-

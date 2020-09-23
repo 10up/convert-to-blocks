@@ -1,13 +1,14 @@
 {
   "name": "gutenbridge",
   "version": "1.0.0",
-  "description": "Gutenbridge",
+  "description": "Gutenbridge is a WordPress plugin that transforms classic editor content to Gutenberg blocks on the fly.",
   "author": {
-    "name": "Darshan Sawardekar",
-    "email": "darshan@10up.com",
+    "name": "10up",
+    "email": "opensource@10up.com",
     "url": "https://10up.com",
     "role": "developer"
   },
+  "license": "GPL-2.0-only",
   "scripts": {
     "test": "phpunit",
     "start": "composer install && npm install && npm run build",
@@ -34,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/10up-internal/gutenbridge"
+    "url": "https://github.com/10up/gutenbridge"
   },
   "devDependencies": {
     "@10up/eslint-config": "^2.1.1",
