@@ -13,7 +13,7 @@ if ( file_exists( __DIR__ . '/.commit' ) ) {
 	// phpcs:enable
 }
 
-gutenbridge_define( 'GUTENBRIDGE_PLUGIN', __DIR__ . '/plugin.php' );
+gutenbridge_define( 'GUTENBRIDGE_PLUGIN', __DIR__ . '/gutenbridge.php' );
 gutenbridge_define( 'GUTENBRIDGE_VERSION', $plugin_version );
 gutenbridge_define( 'GUTENBRIDGE_DIR', plugin_dir_path( __FILE__ ) );
 gutenbridge_define( 'GUTENBRIDGE_URL', plugin_dir_url( __FILE__ ) );
