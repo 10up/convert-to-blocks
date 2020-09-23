@@ -1,10 +1,13 @@
 {
   "name": "10up/gutenbridge",
-  "description": "Gutenberg Migration Bridge",
+  "description": "Gutenbridge is a WordPress plugin that transforms classic editor content to Gutenberg blocks on the fly.",
+  "type": "wordpress-plugin",
   "authors": [
     {
-      "name": "Darshan Sawardekar",
-      "email": "darshan@10up.com"
+      "name": "10up",
+			"email": "opensource@10up.com",
+			"homepage": "https://10up.com",
+			"role": "Developer"
     }
   ],
   "require": {
