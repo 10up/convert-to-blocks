@@ -9,4 +9,4 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Initial private release of Gutenbridge.
 
 [Unreleased]: https://github.com/10up/gutenbridge/compare/trunk...develop
-[1.0.0]: https://github.com/10up/gutenbridge/tree/commit-hash-here
+[1.0.0]: https://github.com/10up/gutenbridge/tree/1.0.0
