@@ -1,0 +1,10 @@
+{
+	"includes/Gutenbridge/*.php": {
+		"type": "plugin",
+		"test": "tests/Gutenbridge/%sTest.php"
+	},
+	"tests/Gutenbridge/*Test.php": {
+		"type": "test",
+		"alternate": "includes/Gutenbridge/%s.php"
+	}
+}
