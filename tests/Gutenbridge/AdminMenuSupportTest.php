@@ -29,6 +29,8 @@ class AdminMenuSupportTest extends \WP_UnitTestCase {
 
 		$actual = $this->support->can_register();
 		$this->assertTrue( $actual );
+
+		$GLOBALS['current_screen'] = null;
 	}
 
 	function test_it_will_be_registered_if_logged_in() {
