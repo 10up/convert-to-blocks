@@ -38,4 +38,39 @@ class AssetsTest extends \WP_UnitTestCase {
 		$this->assertFalse( $actual );
 	}
 
+	function test_it_will_be_registered_on_admin_screens() {
+		$GLOBALS['current_screen'] =
+			$mock = $this->getMockBuilder( stdObject::class )
+								->setMethods( ['in_admin'] )
+								->getMock();
+
+		$mock->expects( $this->once() )
+			 ->method( 'in_admin' )
+			 ->will( $this->returnValue( true ) );
+
+		$actual = $this->assets->can_register();
+		$this->assertTrue( $actual );
+
+		$GLOBALS['current_screen'] = null;
+	}
+
+	function test_it_registers_gutenbridge_script_on_registration() {
+		$this->assets->register();
+		$actual = wp_script_is( 'gutenbridge_editor', 'registered' );
+		$this->assertTrue( $actual );
+	}
+
+	function test_it_enqueues_script_on_assets_hook() {
+		$this->assets->register();
+		$actual = wp_script_is( 'gutenbridge_editor', 'queue' );
+
+		$this->assertFalse( $actual );
+
+		$this->assets->do_assets();
+
+		$actual = wp_script_is( 'gutenbridge_editor', 'queue' );
+
+		$this->assertTrue( $actual );
+	}
+
 }
