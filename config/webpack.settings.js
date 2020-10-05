@@ -40,7 +40,7 @@ module.exports = {
 	BrowserSyncConfig: {
 		host: 'localhost',
 		port: 3000,
-		proxy: 'http://gutenbridge.test',
+		proxy: 'http://convert-to-blocks.test',
 		open: false,
 		files: [
 			'**/*.php',

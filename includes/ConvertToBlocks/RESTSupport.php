@@ -2,10 +2,10 @@
 /**
  * RESTSupport
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 /**
  * RESTSupport connects Shortcode Transformer with the REST API. This
@@ -69,7 +69,7 @@ class RESTSupport {
 		$post_types = get_post_types();
 
 		foreach ( $post_types as $post_type ) {
-			if ( $this->container->post_type_supports_gutenbridge( $post_type ) ) {
+			if ( $this->container->post_type_supports_convert_to_blocks( $post_type ) ) {
 				add_action( 'rest_prepare_' . $post_type, [ $this, 'update_response' ], 10, 3 );
 			}
 		}
@@ -90,7 +90,7 @@ class RESTSupport {
 			$data = $response->get_data();
 			$raw  = $data['content']['raw'];
 
-			$updated                = apply_filters( 'gutenbridge_raw_transform', $raw, $post, $request );
+			$updated                = apply_filters( 'convert_to_blocks_raw_transform', $raw, $post, $request );
 			$data['content']['raw'] = $updated;
 
 			$data = apply_filters( 'gutenbridge_data_transform', $data, $post, $request );

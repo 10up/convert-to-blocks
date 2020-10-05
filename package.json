@@ -1,7 +1,7 @@
 {
-  "name": "gutenbridge",
+  "name": "convert-to-blocks",
   "version": "1.0.0",
-  "description": "Gutenbridge is a WordPress plugin that transforms classic editor content to Gutenberg blocks on the fly.",
+  "description": "Convert to Blocks is a WordPress plugin that transforms classic editor content to blocks on the fly.",
   "author": {
     "name": "10up",
     "email": "opensource@10up.com",
@@ -35,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/10up/gutenbridge"
+    "url": "https://github.com/10up/convert-to-blocks"
   },
   "devDependencies": {
     "@10up/eslint-config": "^2.1.1",
@@ -69,12 +69,10 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-merge": "^4.2.2",
-    "webpackbar": "^4.0.0"
+    "webpackbar": "^4.0.0",
+    "prettier": "^2.1.1"
   },
   "engines": {
     "node": ">=8.11"
-  },
-  "dependencies": {
-    "prettier": "^2.1.1"
   }
 }

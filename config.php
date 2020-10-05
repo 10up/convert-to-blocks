@@ -1,8 +1,8 @@
 <?php
 /**
- * Gutenbridge configuration
+ * Convert to Blocks configuration
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
 $plugin_version = '0.1.0';
@@ -13,25 +13,25 @@ if ( file_exists( __DIR__ . '/.commit' ) ) {
 	// phpcs:enable
 }
 
-gutenbridge_define( 'GUTENBRIDGE_PLUGIN', __DIR__ . '/plugin.php' );
-gutenbridge_define( 'GUTENBRIDGE_VERSION', $plugin_version );
-gutenbridge_define( 'GUTENBRIDGE_DIR', plugin_dir_path( __FILE__ ) );
-gutenbridge_define( 'GUTENBRIDGE_URL', plugin_dir_url( __FILE__ ) );
+convert_to_blocks_define( 'CONVERT_TO_BLOCKS_PLUGIN', __DIR__ . '/plugin.php' );
+convert_to_blocks_define( 'CONVERT_TO_BLOCKS_VERSION', $plugin_version );
+convert_to_blocks_define( 'CONVERT_TO_BLOCKS_DIR', plugin_dir_path( __FILE__ ) );
+convert_to_blocks_define( 'CONVERT_TO_BLOCKS_URL', plugin_dir_url( __FILE__ ) );
 
 /* Labels */
 
 /* Block Editor text label */
-gutenbridge_define( 'SWITCH_TO_BLOCK_EDITOR_LABEL', __( 'Switch to Block Editor', 'gutenbridge' ) );
+convert_to_blocks_define( 'SWITCH_TO_BLOCK_EDITOR_LABEL', __( 'Switch to Block Editor', 'convert-to-blocks' ) );
 
 /* Classic Editor text label */
-gutenbridge_define( 'SWITCH_TO_CLASSIC_EDITOR_LABEL', __( 'Switch to Classic Editor', 'gutenbridge' ) );
+convert_to_blocks_define( 'SWITCH_TO_CLASSIC_EDITOR_LABEL', __( 'Switch to Classic Editor', 'convert-to-blocks' ) );
 
 /* Add/Edit Labels */
-gutenbridge_define( 'EDIT_IN_CLASSIC_EDITOR_LABEL', __( 'Edit (Classic)', 'gutenbridge' ) );
-gutenbridge_define( 'ADD_NEW_CLASSIC_EDITOR_LABEL', __( 'Add New (Classic)', 'gutenbridge' ) );
-gutenbridge_define( 'ADD_NEW_BLOCK_EDITOR_LABEL', __( 'Add New', 'gutenbridge' ) );
+convert_to_blocks_define( 'EDIT_IN_CLASSIC_EDITOR_LABEL', __( 'Edit (Classic)', 'convert-to-blocks' ) );
+convert_to_blocks_define( 'ADD_NEW_CLASSIC_EDITOR_LABEL', __( 'Add New (Classic)', 'convert-to-blocks' ) );
+convert_to_blocks_define( 'ADD_NEW_BLOCK_EDITOR_LABEL', __( 'Add New', 'convert-to-blocks' ) );
 
 /* Block & Classic Editor Labels */
-gutenbridge_define( 'BLOCK_EDITOR_LABEL', __( 'Block Editor', 'gutenbridge' ) );
-gutenbridge_define( 'CLASSIC_EDITOR_LABEL', __( 'Classic Editor', 'gutenbridge' ) );
-gutenbridge_define( 'EDITOR_COLUMN_LABEL', __( 'Editor', 'gutenbridge' ) );
+convert_to_blocks_define( 'BLOCK_EDITOR_LABEL', __( 'Block Editor', 'convert-to-blocks' ) );
+convert_to_blocks_define( 'CLASSIC_EDITOR_LABEL', __( 'Classic Editor', 'convert-to-blocks' ) );
+convert_to_blocks_define( 'EDITOR_COLUMN_LABEL', __( 'Editor', 'convert-to-blocks' ) );

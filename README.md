@@ -1,12 +1,12 @@
-# Gutenbridge
+# Convert to Blocks
 
->  Convert classic editor posts to Gutenberg on the fly.
+>  Convert classic editor posts to blocks on the fly.
 
 [![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/gutenbridge.svg)](https://github.com/10up/gutenbridge/releases/latest) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v5.5%20tested-success.svg) [![GPLv2 License](https://img.shields.io/github/license/10up/gutenbridge.svg)](https://github.com/10up/gutenbridge/blob/develop/LICENSE.md)
 
 ## Overview
 
-Gutenbridge is a WordPress plugin that transforms classic editor content to [Gutenberg](https://wordpress.org/gutenberg/) blocks on the fly. After installing Gutenberg or upgrading to WordPress 5.0+, your content will be showing in "Classic Editor Blocks". While these blocks are completely functional and will display fine on the front of your website, they do not empower editors to fully make use of the Gutenberg experience.  In order to do so, your classic editor posts need to be converted to Gutenberg blocks. This plugin does that for you "on the fly". When an editor goes to edit a classic post, the content will be parsed into blocks. When the editor saves the post, the new structure will be saved into the database. This strategy reduces risk as you are only altering database values for content that needs to be changed.
+Convert to Blocks is a WordPress plugin that transforms classic editor content to [Gutenberg](https://wordpress.org/gutenberg/) blocks on the fly. After installing Gutenberg or upgrading to WordPress 5.0+, your content will be showing in "Classic Editor Blocks". While these blocks are completely functional and will display fine on the front of your website, they do not empower editors to fully make use of the Gutenberg experience.  In order to do so, your classic editor posts need to be converted to Gutenberg blocks. This plugin does that for you "on the fly". When an editor goes to edit a classic post, the content will be parsed into blocks. When the editor saves the post, the new structure will be saved into the database. This strategy reduces risk as you are only altering database values for content that needs to be changed.
 
 ## Requirements
 

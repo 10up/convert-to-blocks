@@ -2,13 +2,13 @@
 /**
  * AdminBarMenuSupport
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 /**
- * AdminBarMenuSupport adds custom Gutenbridge Menu items items to the
+ * AdminBarMenuSupport adds custom Connect to Blocks Menu items items to the
  * WordPress Admin Bar.
  */
 class AdminBarMenuSupport {
@@ -49,7 +49,7 @@ class AdminBarMenuSupport {
 			return;
 		}
 
-		if ( ! $this->container->post_supports_gutenbridge( $post ) ) {
+		if ( ! $this->container->post_supports_convert_to_blocks( $post ) ) {
 			return;
 		}
 
@@ -85,7 +85,7 @@ class AdminBarMenuSupport {
 			return;
 		}
 
-		if ( ! $this->container->post_supports_gutenbridge( $post ) ) {
+		if ( ! $this->container->post_supports_convert_to_blocks( $post ) ) {
 			return;
 		}
 

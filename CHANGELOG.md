@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [1.0.0] - TBD
 ### Added
-- Initial private release of Gutenbridge.
+- Initial private release.
 
-[Unreleased]: https://github.com/10up/gutenbridge/compare/trunk...develop
-[1.0.0]: https://github.com/10up/gutenbridge/tree/commit-hash-here
+[Unreleased]: https://github.com/10up/convert-to-blocks/compare/trunk...develop
+[1.0.0]: https://github.com/10up/convert-to-blocks/tree/commit-hash-here

@@ -1,14 +1,14 @@
 <?php
 /**
- * Gutenbridge Plugin
+ * Convert to Blocks Plugin
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 /**
- * The Gutenbridge Plugin's main class. All subclasses/modules
+ * The Convert to Blocks Plugin's main class. All subclasses/modules
  * are managed from within this class. This class is used as a singleton
  * and should not be instantiated directly.
  *
@@ -182,40 +182,40 @@ class Plugin {
 	 * Initializes Plugin Local
 	 */
 	public function init_locale() {
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'gutenbridge' );
-		load_textdomain( 'gutenbridge', WP_LANG_DIR . '/gutenbridge/gutenbridge-' . $locale . '.mo' );
-		load_plugin_textdomain( 'gutenbridge', false, plugin_basename( GUTENBRIDGE_PLUGIN ) . '/languages/' );
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'convert-to-blocks' );
+		load_textdomain( 'convert-to-blocks', WP_LANG_DIR . '/convert-to-blocks/convert-to-blocks-' . $locale . '.mo' );
+		load_plugin_textdomain( 'convert-to-blocks', false, plugin_basename( CONVERT_TO_BLOCKS_PLUGIN ) . '/languages/' );
 	}
 
 	/* Editor Context Helpers */
 
 	/**
-	 * Checks if the specified post type supports Gutenbridge.
+	 * Checks if the specified post type supports Convert to Blocks.
 	 *
 	 * @param string $post_type The post type name.
 	 * @return bool
 	 */
-	public function post_type_supports_gutenbridge( $post_type ) {
-		$supports           = post_type_supports( $post_type, 'gutenbridge' );
-		$use_defaults       = apply_filters( 'gutenbridge_defaults', true );
+	public function post_type_supports_convert_to_blocks( $post_type ) {
+		$supports           = post_type_supports( $post_type, 'convert-to-blocks' );
+		$use_defaults       = apply_filters( 'convert_to_blocks_defaults', true );
 		$default_post_types = $this->get_default_post_types();
 
 		if ( ! $supports && $use_defaults && in_array( $post_type, $default_post_types, true ) ) {
 			$supports = true;
 		}
 
-		$supports = apply_filters( 'post_type_supports_gutenbridge', $supports );
+		$supports = apply_filters( 'post_type_supports_convert_to_blocks', $supports );
 
 		return $supports;
 	}
 
 	/**
-	 * Checks if the specified post supports Gutenbridge.
+	 * Checks if the specified post supports Convert to Blocks.
 	 *
 	 * @param int|WP_Post $post The post object or id.
 	 * @return bool
 	 */
-	public function post_supports_gutenbridge( $post ) {
+	public function post_supports_convert_to_blocks( $post ) {
 		if ( $post instanceof \WP_Post ) {
 			$post_id = $post->post_id;
 		} else {
@@ -223,8 +223,8 @@ class Plugin {
 		}
 
 		$post_type = get_post_type( $post_id );
-		$supports  = $this->post_type_supports_gutenbridge( $post_type );
-		$supports  = apply_filters( 'post_supports_gutenbridge', $supports, $post_id );
+		$supports  = $this->post_type_supports_convert_to_blocks( $post_type );
+		$supports  = apply_filters( 'post_supports_convert_to_blocks', $supports, $post_id );
 
 		return $supports;
 	}
@@ -236,13 +236,13 @@ class Plugin {
 	 * @return bool
 	 */
 	public function is_block_editor_post( $post_id ) {
-		if ( ! $this->post_supports_gutenbridge( $post_id ) ) {
+		if ( ! $this->post_supports_convert_to_blocks( $post_id ) ) {
 			return false;
 		}
 
 		$block_editor = get_post_meta( $post_id, 'block_editor', true );
 		$block_editor = filter_var( $block_editor, FILTER_VALIDATE_BOOLEAN );
-		$block_editor = apply_filters( 'gutenbridge_is_block_editor_post', $block_editor, $post_id );
+		$block_editor = apply_filters( 'convert_to_blocks_is_block_editor_post', $block_editor, $post_id );
 
 		return $block_editor;
 	}
@@ -259,12 +259,12 @@ class Plugin {
 	}
 
 	/**
-	 * Gutenbridge is enabled on the following post types by default.
+	 * Convert to Blocks is enabled on the following post types by default.
 	 *
 	 * @return array
 	 */
 	public function get_default_post_types() {
-		return apply_filters( 'gutenbridge_default_post_types', [ 'post', 'page' ] );
+		return apply_filters( 'convert_to_blocks_default_post_types', [ 'post', 'page' ] );
 	}
 
 	/**
@@ -285,7 +285,7 @@ class Plugin {
 
 		$screen_post_type = $screen->post_type;
 
-		if ( ! $this->post_type_supports_gutenbridge( $screen_post_type ) ) {
+		if ( ! $this->post_type_supports_convert_to_blocks( $screen_post_type ) ) {
 			return false;
 		}
 
@@ -314,7 +314,7 @@ class Plugin {
 
 		$screen_post_type = $screen->post_type;
 
-		if ( ! $this->post_type_supports_gutenbridge( $screen_post_type ) ) {
+		if ( ! $this->post_type_supports_convert_to_blocks( $screen_post_type ) ) {
 			return false;
 		}
 
@@ -417,7 +417,7 @@ class Plugin {
 		}
 
 		$cap = $object->cap->edit_posts;
-		$cap = apply_filters( 'gutenbridge_post_type_capability', $cap, $post_type );
+		$cap = apply_filters( 'convert_to_blocks_post_type_capability', $cap, $post_type );
 
 		return $cap;
 	}

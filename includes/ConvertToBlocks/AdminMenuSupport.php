@@ -2,13 +2,13 @@
 /**
  * AdminMenuSupport
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 /**
- * AdminMenuSupport adds custom Gutenbridge menu items to the WordPress
+ * AdminMenuSupport adds custom menu items to the WordPress
  * Admin area.
  */
 class AdminMenuSupport {
@@ -32,7 +32,7 @@ class AdminMenuSupport {
 
 	/**
 	 * Adds the Add New (Classic) menu item for all post types that
-	 * support Gutenbridge.
+	 * support Convert to Blocks
 	 *
 	 * @return void
 	 */
@@ -40,7 +40,7 @@ class AdminMenuSupport {
 		$post_types = get_post_types();
 
 		foreach ( $post_types as $post_type ) {
-			if ( $this->container->post_type_supports_gutenbridge( $post_type ) ) {
+			if ( $this->container->post_type_supports_convert_to_blocks( $post_type ) ) {
 				$this->add_classic_menu( $post_type );
 			}
 		}
@@ -58,7 +58,7 @@ class AdminMenuSupport {
 		$post_types = get_post_types();
 
 		foreach ( $post_types as $post_type ) {
-			$supports = $this->container->post_type_supports_gutenbridge( $post_type );
+			$supports = $this->container->post_type_supports_convert_to_blocks( $post_type );
 
 			if ( $supports ) {
 				$submenu_key = 'post' === $post_type ? 'edit.php' : "edit.php?post_type=$post_type";
@@ -210,6 +210,6 @@ class AdminMenuSupport {
 	 * @returns string
 	 */
 	public function get_new_classic_post_label() {
-		return __( 'Add New (Classic)', 'gutenbridge' );
+		return __( 'Add New (Classic)', 'convert-to-blocks' );
 	}
 }

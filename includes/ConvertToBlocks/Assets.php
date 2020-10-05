@@ -1,15 +1,15 @@
 <?php
 /**
- * Gutenbridge JS & CSS Assets
+ * JS & CSS Assets
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 /**
  * Assets is the central location to manage script & style dependencies
- * of the Gutenbridge Plugin.
+ * of the plugin.
  */
 class Assets {
 
@@ -25,15 +25,15 @@ class Assets {
 	 */
 	public function register() {
 		wp_register_script(
-			'gutenbridge_editor',
-			plugins_url( 'dist/js/editor.js', GUTENBRIDGE_PLUGIN ),
+			'convert_to_blocks_editor',
+			plugins_url( 'dist/js/editor.js', CONVERT_TO_BLOCKS_PLUGIN ),
 			[
 				'wp-blocks',
 				'wp-element',
 				'wp-data',
 				'lodash',
 			],
-			GUTENBRIDGE_VERSION,
+			CONVERT_TO_BLOCKS_VERSION,
 			true
 		);
 
@@ -49,7 +49,7 @@ class Assets {
 	 * Migration Plugin.
 	 */
 	public function do_assets() {
-		wp_enqueue_script( 'gutenbridge_editor' );
+		wp_enqueue_script( 'convert_to_blocks_editor' );
 	}
 
 	/**
