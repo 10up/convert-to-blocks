@@ -6,7 +6,7 @@ The following is a set of guidelines for contributors as well as information and
 
 ## Ways to contribute
 
-Contributing isn't just writing code - it's anything that improves the project.  All contributions for Gutenbridge are managed right here on GitHub. Here are some ways you can help:
+Contributing isn't just writing code - it's anything that improves the project.  All contributions for Convert to Blocks are managed right here on GitHub. Here are some ways you can help:
 
 ### Reporting bugs
 
