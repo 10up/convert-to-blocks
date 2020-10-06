@@ -93,7 +93,7 @@ class RESTSupport {
 			$updated                = apply_filters( 'convert_to_blocks_raw_transform', $raw, $post, $request );
 			$data['content']['raw'] = $updated;
 
-			$data = apply_filters( 'gutenbridge_data_transform', $data, $post, $request );
+			$data = apply_filters( 'convert_to_blocks_data_transform', $data, $post, $request );
 
 			$response->set_data( $data );
 		}

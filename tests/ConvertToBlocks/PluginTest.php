@@ -1,6 +1,6 @@
 <?php
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 class PluginTest extends \WP_UnitTestCase {
 

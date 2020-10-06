@@ -55,77 +55,39 @@ if ( file_exists( __DIR__ . '/config.local.php' ) ) {
 
 require_once __DIR__ . '/config.php';
 
-/**
- * Loads the Convert to Blocks PHP autoloader if possible.
- *
- * @return bool True or false if autoloading was successfull.
- */
-function convert_to_blocks_autoload() {
-	if ( convert_to_blocks_can_autoload() ) {
-		require_once convert_to_blocks_autoloader();
+// Require Composer autoloader if it exists.
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
+} else {
+	/**
+	 * PSR-4-ish autoloading
+	 */
+	spl_autoload_register(
+		function( $class ) {
+				// project-specific namespace prefix.
+				$prefix = 'ConvertToBlocks\\';
 
-		return true;
-	} else {
-		return false;
-	}
+				// base directory for the namespace prefix.
+				$base_dir = __DIR__ . '/includes/ConvertToBlocks/';
+
+				// does the class use the namespace prefix?
+				$len = strlen( $prefix );
+
+			if ( strncmp( $prefix, $class, $len ) !== 0 ) {
+				return;
+			}
+
+				$relative_class = substr( $class, $len );
+
+				$file = $base_dir . str_replace( '\\', '/', $relative_class ) . '.php';
+
+				// if the file exists, require it.
+			if ( file_exists( $file ) ) {
+				require_once $file;
+			}
+		}
+	);
 }
 
-/**
- * In server mode we can autoload if autoloader file exists. For
- * test environments we prevent autoloading of the plugin to prevent
- * global pollution and for better performance.
- */
-function convert_to_blocks_can_autoload() {
-	if ( file_exists( convert_to_blocks_autoloader() ) ) {
-		return true;
-	} else {
-		// phpcs:disable
-		error_log(
-			"Fatal Error: Composer not setup in " . CONVERT_TO_BLOCKS_DIR // only used for local debugging
-		);
-		// phpcs:enable
-		return false;
-	}
-}
-
-/**
- * Default is Composer's autoloader
- */
-function convert_to_blocks_autoloader() {
-	if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
-		return CONVERT_TO_BLOCKS_DIR . '/vendor/autoload.php';
-	} else {
-		return CONVERT_TO_BLOCKS_DIR . '/autoload.php';
-	}
-}
-
-/**
- * Plugin code entry point. Singleton instance is used to maintain a common single
- * instance of the plugin throughout the current request's lifecycle.
- *
- * If autoloading failed an admin notice is shown and logged to
- * the PHP error_log.
- */
-function convert_to_blocks_autorun() {
-	if ( convert_to_blocks_autoload() ) {
-		$plugin = \ConvertToBlocks\Plugin::get_instance();
-		$plugin->enable();
-	} else {
-		add_action( 'admin_notices', 'convert_to_blocks_autoload_notice' );
-	}
-}
-
-/**
- * Displays an admin notice if composer install was not run
- */
-function convert_to_blocks_autoload_notice() {
-	$class   = 'notice notice-error';
-	$message = 'Error: Please run $ composer install in the Convert to Blocks plugin directory.';
-
-	printf( '<div class="%1$s"><p>%2$s</p></div>', sanitize_html_class( $class ), esc_html( $message ) );
-	// phpcs:disable
-	error_log( $message ); // only used for local debugging
-	// phpcs:enable
-}
-
-convert_to_blocks_autorun();
+$plugin = \ConvertToBlocks\Plugin::get_instance();
+$plugin->enable();

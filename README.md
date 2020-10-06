@@ -2,7 +2,7 @@
 
 >  Convert classic editor posts to blocks on the fly.
 
-[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/gutenbridge.svg)](https://github.com/10up/gutenbridge/releases/latest) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v5.5%20tested-success.svg) [![GPLv2 License](https://img.shields.io/github/license/10up/gutenbridge.svg)](https://github.com/10up/gutenbridge/blob/develop/LICENSE.md)
+[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/convert-to-blocks.svg)](https://github.com/10up/convert-to-blocks/releases/latest) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v5.5%20tested-success.svg) [![GPLv2 License](https://img.shields.io/github/license/10up/convert-to-blocks.svg)](https://github.com/10up/convert-to-blocks/blob/develop/LICENSE.md)
 
 ## Overview
 
@@ -23,9 +23,9 @@ Convert to Blocks is a WordPress plugin that transforms classic editor content t
 
 ### How Do I Know It's Working?
 
-Find a classic editor in the post, try to navigate away from the page. You will get an error saying your changes will be discarded. This is because Gutenbridge converted your content to blocks on the fly and those changes will be saved when you update the post.
+Find a classic editor in the post, try to navigate away from the page. You will get an error saying your changes will be discarded. This is because Convert to Blocks converted your content to blocks on the fly and those changes will be saved when you update the post.
 
-### Will Gutenbridge Handle My Custom Blocks?
+### Will Convert to Blocks Handle My Custom Blocks?
 
 By default it will not.
 
@@ -35,11 +35,11 @@ By default it will not.
 
 ## Changelog
 
-A complete listing of all notable changes to Gutenbridge are documented in [CHANGELOG.md](https://github.com/10up/gutenbridge/blob/develop/CHANGELOG.md).
+A complete listing of all notable changes to Convert to Blocks are documented in [CHANGELOG.md](https://github.com/10up/convert-to-blocks/blob/develop/CHANGELOG.md).
 
 ## Contributing
 
-Please read [CODE_OF_CONDUCT.md](https://github.com/10up/gutenbridge/blob/develop/CODE_OF_CONDUCT.md) for details on our code of conduct, [CONTRIBUTING.md](https://github.com/10up/gutenbridge/blob/develop/CONTRIBUTING.md) for details on the process for submitting pull requests to us, and [CREDITS.md](https://github.com/10up/gutenbridge/blob/develop/CREDITS.md) for a listing of maintainers of, contributors to, and libraries used by Gutenbridge.
+Please read [CODE_OF_CONDUCT.md](https://github.com/10up/convert-to-blocks/blob/develop/CODE_OF_CONDUCT.md) for details on our code of conduct, [CONTRIBUTING.md](https://github.com/10up/convert-to-blocks/blob/develop/CONTRIBUTING.md) for details on the process for submitting pull requests to us, and [CREDITS.md](https://github.com/10up/convert-to-blocks/blob/develop/CREDITS.md) for a listing of maintainers of, contributors to, and libraries used by Convert to Blocks.
 
 ## Like what you see?
 
