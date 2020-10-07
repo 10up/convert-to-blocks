@@ -23,6 +23,8 @@ jobs:
       run: npm install
     - name: eslint
       uses: icrawl/action-eslint@v1
+      with:
+        custom-glob: assets
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   phpcs:
