@@ -1,28 +1,28 @@
 import ClassicBlockTransformer from './transform/ClassicBlockTransformer';
 
 /**
- * GutenbridgeEditorSupport connects the JS implementation of
- * Gutenbridge to Gutenberg JS.
+ * ConnectToBlocksSupport connects the JS implementation of
+ * Connect to Blocks to Gutenberg JS.
  */
-class GutenbridgeEditorSupport {
+class ConnectToBlocksEditorSupport {
 	/**
-	 * Returns the singleton instance of GutenbridgeEditorSupport.
+	 * Returns the singleton instance of ConnectToBlocksEditorSupport.
 	 *
-	 * @returns {GutenbridgeEditorSupport}
+	 * @returns {ConnectToBlocksEditorSupport}
 	 */
 	static getInstance() {
-		if (!this.instance) {
-			this.instance = new GutenbridgeEditorSupport();
+		if ( !this.instance ) {
+			this.instance = new ConnectToBlocksEditorSupport();
 		}
 
 		return this.instance;
 	}
 
 	/**
-	 * Activates the GutenbridgeEditorSupport
+	 * Activates the ConnectToBlocksEditorSupport
 	 */
 	enable() {
-		document.addEventListener('DOMContentLoaded', this.didBlockEditorLoad.bind(this));
+		document.addEventListener( 'DOMContentLoaded', this.didBlockEditorLoad.bind( this ) );
 	}
 
 	/**
@@ -34,7 +34,7 @@ class GutenbridgeEditorSupport {
 	}
 }
 
-const support = GutenbridgeEditorSupport.getInstance();
+const support = ConnectToBlocksEditorSupport.getInstance();
 support.enable();
 
-export default GutenbridgeEditorSupport;
+export default ConnectToBlocksEditorSupport;

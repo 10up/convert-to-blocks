@@ -2,10 +2,10 @@
 /**
  * RevisionSupport
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 /**
  * RevisionSupport ensures that User navigation across the WordPress Revision

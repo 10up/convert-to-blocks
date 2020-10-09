@@ -1,6 +1,6 @@
 {
-  "name": "10up/gutenbridge",
-  "description": "Gutenbridge is a WordPress plugin that transforms classic editor content to Gutenberg blocks on the fly.",
+  "name": "10up/convert-to-blocks",
+  "description": "Convert classic editor posts to blocks on the fly.",
   "type": "wordpress-plugin",
   "license": "GPLv2 or later",
   "authors": [
@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Gutenbridge\\": "includes/Gutenbridge/"
+      "ConvertToBlocks\\": "includes/ConvertToBlocks/"
     }
   },
   "require-dev": {

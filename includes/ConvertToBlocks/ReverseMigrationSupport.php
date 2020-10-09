@@ -2,10 +2,10 @@
 /**
  * ReverseMigrationSupport
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 /**
  * Gutenberg stores content inside comment delimiter. As a result, CE
@@ -75,14 +75,14 @@ class ReverseMigrationSupport {
 
 		$line1 = __(
 			'This post was created or updated in the Gutenberg Block Editor.',
-			'gutenbridge'
+			'convert-to-blocks'
 		);
 
 		$line2 = sprintf(
 			/* translators: Paragraph has link to switch to the Block Editor */
 			__(
 				'Please <a href="%s">Switch to the Block Editor</a> to avoid errors.',
-				'gutenbridge'
+				'convert-to-blocks'
 			),
 			$block_editor_url
 		);

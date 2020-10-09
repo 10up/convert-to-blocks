@@ -2,10 +2,10 @@
 /**
  * PostTypeRowActionSupport
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 /**
  * PostTypeRowActionSupport add support for a custom row actions to the
@@ -51,7 +51,7 @@ class PostTypeRowActionSupport {
 		$post_id = $post->post_id;
 		error_log( 'register_post_row_menu: ' . $post_id );
 
-		if ( ! $this->container->post_supports_gutenbridge( $post_id ) ) {
+		if ( ! $this->container->post_supports_convert_to_blocks( $post_id ) ) {
 			return $actions;
 		}
 
@@ -63,7 +63,7 @@ class PostTypeRowActionSupport {
 		// phpcs:disable
 		$classic_menu_item = [
 			'edit_classic' => '<a href="' . esc_url( $edit_classic_link ) . '">' .
-				__( EDIT_IN_CLASSIC_EDITOR_LABEL, 'gutenbridge' ) . '</a>',
+				__( EDIT_IN_CLASSIC_EDITOR_LABEL, 'convert-to-blocks' ) . '</a>',
 		];
 		// phpcs:enable
 

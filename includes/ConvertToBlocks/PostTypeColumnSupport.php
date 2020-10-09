@@ -2,10 +2,10 @@
 /**
  * PostTypeColumnSupport
  *
- * @package Gutenbridge
+ * @package convert-to-blocks
  */
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 /**
  * PostTypeColumnSupport adds the custom Editor column to Post List
@@ -77,7 +77,7 @@ class PostTypeColumnSupport {
 
 		uksort( $columns, $sorter );
 
-		$columns = apply_filters( 'gutenbridge_post_list_columns', $columns );
+		$columns = apply_filters( 'convert_to_blocks_post_list_columns', $columns );
 
 		return $columns;
 	}
@@ -100,10 +100,10 @@ class PostTypeColumnSupport {
 		// phpcs:disable
 		if ( $this->is_block_editor_post( $post_id ) ) {
 			$icon  = $this->get_block_editor_column_icon();
-			$title = __( BLOCK_EDITOR_LABEL, 'gutenbridge' );
+			$title = __( BLOCK_EDITOR_LABEL, 'convert-to-blocks' );
 		} else {
 			$icon  = $this->get_classic_editor_column_icon();
-			$title = __( CLASSIC_EDITOR_LABEL, 'gutenbridge' );
+			$title = __( CLASSIC_EDITOR_LABEL, 'convert-to-blocks' );
 		}
 		// phpcs:enable
 
@@ -122,7 +122,7 @@ class PostTypeColumnSupport {
 	 * @return string
 	 */
 	public function get_editor_column_label() {
-		return __( 'Editor', 'gutenbridge' );
+		return __( 'Editor', 'convert-to-blocks' );
 	}
 
 	/**
@@ -132,7 +132,7 @@ class PostTypeColumnSupport {
 	 * @return string
 	 */
 	public function get_block_editor_column_icon() {
-		return apply_filters( 'gutenbridge_block_editor_column_icon', 'dashicons-wordpress' );
+		return apply_filters( 'convert_to_blocks_block_editor_column_icon', 'dashicons-wordpress' );
 	}
 
 	/**
@@ -142,7 +142,7 @@ class PostTypeColumnSupport {
 	 * @return string
 	 */
 	public function get_classic_editor_column_icon() {
-		return apply_filters( 'gutenbridge_classic_editor_column_icon', 'dashicons-backup' );
+		return apply_filters( 'convert_to_blocks_classic_editor_column_icon', 'dashicons-backup' );
 	}
 
 	/**
