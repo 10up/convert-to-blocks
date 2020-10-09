@@ -16,12 +16,12 @@ class ClassicBlockTransformer {
 	 * Runs the Classic to Gutenberg Block transform on the current document.
 	 */
 	execute() {
-		const coreEditor = this.wp.data.select( 'core/block-editor' );
+		const coreEditor = this.wp.data.select('core/block-editor');
 		const blocks = coreEditor.getBlocks();
 
-		if ( this.validBlocks( blocks ) ) {
+		if (this.validBlocks(blocks)) {
 			/* Currently set to do 3 levels of recursion */
-			this.convertBlocks( blocks, 1, 3 );
+			this.convertBlocks(blocks, 1, 3);
 		}
 	}
 
@@ -36,20 +36,20 @@ class ClassicBlockTransformer {
 	 * @param {number} depth The current call stack depth
 	 * @param {number} maxDepth The maximum allowed depth
 	 */
-	convertBlocks( blocks, depth = 1, maxDepth = 3 ) {
+	convertBlocks(blocks, depth = 1, maxDepth = 3) {
 		const n = blocks.length;
 		let i;
 		let block;
 		let innerBlocks;
 
-		for ( i = 0; i < n; i++ ) {
+		for (i = 0; i < n; i++) {
 			block = blocks[i];
 			innerBlocks = { block };
 
-			this.transform( block );
+			this.transform(block);
 
-			if ( depth <= maxDepth && this.validBlocks( innerBlocks ) ) {
-				this.convertBlocks( innerBlocks, depth + 1, maxDepth );
+			if (depth <= maxDepth && this.validBlocks(innerBlocks)) {
+				this.convertBlocks(innerBlocks, depth + 1, maxDepth);
 			}
 		}
 	}
@@ -60,11 +60,11 @@ class ClassicBlockTransformer {
 	 *
 	 * @param {object} block The current block object
 	 */
-	transform( block ) {
-		if ( this.isFreeformBlock( block ) ) {
+	transform(block) {
+		if (this.isFreeformBlock(block)) {
 			this.wp.data
-				.dispatch( 'core/editor' )
-				.replaceBlocks( block.clientId, this.blockHandler( block ) );
+				.dispatch('core/editor')
+				.replaceBlocks(block.clientId, this.blockHandler(block));
 		}
 	}
 
@@ -75,12 +75,12 @@ class ClassicBlockTransformer {
 	 * @param {object} block The block object
 	 * @returns {object}
 	 */
-	blockHandler( block ) {
+	blockHandler(block) {
 		const { blocks } = this.wp;
 
-		return blocks.rawHandler( {
-			HTML: blocks.getBlockContent( block ),
-		} );
+		return blocks.rawHandler({
+			HTML: blocks.getBlockContent(block),
+		});
 	}
 
 	/* helpers */
@@ -91,8 +91,8 @@ class ClassicBlockTransformer {
 	 * @param {Array} blocks The array of blocks
 	 * @returns {boolean}
 	 */
-	validBlocks( blocks ) {
-		return blocks && 0 < blocks.length;
+	validBlocks(blocks) {
+		return blocks && blocks.length > 0;
 	}
 
 	/**
@@ -101,8 +101,8 @@ class ClassicBlockTransformer {
 	 * @param {object} block The block object
 	 * @returns {boolean}
 	 */
-	isFreeformBlock( block ) {
-		return 'core/freeform' === block.name;
+	isFreeformBlock(block) {
+		return block.name === 'core/freeform';
 	}
 }
 

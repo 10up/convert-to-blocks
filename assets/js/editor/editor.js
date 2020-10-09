@@ -11,7 +11,7 @@ class ConnectToBlocksEditorSupport {
 	 * @returns {ConnectToBlocksEditorSupport}
 	 */
 	static getInstance() {
-		if ( !this.instance ) {
+		if (!this.instance) {
 			this.instance = new ConnectToBlocksEditorSupport();
 		}
 
@@ -22,7 +22,7 @@ class ConnectToBlocksEditorSupport {
 	 * Activates the ConnectToBlocksEditorSupport
 	 */
 	enable() {
-		document.addEventListener( 'DOMContentLoaded', this.didBlockEditorLoad.bind( this ) );
+		document.addEventListener('DOMContentLoaded', this.didBlockEditorLoad.bind(this));
 	}
 
 	/**
