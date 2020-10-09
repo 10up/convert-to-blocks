@@ -16,7 +16,7 @@ Convert to Blocks is a WordPress plugin that transforms classic editor content t
 ## Installation
 
 1. Clone the repository into your `/plugins` directory.
-2. Inside the repository directory, run `npm install` and then `npm build`.
+2. Inside the repository directory, run `npm install` and then `npm run build`.
 3. Inside the repository directory, run `composer install`.
 
 ## Frequently Asked Questions
