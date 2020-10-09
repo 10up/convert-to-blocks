@@ -3,9 +3,11 @@ language: php
 php:
   - "7.2"
 
+services:
+  - mysql
+
 env:
   - WP_VERSION=latest WP_MULTISITE=0
-  - WP_VERSION=latest WP_MULTISITE=1
 
 before_script:
   - composer install
