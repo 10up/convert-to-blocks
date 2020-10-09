@@ -1,6 +1,6 @@
 <?php
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 class ClassicEditorSupportTest extends \WP_UnitTestCase {
 

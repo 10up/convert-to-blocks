@@ -1,10 +1,10 @@
 {
-	"includes/Gutenbridge/*.php": {
+	"includes/ConvertToBlocks/*.php": {
 		"type": "plugin",
-		"test": "tests/Gutenbridge/%sTest.php"
+		"test": "tests/ConvertToBlocks/%sTest.php"
 	},
-	"tests/Gutenbridge/*Test.php": {
+	"tests/ConvertToBlocks/*Test.php": {
 		"type": "test",
-		"alternate": "includes/Gutenbridge/%s.php"
+		"alternate": "includes/ConvertToBlocks/%s.php"
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 class AssetsTest extends \WP_UnitTestCase {
 

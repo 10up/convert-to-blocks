@@ -1,6 +1,6 @@
 <?php
 
-namespace Gutenbridge;
+namespace ConvertToBlocks;
 
 class AdminMenuSupportTest extends \WP_UnitTestCase {
 
