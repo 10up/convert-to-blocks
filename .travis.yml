@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - "7.0"
+
+env:
+  - WP_VERSION=latest WP_MULTISITE=0
+  - WP_VERSION=latest WP_MULTISITE=1
+
+before_script:
+  - composer install
+  - composer run-script setup-local-tests
+
+script:
+  - composer run-script test
+  - composer run-script lint
