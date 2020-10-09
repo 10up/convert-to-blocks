@@ -49,7 +49,6 @@ class PostTypeRowActionSupport {
 	 */
 	public function register_post_row_menu( $actions, $post ) {
 		$post_id = $post->post_id;
-		error_log( 'register_post_row_menu: ' . $post_id );
 
 		if ( ! $this->container->post_supports_convert_to_blocks( $post_id ) ) {
 			return $actions;
