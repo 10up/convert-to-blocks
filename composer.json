@@ -26,6 +26,7 @@
   "scripts": {
     "lint": "phpcs .",
     "lint-fix": "phpcbf .",
+    "test": "phpunit",
     "setup-local-tests": "bash bin/install-wp-tests.sh convert_to_blocks_test root password mysql trunk"
   }
 }
