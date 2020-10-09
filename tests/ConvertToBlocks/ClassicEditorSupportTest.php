@@ -58,7 +58,7 @@ class ClassicEditorSupportTest extends \WP_UnitTestCase {
 
 	/* helpers */
 
-	function post_supports_gutenbridge() {
+	function post_supports_convert_to_blocks() {
 		return $this->post_supports;
 	}
 

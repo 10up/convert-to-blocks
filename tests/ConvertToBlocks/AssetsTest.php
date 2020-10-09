@@ -56,19 +56,19 @@ class AssetsTest extends \WP_UnitTestCase {
 
 	function test_it_registers_gutenbridge_script_on_registration() {
 		$this->assets->register();
-		$actual = wp_script_is( 'gutenbridge_editor', 'registered' );
+		$actual = wp_script_is( 'convert_to_blocks_editor', 'registered' );
 		$this->assertTrue( $actual );
 	}
 
 	function test_it_enqueues_script_on_assets_hook() {
 		$this->assets->register();
-		$actual = wp_script_is( 'gutenbridge_editor', 'queue' );
+		$actual = wp_script_is( 'convert_to_blocks_editor', 'queue' );
 
 		$this->assertFalse( $actual );
 
 		$this->assets->do_assets();
 
-		$actual = wp_script_is( 'gutenbridge_editor', 'queue' );
+		$actual = wp_script_is( 'convert_to_blocks_editor', 'queue' );
 
 		$this->assertTrue( $actual );
 	}
