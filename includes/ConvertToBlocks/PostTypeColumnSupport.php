@@ -109,9 +109,9 @@ class PostTypeColumnSupport {
 				>
 			</span>
 		<?php
-			if ( apply_filters( 'convert_to_blocks_show_admin_column_title', true ) ) {
-				printf( '<span class="txt">%s</span>', esc_attr( $title ) );
-			}
+		if ( apply_filters( 'convert_to_blocks_show_admin_column_title', true ) ) {
+			printf( '<span class="txt">%s</span>', esc_attr( $title ) );
+		}
 		?>
 		<?php
 	}
