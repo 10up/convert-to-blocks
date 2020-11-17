@@ -36,5 +36,15 @@ By default it will not.
 
 == Changelog ==
 
+= 1.0.1 =
+* **Added:** Label and updated icons for Classic and Block Editor in Editor column of post table list view (props [@dinhtungdu](https://profiles.wordpress.org/dinhtungdu/)).
+* **Added:**  Plugin banner and icon images (props [@dianapadron](https://profiles.wordpress.org/dianapadron/), [@jeffpaul](https://profiles.wordpress.org/jeffpaul/)).
+* **Added:**  Documentation updates, unit tests, PHPCS fixes, GitHub Actions and continuous integration testing (props [@barryceelen](https://profiles.wordpress.org/barryceelen/), [@dsawardekar](https://profiles.wordpress.org/dsawardekar/), [@dinhtungdu](https://profiles.wordpress.org/dinhtungdu/), [@jeffpaul](https://profiles.wordpress.org/jeffpaul/)).
+* **Fixed:** Issue where edit links force Classic Editor regardless of editor chosen (props [@dkotter](https://profiles.wordpress.org/dkotter/), [@tlovett1](https://profiles.wordpress.org/tlovett1/), [@dinhtungdu](https://profiles.wordpress.org/dinhtungdu/)).
+* **Security:** Bump `lodash` from 4.17.15 to 4.17.20 (props [@dependabot](https://github.com/apps/dependabot)).
+* **Security:** Bump `elliptic` from 6.5.2 to 6.5.3 (props [@dependabot](https://github.com/apps/dependabot)).
+* **Security:** Bump `acorn` from 6.4.0 to 6.4.2 (props [@dependabot](https://github.com/apps/dependabot)).
+* **Security:** Bump `dot-prop` from 4.2.0 to 4.2.1 (props [@dependabot](https://github.com/apps/dependabot)).
+
 = 1.0.0 =
 * Initial private release of Convert to Blocks.
