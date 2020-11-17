@@ -8,7 +8,7 @@ Stable tag:        1.0.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
-Convert to Blocks is a WordPress plugin that transforms classic editor content to blocks on the fly.
+Convert to Blocks transforms classic editor content to blocks on-the-fly.
 
 == Description ==
 

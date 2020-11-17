@@ -1,6 +1,6 @@
 # Convert to Blocks
 
->  Convert classic editor posts to blocks on the fly.
+> Transforms classic editor content to blocks on-the-fly.
 
 [![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/convert-to-blocks.svg)](https://github.com/10up/convert-to-blocks/releases/latest) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v5.5%20tested-success.svg) [![GPLv2 License](https://img.shields.io/github/license/10up/convert-to-blocks.svg)](https://github.com/10up/convert-to-blocks/blob/develop/LICENSE.md) [![Build Status](https://travis-ci.org/10up/convert-to-blocks.svg?branch=develop)](https://travis-ci.org/10up/convert-to-blocks)
 
