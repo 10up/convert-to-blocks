@@ -8,7 +8,7 @@
     "url": "https://10up.com",
     "role": "developer"
   },
-  "license": "GPL-2.0-only",
+  "license": "GPL-2.0-or-later",
   "scripts": {
     "test": "phpunit",
     "start": "composer install && npm install && npm run build",
