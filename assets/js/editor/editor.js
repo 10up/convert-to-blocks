@@ -30,7 +30,10 @@ class ConnectToBlocksEditorSupport {
 	 */
 	didBlockEditorLoad() {
 		const transformer = new ClassicBlockTransformer();
-		transformer.execute();
+
+		setTimeout(function () {
+			transformer.execute();
+		}, 100);
 	}
 }
 
