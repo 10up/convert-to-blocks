@@ -63,7 +63,7 @@ class ClassicBlockTransformer {
 	transform(block) {
 		if (this.isFreeformBlock(block)) {
 			this.wp.data
-				.dispatch('core/editor')
+				.dispatch('core/block-editor')
 				.replaceBlocks(block.clientId, this.blockHandler(block));
 		}
 	}
