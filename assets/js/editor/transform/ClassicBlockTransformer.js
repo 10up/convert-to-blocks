@@ -10,12 +10,20 @@ class ClassicBlockTransformer {
 	 */
 	constructor() {
 		this.wp = window.wp;
+		this.executed = false;
 	}
 
 	/**
 	 * Runs the Classic to Gutenberg Block transform on the current document.
 	 */
 	execute() {
+		// only execute once per page on load
+		if (this.executed) {
+			return;
+		}
+
+		this.executed = true;
+
 		const coreEditor = this.wp.data.select('core/block-editor');
 		const blocks = coreEditor.getBlocks();
 
