@@ -29,11 +29,19 @@ class ConnectToBlocksEditorSupport {
 	 * Executes the classic to block transform.
 	 */
 	didBlockEditorLoad() {
+		const { registerPlugin } = window.wp.plugins;
 		const transformer = new ClassicBlockTransformer();
 
-		setTimeout(function () {
-			transformer.execute();
-		}, 100);
+		if (!registerPlugin) {
+			return;
+		}
+
+		registerPlugin('convert-to-blocks', {
+			render: () => {
+				transformer.execute();
+				return null;
+			},
+		});
 	}
 }
 
