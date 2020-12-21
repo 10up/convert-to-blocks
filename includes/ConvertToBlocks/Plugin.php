@@ -241,6 +241,11 @@ class Plugin {
 		}
 
 		$block_editor = get_post_meta( $post_id, 'block_editor', true );
+
+		if ( ! $block_editor ) {
+			$block_editor = has_blocks( $post_id );
+		}
+
 		$block_editor = filter_var( $block_editor, FILTER_VALIDATE_BOOLEAN );
 		$block_editor = apply_filters( 'convert_to_blocks_is_block_editor_post', $block_editor, $post_id );
 
