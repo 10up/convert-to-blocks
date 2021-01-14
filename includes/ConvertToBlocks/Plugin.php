@@ -204,7 +204,7 @@ class Plugin {
 			$supports = true;
 		}
 
-		$supports = apply_filters( 'post_type_supports_convert_to_blocks', $supports );
+		$supports = apply_filters( 'post_type_supports_convert_to_blocks', $supports, $post_type );
 
 		return $supports;
 	}
