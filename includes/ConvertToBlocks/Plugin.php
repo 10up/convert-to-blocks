@@ -80,7 +80,6 @@ class Plugin {
 		add_action( 'init', [ $this, 'init' ], 11 );
 
 		add_action( 'admin_init', [ $this, 'init_admin' ] );
-		add_action( 'admin_menu', [ $this, 'init_admin_menu' ] );
 
 		/* Early registration since REST Support needs to alter registered post types */
 		$this->rest_support = new RESTSupport();
@@ -101,7 +100,6 @@ class Plugin {
 
 		$this->register_objects(
 			[
-				new AdminBarMenuSupport(),
 				new RESTSupport(),
 			]
 		);
@@ -114,22 +112,10 @@ class Plugin {
 		$this->register_objects(
 			[
 				new PostTypeColumnSupport(),
-				new PostTypeRowActionSupport(),
 				new ReverseMigrationSupport(),
 				new RevisionSupport(),
 				new ClassicEditorSupport(),
 				new Assets(),
-			]
-		);
-	}
-
-	/**
-	 * Initializes the Plugin admin menus
-	 */
-	public function init_admin_menu() {
-		$this->register_objects(
-			[
-				new AdminMenuSupport(),
 			]
 		);
 	}
