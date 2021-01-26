@@ -80,7 +80,6 @@ class Plugin {
 		add_action( 'init', [ $this, 'init' ], 11 );
 
 		add_action( 'admin_init', [ $this, 'init_admin' ] );
-		add_action( 'admin_menu', [ $this, 'init_admin_menu' ] );
 
 		/* Early registration since REST Support needs to alter registered post types */
 		$this->rest_support = new RESTSupport();
@@ -101,7 +100,6 @@ class Plugin {
 
 		$this->register_objects(
 			[
-				new AdminBarMenuSupport(),
 				new RESTSupport(),
 			]
 		);
@@ -114,22 +112,10 @@ class Plugin {
 		$this->register_objects(
 			[
 				new PostTypeColumnSupport(),
-				new PostTypeRowActionSupport(),
 				new ReverseMigrationSupport(),
 				new RevisionSupport(),
 				new ClassicEditorSupport(),
 				new Assets(),
-			]
-		);
-	}
-
-	/**
-	 * Initializes the Plugin admin menus
-	 */
-	public function init_admin_menu() {
-		$this->register_objects(
-			[
-				new AdminMenuSupport(),
 			]
 		);
 	}
@@ -204,7 +190,7 @@ class Plugin {
 			$supports = true;
 		}
 
-		$supports = apply_filters( 'post_type_supports_convert_to_blocks', $supports );
+		$supports = apply_filters( 'post_type_supports_convert_to_blocks', $supports, $post_type );
 
 		return $supports;
 	}
@@ -241,6 +227,11 @@ class Plugin {
 		}
 
 		$block_editor = get_post_meta( $post_id, 'block_editor', true );
+
+		if ( ! $block_editor ) {
+			$block_editor = has_blocks( $post_id );
+		}
+
 		$block_editor = filter_var( $block_editor, FILTER_VALIDATE_BOOLEAN );
 		$block_editor = apply_filters( 'convert_to_blocks_is_block_editor_post', $block_editor, $post_id );
 

@@ -33,6 +33,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Set PHP version
+      uses: shivammathur/setup-php@v1
+      with:
+        php-version: '7.2'
+        coverage: none
     - name: composer install
       run: composer install
     - name: PHPCS check
