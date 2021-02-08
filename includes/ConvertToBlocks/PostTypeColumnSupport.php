@@ -47,11 +47,6 @@ class PostTypeColumnSupport {
 	 */
 	public function update_post_columns( $columns ) {
 		$column_label = $this->get_editor_column_label();
-		$title_index  = array_search( $title, $columns, true );
-
-		$editor_column = [
-			'editor' => $column_label,
-		];
 
 		$columns['editor'] = $column_label;
 
@@ -114,6 +109,11 @@ class PostTypeColumnSupport {
 				>
 			</span>
 		<?php
+		if ( apply_filters( 'convert_to_blocks_show_admin_column_title', true ) ) {
+			printf( '<span class="txt">%s</span>', esc_attr( $title ) );
+		}
+		?>
+		<?php
 	}
 
 	/**
@@ -132,7 +132,7 @@ class PostTypeColumnSupport {
 	 * @return string
 	 */
 	public function get_block_editor_column_icon() {
-		return apply_filters( 'convert_to_blocks_block_editor_column_icon', 'dashicons-wordpress' );
+		return apply_filters( 'convert_to_blocks_block_editor_column_icon', 'dashicons-columns' );
 	}
 
 	/**
@@ -142,7 +142,7 @@ class PostTypeColumnSupport {
 	 * @return string
 	 */
 	public function get_classic_editor_column_icon() {
-		return apply_filters( 'convert_to_blocks_classic_editor_column_icon', 'dashicons-backup' );
+		return apply_filters( 'convert_to_blocks_classic_editor_column_icon', 'dashicons-media-document' );
 	}
 
 	/**

@@ -1,0 +1,10 @@
+{
+	"includes/ConvertToBlocks/*.php": {
+		"type": "plugin",
+		"test": "tests/ConvertToBlocks/%sTest.php"
+	},
+	"tests/ConvertToBlocks/*Test.php": {
+		"type": "test",
+		"alternate": "includes/ConvertToBlocks/%s.php"
+	}
+}

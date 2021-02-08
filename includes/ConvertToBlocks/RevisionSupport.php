@@ -27,7 +27,6 @@ class RevisionSupport {
 	 */
 	public function register() {
 		add_action( 'wp_redirect', [ $this, 'update_redirect' ], 10, 2 );
-		add_filter( 'get_edit_post_link', [ $this, 'update_edit_post_link' ] );
 		add_filter( 'wp_prepare_revision_for_js', [ $this, 'update_revision_js' ], 10, 3 );
 	}
 
@@ -51,20 +50,6 @@ class RevisionSupport {
 		}
 
 		return $location;
-	}
-
-	/**
-	 * Updates post link if originating from a classic editor page
-	 *
-	 * @param string $url The post url
-	 * @return string
-	 */
-	public function update_edit_post_link( $url ) {
-		if ( $this->container->is_classic_post_referer() ) {
-			return add_query_arg( [ 'classic' => 1 ], $url );
-		}
-
-		return $url;
 	}
 
 	/**

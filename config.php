@@ -5,7 +5,7 @@
  * @package convert-to-blocks
  */
 
-$plugin_version = '0.1.0';
+$plugin_version = '1.0.0';
 
 if ( file_exists( __DIR__ . '/.commit' ) ) {
 	// phpcs:disable
