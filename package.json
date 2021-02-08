@@ -1,6 +1,6 @@
 {
   "name": "convert-to-blocks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert to Blocks is a WordPress plugin that transforms classic editor content to blocks on the fly.",
   "author": {
     "name": "10up",
@@ -8,7 +8,7 @@
     "url": "https://10up.com",
     "role": "developer"
   },
-  "license": "GPL-2.0-only",
+  "license": "GPL-2.0-or-later",
   "scripts": {
     "test": "phpunit",
     "start": "composer install && npm install && npm run build",
