@@ -3,6 +3,7 @@
 /.github
 /.wordpress-org
 /bin
+/node_modules
 /tests
 
 # Files
@@ -12,6 +13,7 @@
 .eslintrc
 .gitignore
 .npmrc
+babel.config.js
 CHANGELOG.md
 CODE_OF_CONDUCT.md
 composer.json
@@ -23,4 +25,5 @@ package-lock.json
 package.json
 phpcs.xml
 phpunit.xml
+portkey.json
 README.md
