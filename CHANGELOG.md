@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
-## [1.0.1] - TBD
+## [1.0.1] - 2021-02-08
 ### Added
 - Label and updated icons for Classic and Block Editor in Editor column of post table list view (props [@dinhtungdu](https://github.com/dinhtungdu) via [#12](https://github.com/10up/convert-to-blocks/pull/12)).
 - Plugin banner and icon images (props [@dianapadron](https://profiles.wordpress.org/dianapadron), [@jeffpaul](https://github.com/jeffpaul) via [#14](https://github.com/10up/convert-to-blocks/pull/14)).
