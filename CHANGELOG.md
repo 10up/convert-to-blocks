@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [1.0.0] - 2020-09-23
 ### Added
-- Initial private release of Convert to Blocks.
+- Initial release of Convert to Blocks.
 
 [Unreleased]: https://github.com/10up/convert-to-blocks/compare/trunk...develop
 [1.0.1]: https://github.com/10up/convert-to-blocks/compare/cf8c873...1.0.1

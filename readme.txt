@@ -47,4 +47,4 @@ By default it will not.
 * **Security:** Bump `dot-prop` from 4.2.0 to 4.2.1 (props [@dependabot](https://github.com/apps/dependabot)).
 
 = 1.0.0 =
-* Initial private release of Convert to Blocks.
+* Initial release of Convert to Blocks.
