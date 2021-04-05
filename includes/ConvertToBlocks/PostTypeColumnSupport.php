@@ -28,8 +28,13 @@ class PostTypeColumnSupport {
 	 * @return void
 	 */
 	public function register() {
-		add_filter( 'manage_posts_columns', [ $this, 'update_post_columns' ], 10000 );
-		add_action( 'manage_posts_custom_column', [ $this, 'update_post_column_value' ], 10, 2 );
+		foreach ( get_post_types() as $post_type ) {
+			if ( ! $this->container->post_type_supports_convert_to_blocks( $post_type ) ) {
+				continue;
+			}
+			add_filter( "manage_{$post_type}_posts_columns", [ $this, 'update_post_columns' ], 10000 );
+			add_action( "manage_{$post_type}_posts_custom_column", [ $this, 'update_post_column_value' ], 10, 2 );
+		}
 	}
 
 	/**
