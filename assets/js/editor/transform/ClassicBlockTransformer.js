@@ -65,6 +65,8 @@ class ClassicBlockTransformer {
 			this.wp.data
 				.dispatch('core/block-editor')
 				.replaceBlocks(block.clientId, this.blockHandler(block));
+		} else if (block.innerBlocks && block.innerBlocks.length > 0) {
+			this.convertBlocks(block.innerBlocks);
 		}
 	}
 
