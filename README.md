@@ -12,6 +12,7 @@ Convert to Blocks is a WordPress plugin that transforms classic editor content t
 
 * PHP 7.0+
 * WordPress 5.4+
+* Inner Blocks Transforms is only supported with the Gutenberg Plugin 10.9.0+
 
 ## Installation
 
@@ -28,6 +29,10 @@ Find a classic editor in the post, try to navigate away from the page. You will 
 ### Will Convert to Blocks Handle My Custom Blocks?
 
 By default it will not.
+
+### Will Convert to Blocks Handle Nested Blocks?
+
+Nested / Inner Block support does not work with Gutenberg bundled with WordPress Core <=5.7.2. This feature needs the Gutenberg Plugin >=10.9.0.
 
 ## Support Level
 
