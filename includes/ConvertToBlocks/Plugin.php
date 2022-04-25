@@ -101,6 +101,7 @@ class Plugin {
 		$this->register_objects(
 			[
 				new RESTSupport(),
+				new Settings(),
 			]
 		);
 	}
