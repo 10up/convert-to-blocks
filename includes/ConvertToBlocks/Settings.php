@@ -24,21 +24,21 @@ class Settings {
 	 *
 	 * @var string
 	 */
-	private $settings_page = '%s-settings-page';
+	private $settings_page = 'settings-page';
 
 	/**
 	 * Settings section name.
 	 *
 	 * @var string
 	 */
-	private $settings_section = '%s-settings-section';
+	private $settings_section = 'settings-section';
 
 	/**
 	 * Settings group name.
 	 *
 	 * @var string
 	 */
-	private $settings_group = '%s_settings';
+	private $settings_group = 'settings';
 
 	/**
 	 * Post types.
@@ -73,9 +73,9 @@ class Settings {
 	 */
 	public function init() {
 		// Configure variables.
-		$this->settings_page    = sprintf( $this->settings_page, CONVERT_TO_BLOCKS_SLUG );
-		$this->settings_section = sprintf( $this->settings_section, CONVERT_TO_BLOCKS_SLUG );
-		$this->settings_group   = sprintf( $this->settings_group, CONVERT_TO_BLOCKS_PREFIX );
+		$this->settings_page    = sprintf( '%s-%s', CONVERT_TO_BLOCKS_SLUG, $this->settings_page );
+		$this->settings_section = sprintf( '%s-%s', CONVERT_TO_BLOCKS_SLUG, $this->settings_section );
+		$this->settings_group   = sprintf( '%s_%s', CONVERT_TO_BLOCKS_PREFIX, $this->settings_group );
 
 		// Get post types.
 		$this->post_types = $this->get_post_types();
@@ -193,7 +193,8 @@ class Settings {
 		echo '<fieldset>';
 		foreach ( $this->post_types as $post_type ) {
 			printf(
-				'<label for="%1$s"><input name="%1$s[]" type="checkbox" %2$s id="%1$s" value="%3$s"> %4$s</label> <br>',
+				'<label for="%1$s"><input name="%2$s[]" type="checkbox" %3$s id="%1$s" value="%4$s"> %5$s</label> <br>',
+				sprintf( '%s_post_types_%s', esc_attr( CONVERT_TO_BLOCKS_PREFIX ), esc_attr( $post_type ) ),
 				sprintf( '%s_post_types', esc_attr( CONVERT_TO_BLOCKS_PREFIX ) ),
 				checked( in_array( $post_type, $post_types, true ), 1, false ),
 				esc_attr( $post_type ),
