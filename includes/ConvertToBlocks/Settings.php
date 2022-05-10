@@ -236,10 +236,17 @@ class Settings {
 	public function supported_post_types( $supports, $post_type ) {
 		$supported_post_types = get_option( sprintf( '%s_post_types', CONVERT_TO_BLOCKS_SLUG ) );
 
-		if ( ! $supported_post_types ) {
+		// If the settings option does not exist in DB.
+		if ( false === $supported_post_types ) {
 			return $supports;
 		}
 
+		// If no post_type is selected.
+		if ( empty( $supported_post_types ) ) {
+			return false;
+		}
+
+		// Check if post_type is selected by the user.
 		if ( in_array( $post_type, $supported_post_types, true ) ) {
 			return true;
 		}
