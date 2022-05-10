@@ -58,7 +58,7 @@ class Settings {
 		add_action( 'admin_init', [ $this, 'register_section' ], 10 );
 		add_action( 'admin_init', [ $this, 'register_fields' ], 20 );
 
-		add_filter( 'post_type_supports_convert_to_blocks', [ $this, 'supported_post_types' ], 10, 2 );
+		add_filter( 'post_type_supports_convert_to_blocks', [ $this, 'supported_post_types' ], PHP_INT_MAX, 2 );
 	}
 
 	/**
