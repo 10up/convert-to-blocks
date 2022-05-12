@@ -57,8 +57,7 @@ class Settings {
 		add_action( 'admin_menu', [ $this, 'add_menu' ] );
 		add_action( 'admin_init', [ $this, 'register_section' ], 10 );
 		add_action( 'admin_init', [ $this, 'register_fields' ], 20 );
-
-		add_filter( 'post_type_supports_convert_to_blocks', [ $this, 'supported_post_types' ], PHP_INT_MAX, 2 );
+		add_action( 'admin_notices', [ $this, 'filter_notice' ], 10 );
 	}
 
 	/**
@@ -190,7 +189,10 @@ class Settings {
 	 * @return void
 	 */
 	public function field_post_types() {
-		$post_types  = get_option( sprintf( '%s_post_types', CONVERT_TO_BLOCKS_SLUG ), [] );
+		$post_types  = get_option(
+			sprintf( '%s_post_types', CONVERT_TO_BLOCKS_SLUG ),
+			apply_filters( 'convert_to_blocks_default_post_types', CONVERT_TO_BLOCKS_DEFAULT_POST_TYPES )
+		);
 		$output_html = '';
 
 		foreach ( $this->post_types as $post_type ) {
@@ -226,36 +228,33 @@ class Settings {
 	}
 
 	/**
-	 * Adds support for supported post types to the plugin.
-	 *
-	 * @param bool   $supports  Whether the post_type is supported or not.
-	 * @param string $post_type Post type to be be checked.
-	 *
-	 * @return bool
+	 * Adds an admin notice if a filter is active for `post_type_supports_convert_to_blocks` as
+	 * this might overwrite the outcome of the settings stored in DB.
 	 */
-	public function supported_post_types( $supports, $post_type ) {
-		$supported_post_types = get_option( sprintf( '%s_post_types', CONVERT_TO_BLOCKS_SLUG ) );
-
-		// If the settings option does not exist in DB.
-		if ( false === $supported_post_types ) {
-			return $supports;
+	public function filter_notice() {
+		if ( ! has_filter( 'post_type_supports_convert_to_blocks' ) ) {
+			return;
 		}
 
-		// If no post_type is selected.
-		if ( empty( $supported_post_types ) ) {
-			return false;
-		}
-
-		// Check if post_type is selected by the user.
-		if ( in_array( $post_type, $supported_post_types, true ) ) {
-			return true;
-		}
-
-		/**
-		 * This also overrides default post_types since we have the option to de-select the
-		 * default ones via the settings panel.
-		 */
-		return false;
+		// URL to the settings panel.
+		$settings_url = add_query_arg(
+			[ 'page' => CONVERT_TO_BLOCKS_SLUG ],
+			admin_url( 'options-general.php' )
+		);
+		?>
+		<div class="notice notice-success is-dismissible">
+			<p>
+				<?php
+				printf(
+					/* translators: %1$s: link to switch to settings panel, %2$s: closing anchor tag */
+					esc_html__( 'A filter hook (post_type_supports_convert_to_blocks) is active which can lead to undesirable outcome. Kindly remove it and configure settings via the %1$sSettings Panel%2$s.', 'convert-to-blocks' ),
+					'<a href="' . esc_url( $settings_url ) . '">',
+					'</a>'
+				);
+				?>
+			</p>
+		</div>
+		<?php
 	}
 
 }
