@@ -66,7 +66,6 @@ class MigrationAgent {
 
 	/**
 	 * Stops the batch conversion if running and resets the previous session.
-	 *
 	 */
 	public function stop() {
 		update_option( 'ctb_running', 0 );

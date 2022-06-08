@@ -25,6 +25,9 @@ class MigrationCommand extends \WP_CLI_Command {
 	 *
 	 * @synopsis [--post_type=<post_type>]
 	 * @synopsis [--only=<only>]
+	 *
+	 * @param array $args The command args
+	 * @param array $opts The command opts
 	 */
 	public function start( $args = [], $opts = [] ) {
 		$agent = new MigrationAgent();
@@ -90,6 +93,9 @@ class MigrationCommand extends \WP_CLI_Command {
 
 	/**
 	 * Stops the currently running migration if active.
+	 *
+	 * @param array $args The command args
+	 * @param array $opts The command opts
 	 */
 	public function stop( $args = [], $opts = [] ) {
 		$agent = new MigrationAgent();
@@ -106,6 +112,9 @@ class MigrationCommand extends \WP_CLI_Command {
 
 	/**
 	 * Prints the status of the currently running migration.
+	 *
+	 * @param array $args The command args
+	 * @param array $opts The command opts
 	 */
 	public function status( $args = [], $opts = [] ) {
 		$agent  = new MigrationAgent();
