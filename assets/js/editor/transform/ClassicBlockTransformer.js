@@ -15,6 +15,8 @@ class ClassicBlockTransformer {
 
 	/**
 	 * Runs the Classic to Gutenberg Block transform on the current document.
+	 *
+	 * @returns {boolean} The result of the transformation.
 	 */
 	execute() {
 		const coreEditor = this.wp.data.select('core/block-editor');
