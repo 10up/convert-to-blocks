@@ -49,7 +49,7 @@ class MigrationCommand extends \WP_CLI_Command {
 			\WP_CLI::error( 'Failed to start migration.' );
 		}
 
-		\WP_CLI::log( 'Migration started.' );
+		\WP_CLI::log( 'Migration started...' );
 		\WP_CLI::log( 'Please open the following URL in a browser to start the migration agent.' );
 		\WP_CLI::line( '' );
 		\WP_CLI::log( $result );
