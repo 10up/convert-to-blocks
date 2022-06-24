@@ -61,7 +61,8 @@ class MigrationCommand extends \WP_CLI_Command {
 		$progress_bar = \WP_CLI\Utils\make_progress_bar( $message, $total );
 		$progress_bar->tick();
 
-		$prev_progress = -1;
+		$prev_progress = 0;
+		$ticks = 0;
 
 		while ( true ) {
 			$status = $agent->get_status();
@@ -72,12 +73,26 @@ class MigrationCommand extends \WP_CLI_Command {
 
 			$progress = $status['progress'];
 
+			// since the WP CLI progress bar can't tick upto a progress % we need to
+			// tick in steps upto the progress % of total
 			if ( $progress !== $prev_progress ) {
-				$progress_bar->tick( $progress - $prev_progress );
+				$required_ticks = floor( $progress / 100 * $total );
+
+				while ( $ticks < $required_ticks ) {
+					$progress_bar->tick();
+					$ticks++;
+				}
+
 				$prev_progress = $progress;
 			}
 
-			sleep( $delay );
+			if ( $ticks < $total ) {
+				// sleeping helps reduce load on server
+				sleep( $delay );
+			} else {
+				// don't need the full sleep delay on last tick
+				sleep( 1 );
+			}
 
 			// required as we need to reload options that the browser client is updating
 			wp_cache_delete( 'alloptions', 'options' );
