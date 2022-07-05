@@ -62,7 +62,7 @@ class MigrationCommand extends \WP_CLI_Command {
 		$progress_bar->tick();
 
 		$prev_progress = 0;
-		$ticks = 0;
+		$ticks         = 0;
 
 		while ( true ) {
 			$status = $agent->get_status();
