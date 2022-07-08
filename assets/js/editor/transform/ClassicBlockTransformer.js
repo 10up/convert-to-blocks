@@ -10,10 +10,13 @@ class ClassicBlockTransformer {
 	 */
 	constructor() {
 		this.wp = window.wp;
+		this.didTransform = false;
 	}
 
 	/**
 	 * Runs the Classic to Gutenberg Block transform on the current document.
+	 *
+	 * @returns {boolean} The result of the transformation.
 	 */
 	execute() {
 		const coreEditor = this.wp.data.select('core/block-editor');
@@ -23,6 +26,8 @@ class ClassicBlockTransformer {
 			/* Currently set to do 3 levels of recursion */
 			this.convertBlocks(blocks, 1, 3);
 		}
+
+		return this.didTransform;
 	}
 
 	/**
@@ -65,6 +70,8 @@ class ClassicBlockTransformer {
 			this.wp.data
 				.dispatch('core/block-editor')
 				.replaceBlocks(block.clientId, this.blockHandler(block));
+
+			this.didTransform = true;
 		} else if (block.innerBlocks && block.innerBlocks.length > 0) {
 			this.convertBlocks(block.innerBlocks);
 		}
