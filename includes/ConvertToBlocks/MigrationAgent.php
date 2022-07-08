@@ -205,7 +205,7 @@ class MigrationAgent {
 	 */
 	public function has_ctb_client_param() {
 		// phpcs:disable
-		$ctb_client = sanitize_text_field( isset( $_GET['ctb_client'] ) ? $_GET['ctb_client'] : '' ) ;
+		$ctb_client = sanitize_text_field( $_GET['ctb_client'] ?? '' );
 		// phpcs:enable
 		$ctb_client = intval( $ctb_client );
 
