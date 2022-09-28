@@ -39,6 +39,7 @@ Nested / Inner Block support does not work with Gutenberg bundled with WordPress
 
 == Screenshots ==
 
+1. Bulk migration using the `wp convert-to-blocks start` WP-CLI command that converts posts iteratively in the browser without requireing any manual input.  
 
 == Changelog ==
 
