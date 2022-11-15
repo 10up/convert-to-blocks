@@ -2,7 +2,7 @@
 Contributors:      10up, dsawardekar, tlovett1
 Tags:              gutenberg, block, block migration, gutenberg migration, gutenberg conversion, convert to blocks
 Requires at least: 5.4
-Tested up to:      6.0
+Tested up to:      6.1
 Requires PHP:      7.0
 Stable tag:        1.1.0
 License:           GPLv2 or later
@@ -39,7 +39,7 @@ Nested / Inner Block support does not work with Gutenberg bundled with WordPress
 
 == Screenshots ==
 
-1. Bulk migration using the `wp convert-to-blocks start` WP-CLI command that converts posts iteratively in the browser without requireing any manual input.  
+1. Bulk migration using the `wp convert-to-blocks start` WP-CLI command that converts posts iteratively in the browser without requireing any manual input.
 
 == Changelog ==
 
