@@ -17,14 +17,11 @@ class MigrationCommand extends \WP_CLI_Command {
 	 *
 	 * ## OPTIONS
 	 *
-	 * [<post_type>]
+	 * [--post_type=<post_type>]
 	 * : Optional comma delimited list of post types to migrate. Defaults to post,page
 	 *
-	 * [<only>]
+	 * [--only=<only>]
 	 * : Optional comma delimited list of post ids to migrate.
-	 *
-	 * @synopsis [--post_type=<post_type>]
-	 * @synopsis [--only=<only>]
 	 *
 	 * @param array $args The command args
 	 * @param array $opts The command opts
