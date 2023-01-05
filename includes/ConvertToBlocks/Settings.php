@@ -191,7 +191,7 @@ class Settings {
 	public function field_post_types() {
 		$post_types  = get_option(
 			sprintf( '%s_post_types', CONVERT_TO_BLOCKS_SLUG ),
-			apply_filters( 'convert_to_blocks_default_post_types', CONVERT_TO_BLOCKS_DEFAULT_POST_TYPES )
+			Plugin::get_instance()->get_default_post_types()
 		);
 		$output_html = '';
 
@@ -236,20 +236,27 @@ class Settings {
 			return;
 		}
 
-		// URL to the settings panel.
-		$settings_url = add_query_arg(
-			[ 'page' => CONVERT_TO_BLOCKS_SLUG ],
-			admin_url( 'options-general.php' )
+		$show_on_pages = array(
+			'settings_page_convert-to-blocks',
+			'plugins',
 		);
+
+		$screen = get_current_screen();
+
+		if ( is_null( $screen ) ) {
+			return;
+		}
+
+		if ( ! ( ! empty( $screen->post_type ) || in_array( $screen->id, $show_on_pages, true ) ) ) {
+			return;
+		}
+
 		?>
 		<div class="notice notice-success is-dismissible">
 			<p>
 				<?php
 				printf(
-					/* translators: %1$s: link to switch to settings panel, %2$s: closing anchor tag */
-					esc_html__( 'A filter hook (post_type_supports_convert_to_blocks) is active which can lead to undesirable outcome. Kindly remove it and configure settings via the %1$sSettings Panel%2$s.', 'convert-to-blocks' ),
-					'<a href="' . esc_url( $settings_url ) . '">',
-					'</a>'
+					esc_html__( 'A filter hook (post_type_supports_convert_to_blocks) is already active.', 'convert-to-blocks' ),
 				);
 				?>
 			</p>
