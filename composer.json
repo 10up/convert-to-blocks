@@ -25,7 +25,7 @@
     "yoast/phpunit-polyfills": "^1.0"
   },
   "scripts": {
-    "lint": "phpcs . -d error_reporting=\"E_ALL&~E_DEPRECATED\"",
+    "lint": "phpcs .",
     "lint-fix": "phpcbf .",
     "test": "phpunit",
     "setup-local-tests": "bash bin/install-wp-tests.sh convert_to_blocks_test root password mysql trunk"
