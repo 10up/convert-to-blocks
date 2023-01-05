@@ -6,7 +6,7 @@ class PluginTest extends \WP_UnitTestCase {
 
 	public $plugin;
 
-	function setUp() {
+	function setUp(): void {
 		$this->plugin = Plugin::get_instance();
 	}
 
