@@ -5,11 +5,15 @@ All notable changes to this project will be documented in this file, per [the Ke
 ## [Unreleased] - TBD
 
 ## [1.1.1] - 2023-01-05
+**Note that this release bumps the WordPress minimum version from 5.4 to 5.7 and the PHP minimum version from 7.0 to 7.4.**
+
 ### Added
 - Bulk migration demo to readme (props [@jeffpaul](https://github.com/jeffpaul), [@dsawardekar](https://github.com/dsawardekar) via [#79](https://github.com/10up/convert-to-blocks/pull/79)).
 - Release build GitHub Action to build a release zip used for testing (props [@dkotter](https://github.com/dkotter) via [#98](https://github.com/10up/convert-to-blocks/pull/98)).
 
 ### Changed
+
+- Bump WordPress minimum version from 5.4 to 5.7 and PHP minimum version from 7.0 to 7.4 (props [@zamanq](https://github.com/zamanq), [@jeffpaul](https://github.com/jeffpaul), [@faisal-alvi](https://github.com/faisal-alvi), [@mehul0810](https://github.com/mehul0810) via [#80](https://github.com/10up/convert-to-blocks/pull/80)).
 - Bump WordPress "tested up to" version to 6.1 props [@peterwilsoncc](https://github.com/peterwilsoncc), [@faisal-alvi](https://github.com/faisal-alvi), [@cadic](https://github.com/cadic) via [#88](https://github.com/10up/convert-to-blocks/pull/88), [#91](https://github.com/10up/convert-to-blocks/pull/91)).
 
 ### Removed
@@ -30,6 +34,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Bump `serialize-javascript` from 2.1.2 to 4.0.0 and `terser-webpack-plugin` from 1.4.3 to 1.4.5 (props [@dependabot](https://github.com/apps/dependabot) via [#94](https://github.com/10up/convert-to-blocks/pull/94)).
 - Bump `engine.io` from 6.2.0 to 6.2.1 (props [@dependabot](https://github.com/apps/dependabot) via [#95](https://github.com/10up/convert-to-blocks/pull/95)).
 - Bump `decode-uri-component` from 0.2.0 to 0.2.2 (props [@dependabot](https://github.com/apps/dependabot) via [#97](https://github.com/10up/convert-to-blocks/pull/97)).
+- Bump `json5` from 2.1.1 to 2.2.3, `babel-loader` from 8.0.6 to 8.3.0, `eslint-loader` from 3.0.4 to 4.0.2, `tsconfig-paths` from 3.9.0 to 3.10.1, `webpack` from 4.41.5 to 5.75.0 and `webpack-cli` from 3.3.12 to 5.0.1 (props [@dependabot](https://github.com/apps/dependabot) via [#101](https://github.com/10up/convert-to-blocks/pull/101)).
 
 ## [1.1.0] - 2022-07-28
 ### Added
