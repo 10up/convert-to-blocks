@@ -8,7 +8,7 @@ class ClassicEditorSupportTest extends \WP_UnitTestCase {
 	public $post_supports;
 	public $classic_param;
 
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 
 		$this->support            = new ClassicEditorSupport();
