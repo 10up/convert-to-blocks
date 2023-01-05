@@ -22,7 +22,7 @@ jobs:
     - name: Set PHP version
       uses: shivammathur/setup-php@v1
       with:
-        php-version: '7.2'
+        php-version: '7.4'
         coverage: none
 
     - name: Install dependencies
