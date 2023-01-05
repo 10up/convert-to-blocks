@@ -1,25 +1,28 @@
 import ClassicBlockTransformer from './transform/ClassicBlockTransformer';
+import MigrationClient from './transform/MigrationClient';
+
+let loaded = false;
 
 /**
- * ConnectToBlocksSupport connects the JS implementation of
- * Connect to Blocks to Gutenberg JS.
+ * ConvertToBlocksSupport connects the JS implementation of
+ * Convert to Blocks to Gutenberg JS.
  */
-class ConnectToBlocksEditorSupport {
+class ConvertToBlocksEditorSupport {
 	/**
-	 * Returns the singleton instance of ConnectToBlocksEditorSupport.
+	 * Returns the singleton instance of ConvertToBlocksEditorSupport.
 	 *
-	 * @returns {ConnectToBlocksEditorSupport}
+	 * @returns {ConvertToBlocksEditorSupport}
 	 */
 	static getInstance() {
 		if (!this.instance) {
-			this.instance = new ConnectToBlocksEditorSupport();
+			this.instance = new ConvertToBlocksEditorSupport();
 		}
 
 		return this.instance;
 	}
 
 	/**
-	 * Activates the ConnectToBlocksEditorSupport
+	 * Activates the ConvertToBlocksEditorSupport
 	 */
 	enable() {
 		document.addEventListener('DOMContentLoaded', this.didBlockEditorLoad.bind(this));
@@ -38,14 +41,43 @@ class ConnectToBlocksEditorSupport {
 
 		registerPlugin('convert-to-blocks', {
 			render: () => {
-				transformer.execute();
+				// Don't render more than once, to avoid triggering multiple migrations
+				if (loaded) {
+					return null;
+				}
+
+				loaded = true;
+
+				// This delay allows Gutenberg to initialize legacy content into freeform blocks
+				setTimeout(() => {
+					const result = transformer.execute();
+					const config = window.convert_to_blocks_agent || false;
+
+					// if no migration config, then ignore this request
+					if (!config) {
+						return null;
+					}
+
+					const client = new MigrationClient(config);
+
+					// if no blocks transformed, then we can jump to the next post
+					if (!result) {
+						client.next();
+						return null;
+					}
+
+					client.save();
+
+					return null;
+				}, 500);
+
 				return null;
 			},
 		});
 	}
 }
 
-const support = ConnectToBlocksEditorSupport.getInstance();
+const support = ConvertToBlocksEditorSupport.getInstance();
 support.enable();
 
-export default ConnectToBlocksEditorSupport;
+export default ConvertToBlocksEditorSupport;

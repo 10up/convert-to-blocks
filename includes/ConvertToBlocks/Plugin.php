@@ -117,6 +117,7 @@ class Plugin {
 				new RevisionSupport(),
 				new ClassicEditorSupport(),
 				new Assets(),
+				new MigrationAgent(),
 			]
 		);
 	}
@@ -125,6 +126,7 @@ class Plugin {
 	 * Initializes the Plugin WP CLI commands
 	 */
 	public function init_commands() {
+		\WP_CLI::add_command( 'convert-to-blocks', '\ConvertToBlocks\MigrationCommand' );
 	}
 
 	/* Helpers */

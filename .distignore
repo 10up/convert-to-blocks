@@ -2,7 +2,9 @@
 /.git
 /.github
 /.wordpress-org
+/assets
 /bin
+/config
 /node_modules
 /tests
 

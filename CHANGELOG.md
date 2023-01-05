@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
+## [1.1.0] - 2022-07-28
+### Added
+- Support for bulk migrating Classic Editor items to the Block Editor, utilizing WP-CLI (props [@dsawardekar](https://github.com/dsawardekar), [@jeffpaul](https://github.com/jeffpaul), [@gthayer](https://github.com/gthayer), [@faisal-alvi](https://github.com/faisal-alvi) via [#70](https://github.com/10up/convert-to-blocks/pull/70)).
+- Dependency security scanning (props [@jeffpaul](https://github.com/jeffpaul), [@Sidsector9](https://github.com/Sidsector9) via [#64](https://github.com/10up/convert-to-blocks/pull/64)).
+
+### Fixed
+- Added polyfill to fix PHPUnit tests (props [@cadic](https://github.com/cadic), [@iamdharmesh](https://github.com/iamdharmesh) via [#69](https://github.com/10up/convert-to-blocks/pull/69)).
+
+### Changed
+- Bump WordPress version "tested up to" 6.0 (props [@mohitwp](https://github.com/mohitwp), [@jeffpaul](https://github.com/jeffpaul), [@cadic](https://github.com/cadic), [@iamdharmesh](https://github.com/iamdharmesh) via [#59](https://github.com/10up/convert-to-blocks/pull/59), [#67](https://github.com/10up/convert-to-blocks/pull/67)).
+
+### Security
+- Bump `path-parse` from 1.0.6 to 1.0.7 (props [@dependabot](https://github.com/apps/dependabot) via [#55](https://github.com/10up/convert-to-blocks/pull/55)).
+- Bump `ajv` from 6.10.0 to 6.12.6 (props [@dependabot](https://github.com/apps/dependabot) via [#60](https://github.com/10up/convert-to-blocks/pull/60)).
+- Bump `tar` from 4.4.8 to 4.4.19 (props [@dependabot](https://github.com/apps/dependabot) via [#61](https://github.com/10up/convert-to-blocks/pull/61)).
+- Bump `terser` from 4.6.0 to 4.8.1 (props [@dependabot](https://github.com/apps/dependabot) via [#74](https://github.com/10up/convert-to-blocks/pull/74)).
+
 ## [1.0.2] - 2021-07-12
 ### Changed
 - Bump WordPress version "tested up to" 5.8 (props [@psorensen](https://github.com/psorensen), [@BBerg10up](https://github.com/BBerg10up), [@jeffpaul](https://github.com/jeffpaul) via [#47](https://github.com/10up/convert-to-blocks/pull/47), [#50](https://github.com/10up/convert-to-blocks/pull/50)).
@@ -44,6 +61,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Initial release of Convert to Blocks.
 
 [Unreleased]: https://github.com/10up/convert-to-blocks/compare/trunk...develop
+[1.1.0]: https://github.com/10up/convert-to-blocks/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/10up/convert-to-blocks/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/10up/convert-to-blocks/compare/cf8c873...1.0.1
 [1.0.0]: https://github.com/10up/convert-to-blocks/tree/cf8c873ae4f88286723f6e996fbab4c1f8cf2940
