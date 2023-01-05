@@ -6,7 +6,7 @@ class AssetsTest extends \WP_UnitTestCase {
 
 	public $assets;
 
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 
 		$this->assets = new Assets();
