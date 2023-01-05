@@ -6,7 +6,7 @@
 
 ## Overview
 
-Convert to Blocks is a WordPress plugin that transforms classic editor content to blocks on-the-fly.  After installing Gutenberg or upgrading to WordPress 5.0+, your content will be displayed in "Classic Editor Blocks".  While these blocks are completely functional and will display fine on the frontend of your website, they do not empower editors to fully make use of the block editing experience.  In order to do so, your classic editor posts need to be converted to blocks.  This plugin does that for you "on the fly".  When an editor goes to edit a classic post, the content will be parsed into blocks.  When the editor saves the post, the new structure will be saved into the database.  This strategy reduces risk as you are only altering database values for content that needs to be changed.
+Convert to Blocks is a WordPress plugin that transforms classic editor content to blocks on-the-fly. After installing Gutenberg or upgrading to WordPress 5.0+, your content will be displayed in "Classic Editor Blocks". While these blocks are completely functional and will display fine on the frontend of your website, they do not empower editors to fully make use of the block editing experience. In order to do so, your classic editor posts need to be converted to blocks. This plugin does that for you "on the fly". When an editor goes to edit a classic post, the content will be parsed into blocks. When the editor saves the post, the new structure will be saved into the database. This strategy reduces risk as you are only altering database values for content that needs to be changed.
 
 ### Bulk migration of Classic Editor items to the Block Editor
 
@@ -16,9 +16,9 @@ The `wp convert-to-blocks start` [WP-CLI command](https://github.com/10up/conver
 
 ## Requirements
 
-* PHP 7.0+
-* WordPress 5.4+
-* Inner Blocks Transforms is only supported with the Gutenberg Plugin 10.9.0+
+- PHP 7.4+
+- WordPress 5.7+
+- Inner Blocks Transforms is only supported with the Gutenberg Plugin 10.9.0+
 
 ## Installation
 
