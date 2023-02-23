@@ -32,8 +32,8 @@ class Plugin {
 	 *
 	 * @var array
 	 */
-	private static $default_post_types = array( 
-		'post', 
+	private static $default_post_types = array(
+		'post',
 		'page',
 	);
 
@@ -145,7 +145,7 @@ class Plugin {
 	 *
 	 * @return void
 	 */
-	function convert_to_block_setting_form() {
+	public function convert_to_block_setting_form() {
 		$post_types = get_post_types( array( 'show_in_rest' => true ) );
 		$options    = get_option( self::POST_TYPE_FIELD, self::$default_post_types );
 
@@ -153,7 +153,7 @@ class Plugin {
 			$post_type = get_post_type_object( $type );
 			$id        = 'cb-supported-post-types-' . $type;
 			?>
-			<input id="<?php echo esc_attr( $id ); ?>" type="checkbox" name="<?php echo self::POST_TYPE_FIELD; ?>[]" value="<?php echo esc_attr( $type ); ?>" <?php echo in_array( $type, $options ) ? 'checked="checked"' : ''; ?>/>
+			<input id="<?php echo esc_attr( $id ); ?>" type="checkbox" name="<?php echo esc_attr( self::POST_TYPE_FIELD ); ?>[]" value="<?php echo esc_attr( $type ); ?>" <?php echo in_array( $type, $options, true ) ? 'checked="checked"' : ''; ?>/>
 			<label for="<?php echo esc_attr( $id ); ?>"><?php echo esc_html( $post_type->label ); ?></label><br/>
 			<?php
 		}
