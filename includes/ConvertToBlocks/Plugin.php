@@ -22,6 +22,20 @@ namespace ConvertToBlocks;
  * ```
  */
 class Plugin {
+	/**
+	 * Post type field identifier key
+	 */
+	const POST_TYPE_FIELD = 'cb_supported_post_types';
+
+	/**
+	 * Default post types to make CB supported
+	 *
+	 * @var array
+	 */
+	private static $default_post_types = array( 
+		'post', 
+		'page',
+	);
 
 	/**
 	 * Singleton instance of the Plugin.
@@ -119,6 +133,30 @@ class Plugin {
 				new MigrationAgent(),
 			]
 		);
+
+		// Add setting section in writing page
+		add_settings_section( 'convert_to_block_settings', __( 'Convert to Block', 'convert-to-blocks' ), array( $this, 'settings_intro' ), 'writing' );
+		add_settings_field( 'convert_to_block_post_types', esc_html__( 'Post Types', 'convert-to-blocks' ), [ $this, 'convert_to_block_setting_form' ], 'writing', 'convert_to_block_settings' );
+		register_setting( 'writing', self::POST_TYPE_FIELD, array( 'type' => 'array' ) );
+	}
+
+	/**
+	 * Render convert to block setting form
+	 *
+	 * @return void
+	 */
+	function convert_to_block_setting_form() {
+		$post_types = get_post_types( array( 'show_in_rest' => true ) );
+		$options    = get_option( self::POST_TYPE_FIELD, self::$default_post_types );
+
+		foreach ( $post_types as $type ) {
+			$post_type = get_post_type_object( $type );
+			$id        = 'cb-supported-post-types-' . $type;
+			?>
+			<input id="<?php echo esc_attr( $id ); ?>" type="checkbox" name="<?php echo self::POST_TYPE_FIELD; ?>[]" value="<?php echo esc_attr( $type ); ?>" <?php echo in_array( $type, $options ) ? 'checked="checked"' : ''; ?>/>
+			<label for="<?php echo esc_attr( $id ); ?>"><?php echo esc_html( $post_type->label ); ?></label><br/>
+			<?php
+		}
 	}
 
 	/**
@@ -257,7 +295,8 @@ class Plugin {
 	 * @return array
 	 */
 	public function get_default_post_types() {
-		return apply_filters( 'convert_to_blocks_default_post_types', [ 'post', 'page' ] );
+		$defaults = get_option( self::POST_TYPE_FIELD, self::$default_post_types );
+		return apply_filters( 'convert_to_blocks_default_post_types', $defaults );
 	}
 
 	/**
