@@ -141,6 +141,15 @@ class Plugin {
 	}
 
 	/**
+	 * Setting section header
+	 * 
+	 * @return void
+	 */
+	public function settings_intro() {
+		echo '<p>' . __( 'Settings for Convert to Blocks', 'convert-to-blocks' ) . '</p>';
+	}
+
+	/**
 	 * Render convert to block setting form
 	 *
 	 * @return void
