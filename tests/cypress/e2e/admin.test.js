@@ -8,8 +8,8 @@ describe("Admin can login and open dashboard", () => {
     cy.get("h1").should("contain", "Dashboard");
   });
 
-  it("Activate Hello Dolly and deactivate it back", () => {
-    cy.activatePlugin("hello-dolly");
-    cy.deactivatePlugin("hello-dolly");
+  it("Activate Convert to Blocks and deactivate it back", () => {
+    cy.deactivatePlugin("convert-to-blocks");
+    cy.activatePlugin("convert-to-blocks");
   });
 });
