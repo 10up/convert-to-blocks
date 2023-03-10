@@ -24,7 +24,11 @@
     "format": "npm run format-js",
     "wp-env": "wp-env",
     "env:start": "wp-env start",
-    "env:stop": "wp-env stop"
+    "env:stop": "wp-env stop",
+    "cypress:open": "cypress open --config-file tests/cypress/config.js --e2e --browser chrome",
+    "cypress:run": "cypress run --config-file tests/cypress/config.js",
+    "env": "wp-env",
+    "postenv:start": "./tests/bin/initialize.sh"
   },
   "husky": {
     "hooks": {
@@ -41,6 +45,7 @@
     "url": "https://github.com/10up/convert-to-blocks"
   },
   "devDependencies": {
+    "@10up/cypress-wp-utils": "github:10up/cypress-wp-utils#build",
     "@10up/eslint-config": "^2.1.1",
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
@@ -56,6 +61,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "core-js": "^3.6.1",
     "cssnano": "^5.1.14",
+    "cypress": "^10.11.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-airbnb-base": "^14.2.0",
