@@ -1,7 +1,9 @@
-describe("Admin can login and open dashboard", () => {
+describe("Convert test content to blocks", () => {
     before(() => {
         cy.login();
     });
+
+    cy.setPermalinkStructure('/%year%/%postname%/');
 
     it("Create classic post", () => {
         cy.fixture('example.html').then((contentFixture) => {
