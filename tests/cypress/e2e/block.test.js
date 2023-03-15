@@ -3,8 +3,6 @@ describe("Convert test content to blocks", () => {
         cy.login();
     });
 
-    cy.setPermalinkStructure('/%year%/%postname%/');
-
     it("Create classic post", () => {
         cy.fixture('example.html').then((contentFixture) => {
             cy.wpCli("post create --post_title='Classic Post' --post_content='" + contentFixture + "'");
