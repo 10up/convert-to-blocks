@@ -142,11 +142,11 @@ class Plugin {
 
 	/**
 	 * Setting section header
-	 * 
+	 *
 	 * @return void
 	 */
 	public function settings_intro() {
-		echo '<p>' . __( 'Settings for Convert to Blocks', 'convert-to-blocks' ) . '</p>';
+		echo '<p>' . esc_html__( 'Settings for Convert to Blocks', 'convert-to-blocks' ) . '</p>';
 	}
 
 	/**
@@ -159,6 +159,10 @@ class Plugin {
 		$options    = get_option( self::POST_TYPE_FIELD, self::$default_post_types );
 
 		foreach ( $post_types as $type ) {
+			if ( ! use_block_editor_for_post_type( $type ) ) {
+				continue;
+			}
+
 			$post_type = get_post_type_object( $type );
 			$id        = 'cb-supported-post-types-' . $type;
 			?>
