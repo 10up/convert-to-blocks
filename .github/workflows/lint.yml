@@ -36,11 +36,10 @@ jobs:
     - name: Set PHP version
       uses: shivammathur/setup-php@v1
       with:
-        php-version: '7.2'
+        php-version: '7.4'
         coverage: none
+        tools: phpcs
     - name: composer install
       run: composer install
     - name: PHPCS check
-      uses: chekalsky/phpcs-action@v1
-      with:
-        phpcs_bin_path: './vendor/bin/phpcs .'
+      run: './vendor/bin/phpcs .'
