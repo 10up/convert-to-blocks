@@ -28,16 +28,6 @@ class Plugin {
 	const POST_TYPE_FIELD = 'cb_supported_post_types';
 
 	/**
-	 * Default post types to make CB supported
-	 *
-	 * @var array
-	 */
-	private static $default_post_types = array(
-		'post',
-		'page',
-	);
-
-	/**
 	 * Singleton instance of the Plugin.
 	 *
 	 * @var Plugin Singleton Plugin instance
@@ -115,6 +105,7 @@ class Plugin {
 		$this->register_objects(
 			[
 				new RESTSupport(),
+				new Settings(),
 			]
 		);
 	}
@@ -156,7 +147,7 @@ class Plugin {
 	 */
 	public function convert_to_block_setting_form() {
 		$post_types = get_post_types( array( 'show_in_rest' => true ) );
-		$options    = get_option( self::POST_TYPE_FIELD, self::$default_post_types );
+		$options    = get_option( self::POST_TYPE_FIELD, CONVERT_TO_BLOCKS_DEFAULT_POST_TYPES );
 
 		foreach ( $post_types as $type ) {
 			if ( ! use_block_editor_for_post_type( $type ) ) {
@@ -235,12 +226,28 @@ class Plugin {
 	 * @return bool
 	 */
 	public function post_type_supports_convert_to_blocks( $post_type ) {
-		$supports           = post_type_supports( $post_type, 'convert-to-blocks' );
-		$use_defaults       = apply_filters( 'convert_to_blocks_defaults', true );
-		$default_post_types = $this->get_default_post_types();
+		$supports                 = post_type_supports( $post_type, 'convert-to-blocks' );
+		$use_defaults             = apply_filters( 'convert_to_blocks_defaults', true );
+		$default_post_types       = $this->get_default_post_types();
+		$user_selected_post_types = get_option( sprintf( '%s_post_types', CONVERT_TO_BLOCKS_SLUG ), $default_post_types );
 
 		if ( ! $supports && $use_defaults && in_array( $post_type, $default_post_types, true ) ) {
 			$supports = true;
+		}
+
+		// For user-selected option via the Settings UI.
+		if ( false !== $user_selected_post_types ) {
+			$supports = false;
+
+			// If no post_type is selected.
+			if ( empty( $user_selected_post_types ) ) {
+				$supports = false;
+			}
+
+			// Check if post_type is selected by the user.
+			if ( in_array( $post_type, $user_selected_post_types, true ) ) {
+				$supports = true;
+			}
 		}
 
 		$supports = apply_filters( 'post_type_supports_convert_to_blocks', $supports, $post_type );
@@ -308,7 +315,7 @@ class Plugin {
 	 * @return array
 	 */
 	public function get_default_post_types() {
-		$defaults = get_option( self::POST_TYPE_FIELD, self::$default_post_types );
+		$defaults = get_option( self::POST_TYPE_FIELD, CONVERT_TO_BLOCKS_DEFAULT_POST_TYPES );
 		return apply_filters( 'convert_to_blocks_default_post_types', $defaults );
 	}
 
