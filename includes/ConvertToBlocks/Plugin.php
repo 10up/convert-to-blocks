@@ -320,7 +320,7 @@ class Plugin {
 	 */
 	public function get_default_post_types() {
 		$defaults = get_option( self::POST_TYPE_FIELD, CONVERT_TO_BLOCKS_DEFAULT_POST_TYPES );
-		
+
 		if ( ! is_array( $defaults ) ) {
 			$defaults = array();
 		}
