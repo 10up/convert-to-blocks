@@ -149,6 +149,10 @@ class Plugin {
 		$post_types = get_post_types( array( 'show_in_rest' => true ) );
 		$options    = get_option( self::POST_TYPE_FIELD, CONVERT_TO_BLOCKS_DEFAULT_POST_TYPES );
 
+		if ( ! is_array( $options ) ) {
+			$options = array();
+		}
+
 		foreach ( $post_types as $type ) {
 			if ( ! use_block_editor_for_post_type( $type ) ) {
 				continue;
@@ -316,6 +320,11 @@ class Plugin {
 	 */
 	public function get_default_post_types() {
 		$defaults = get_option( self::POST_TYPE_FIELD, CONVERT_TO_BLOCKS_DEFAULT_POST_TYPES );
+		
+		if ( ! is_array( $defaults ) ) {
+			$defaults = array();
+		}
+
 		return apply_filters( 'convert_to_blocks_default_post_types', $defaults );
 	}
 
