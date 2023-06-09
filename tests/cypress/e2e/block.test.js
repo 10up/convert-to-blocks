@@ -20,14 +20,14 @@ describe("Convert test content to blocks", () => {
         })
     });
 
-    it('Convert Classic editor to Blocks and Check blocks have been converted', () => {
-		// Visit the post in the admin.
+    it('Convert Classic editor to Blocks', () => {
 		cy.visit('wp-admin/edit.php');
         cy.get('#the-list .row-title');
         cy.contains( '#the-list .row-title', 'Classic Post' ).click();
+	});
 
-		// Verify blocks have been converted.
-		cy.closeWelcomeGuide();
+	it('Check blocks have been converted', () => {
+		// cy.closeWelcomeGuide();
 		cy.get( 'h2[data-type="core/heading"]' ).should('exist');
         cy.get( 'h3[data-type="core/heading"]' ).should('exist');
         cy.get( 'h4[data-type="core/heading"]' ).should('exist');
