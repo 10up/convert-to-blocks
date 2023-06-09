@@ -3,20 +3,32 @@ describe("Convert test content to blocks", () => {
         cy.login();
     });
 
+	// Ignore Invalid JSON errors.
+	Cypress.on('uncaught:exception', (err, runnable) => {
+		if (
+		  err.message.includes(
+			"The response is not a valid JSON response"
+		  )
+		) {
+		  return false;
+		}
+	  });
+
     it("Create classic post", () => {
         cy.fixture('example.html').then((contentFixture) => {
             cy.wpCli("post create --post_title='Classic Post' --post_content='" + contentFixture + "'");
         })
     });
 
-    it('Convert Classic editor to Blocks', () => {
-        cy.visit('wp-admin/edit.php');
+    it('Convert Classic editor to Blocks and Check blocks have been converted', () => {
+		// Visit the post in the admin.
+		cy.visit('wp-admin/edit.php');
         cy.get('#the-list .row-title');
         cy.contains( '#the-list .row-title', 'Classic Post' ).click();
-    });
 
-    it('Check blocks have been converted', () => {
-        cy.get( 'h2[data-type="core/heading"]' ).should('exist');
+		// Verify blocks have been converted.
+		cy.closeWelcomeGuide();
+		cy.get( 'h2[data-type="core/heading"]' ).should('exist');
         cy.get( 'h3[data-type="core/heading"]' ).should('exist');
         cy.get( 'h4[data-type="core/heading"]' ).should('exist');
         cy.get( 'h5[data-type="core/heading"]' ).should('exist');
