@@ -27,7 +27,6 @@ describe("Convert test content to blocks", () => {
 	});
 
 	it('Check blocks have been converted', () => {
-		// cy.closeWelcomeGuide();
 		cy.get( 'h2[data-type="core/heading"]' ).should('exist');
         cy.get( 'h3[data-type="core/heading"]' ).should('exist');
         cy.get( 'h4[data-type="core/heading"]' ).should('exist');

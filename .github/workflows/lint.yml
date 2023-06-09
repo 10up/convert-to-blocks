@@ -18,7 +18,7 @@ jobs:
     - name: install node v12
       uses: actions/setup-node@v1
       with:
-        node-version: 12
+        node-version: 16
     - name: npm install
       run: npm install
     - name: eslint
