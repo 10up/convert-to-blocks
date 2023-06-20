@@ -14,6 +14,7 @@ module.exports = defineConfig({
     specPattern: 'tests/cypress/e2e/**/*.test.{js,jsx,ts,tsx}',
     supportFile: 'tests/cypress/support/e2e.js'
   },
+  defaultCommandTimeout: 30000,
   retries: 3
 });
 
