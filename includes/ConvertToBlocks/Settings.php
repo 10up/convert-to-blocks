@@ -252,7 +252,7 @@ class Settings {
 		}
 
 		?>
-		<div class="notice notice-success is-dismissible">
+		<div class="notice notice-warning is-dismissible">
 			<p>
 				<?php
 				printf(
