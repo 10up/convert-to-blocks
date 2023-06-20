@@ -16,8 +16,8 @@ The `wp convert-to-blocks start` [WP-CLI command](https://github.com/10up/conver
 
 ## Requirements
 
-- PHP 7.4+
-- WordPress 5.7+
+- PHP 8+
+- WordPress 6.1+
 - Inner Blocks Transforms is only supported with the Gutenberg Plugin 10.9.0+
 
 ## Installation
