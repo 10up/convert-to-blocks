@@ -15,19 +15,17 @@ describe("Convert test content to blocks", () => {
 	  });
 
     it("Create classic post", () => {
-        cy.fixture('example.html').then((contentFixture) => {
-            cy.wpCli("post create --post_title='Classic Post' --post_content='" + contentFixture + "'");
-        })
-    });
-
-    it('Convert Classic editor to Blocks', () => {
-		cy.visit('wp-admin/edit.php');
-        cy.get('#the-list .row-title');
-        cy.contains( '#the-list .row-title', 'Classic Post' ).click();
-	});
+      cy.fixture('example.html').then((contentFixture) => {
+          cy.wpCli("post create --post_title='Classic Post' --post_content='" + contentFixture + "'");
+      })
+  });
 
 	it('Check blocks have been converted', () => {
-		cy.get( 'h2[data-type="core/heading"]' ).should('exist');
+        cy.visit('wp-admin/edit.php');
+        cy.get('#the-list .row-title');
+        cy.contains( '#the-list .row-title', 'Classic Post' ).click();
+        cy.wait(1000);
+        cy.get( 'h2[data-type="core/heading"]' ).should('exist');
         cy.get( 'h3[data-type="core/heading"]' ).should('exist');
         cy.get( 'h4[data-type="core/heading"]' ).should('exist');
         cy.get( 'h5[data-type="core/heading"]' ).should('exist');
