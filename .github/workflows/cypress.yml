@@ -26,8 +26,11 @@ jobs:
     - name: Composer (optional)
       run: composer install
       continue-on-error: true
+    - uses: actions/setup-node@v3
+      with:
+        node-version-file: '.nvmrc'
     - name: Build (optional)
-      run: npm run build
+      run: npm ci && npm run build
       continue-on-error: true
     - name: Set the core version
       run: ./tests/bin/set-core-version.js ${{ matrix.core.version }}
