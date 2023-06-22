@@ -13,8 +13,8 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Cypress end-to-end tests (props [@barneyjeffries](https://github.com/barneyjeffries), [@jeffpaul](https://github.com/jeffpaul), [@iamdharmesh](https://github.com/iamdharmesh), [@Sidsector9](https://github.com/Sidsector9), [@vikrampm1](https://github.com/vikrampm1) via [#106](https://github.com/10up/convert-to-blocks/pull/106)).
 
 ### Changed
-- Bump PHP minimum supported version from 7.4 to 8.0 (props [@Sidsector9](https://github.com/Sidsector9) via [fd5d0f](https://github.com/10up/convert-to-blocks/pull/111/commits/fd5d0ffd988c653ed21cd05665bdb19f9f24e9d6)).
-- Bump WordPress minimum supported version from 5.7 to 6.1 (props [@Sidsector9](https://github.com/Sidsector9) via [fd5d0f](https://github.com/10up/convert-to-blocks/pull/111/commits/fd5d0ffd988c653ed21cd05665bdb19f9f24e9d6)).
+- Bump PHP minimum supported version from 7.4 to 8.0 (props [@barneyjeffries](https://github.com/barneyjeffries), [@jeffpaul](https://github.com/jeffpaul), [@iamdharmesh](https://github.com/iamdharmesh), [@Sidsector9](https://github.com/Sidsector9), [@vikrampm1](https://github.com/vikrampm1) via [#106](https://github.com/10up/convert-to-blocks/pull/106)).
+- Bump WordPress minimum supported version from 5.7 to 6.1 (props [@barneyjeffries](https://github.com/barneyjeffries), [@jeffpaul](https://github.com/jeffpaul), [@iamdharmesh](https://github.com/iamdharmesh), [@Sidsector9](https://github.com/Sidsector9), [@vikrampm1](https://github.com/vikrampm1) via [#106](https://github.com/10up/convert-to-blocks/pull/106)).
 - Bump WordPress "tested up to" version 6.2 (props [@Sidsector9](https://github.com/Sidsector9) via [#115](https://github.com/10up/convert-to-blocks/pull/115)).
 - Updated the Dependency Review GitHub Action (props [@jeffpaul](https://github.com/jeffpaul) via [#109](https://github.com/10up/convert-to-blocks/pull/109)).
 
