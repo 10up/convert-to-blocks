@@ -183,6 +183,21 @@ class MigrationAgent {
 			'ignore_sticky_posts' => true,
 		];
 
+		/**
+		 * Filter query parameters for the query to get the posts to be updated.
+		 *
+		 * @since 1.1.2
+		 *
+		 * @hook convert_to_blocks_update_posts_query_params
+		 *
+		 * @param {array} $query_params Array of query parameters.
+		 * @param {array} $post_type    Array with the post types.
+		 * @param {array} $opts         Optional opts.
+		 *
+		 * @return {array} Array of request arguments.
+		 */
+		$query_params = apply_filters( 'convert_to_blocks_update_posts_query_params', $query_params, $post_type, $opts );
+
 		if ( ! empty( $opts['only'] ) ) {
 			$post_in = explode( ',', $opts['only'] );
 			$post_in = array_map( 'intval', $post_in );

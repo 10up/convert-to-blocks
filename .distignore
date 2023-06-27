@@ -9,12 +9,7 @@
 /tests
 
 # Files
-.distignore
-.editorconfig
-.eslintignore
-.eslintrc
-.gitignore
-.npmrc
+.*
 babel.config.js
 CHANGELOG.md
 CODE_OF_CONDUCT.md

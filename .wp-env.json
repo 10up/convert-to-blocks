@@ -1,0 +1,6 @@
+{
+	"plugins": [ "." ],
+	"mappings": {
+		"sample-post.txt": "./tests/cypress/fixtures/sample-post.txt"
+	}
+}
