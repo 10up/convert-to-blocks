@@ -1,18 +1,27 @@
 name: Deploy to WordPress.org
+
 on:
   release:
     types: [published]
+
 jobs:
   tag:
     name: New release
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+
+    - name: Setup node version
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
     - name: Build
       run: |
         npm install
         npm run build
+
     - name: WordPress Plugin Deploy
       id: deploy
       uses: 10up/action-wordpress-plugin-deploy@stable
@@ -21,6 +30,7 @@ jobs:
       env:
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+
     - name: Upload release asset
       uses: actions/upload-release-asset@v1
       env:
