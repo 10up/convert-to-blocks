@@ -256,7 +256,7 @@ class Settings {
 			<p>
 				<?php
 				printf(
-					esc_html__( 'A filter hook (post_type_supports_convert_to_blocks) is already active.', 'convert-to-blocks' ),
+					esc_html__( 'A filter hook (post_type_supports_convert_to_blocks) is already active.', 'convert-to-blocks' )
 				);
 				?>
 			</p>
