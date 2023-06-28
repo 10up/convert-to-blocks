@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Bump WordPress minimum supported version from 5.7 to 6.1 (props [@barneyjeffries](https://github.com/barneyjeffries), [@jeffpaul](https://github.com/jeffpaul), [@iamdharmesh](https://github.com/iamdharmesh), [@Sidsector9](https://github.com/Sidsector9), [@vikrampm1](https://github.com/vikrampm1) via [#106](https://github.com/10up/convert-to-blocks/pull/106)).
 - Bump WordPress "tested up to" version 6.2 (props [@Sidsector9](https://github.com/Sidsector9) via [#115](https://github.com/10up/convert-to-blocks/pull/115)).
 - Updated the Dependency Review GitHub Action (props [@jeffpaul](https://github.com/jeffpaul) via [#109](https://github.com/10up/convert-to-blocks/pull/109)).
+- WordPress.org Deploy action updated to use Node 16 (props [@dkotter](https://github.com/dkotter) via [#116](https://github.com/10up/convert-to-blocks/pull/116)).
 
 ## [1.1.1] - 2023-01-05
 **Note that this release bumps the WordPress minimum version from 5.4 to 5.7 and the PHP minimum version from 7.0 to 7.4.**
@@ -105,6 +106,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Initial release of Convert to Blocks.
 
 [Unreleased]: https://github.com/10up/convert-to-blocks/compare/trunk...develop
+[1.2.0]: https://github.com/10up/convert-to-blocks/compare/1.1.1...1.2.0
 [1.1.1]: https://github.com/10up/convert-to-blocks/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/10up/convert-to-blocks/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/10up/convert-to-blocks/compare/1.0.1...1.0.2
