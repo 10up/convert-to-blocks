@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
+## [1.2.1] - 2023-06-28
+
+### Fixed
+- Parse error caused by a comma (props [@Sidsector9](https://github.com/Sidsector9) via [#123](https://github.com/10up/convert-to-blocks/pull/123)).
+
 ## [1.2.0] - 2023-06-27
 **Note that this release bumps the WordPress minimum version from 5.7 to 6.1 and the PHP minimum version from 7.4 to 8.0.**
 
