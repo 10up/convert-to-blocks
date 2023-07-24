@@ -254,11 +254,7 @@ class Settings {
 		?>
 		<div class="notice notice-warning is-dismissible">
 			<p>
-				<?php
-				printf(
-					esc_html__( 'A filter hook (post_type_supports_convert_to_blocks) is already active.', 'convert-to-blocks' )
-				);
-				?>
+				<?php esc_html_e( 'A filter hook (post_type_supports_convert_to_blocks) is already active.', 'convert-to-blocks' ); ?>
 			</p>
 		</div>
 		<?php
