@@ -3,7 +3,7 @@ Contributors:      10up, dsawardekar, tlovett1, jeffpaul
 Tags:              gutenberg, block, block migration, gutenberg migration, gutenberg conversion, convert to blocks
 Requires at least: 5.7
 Tested up to:      6.2
-Requires PHP:      7.4
+Requires PHP:      8.0
 Stable tag:        1.2.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
@@ -43,7 +43,8 @@ Nested / Inner Block support does not work with Gutenberg bundled with WordPress
 
 == Changelog ==
 
-= 1.2.1 - 2023-07-25 =
+= 1.2.1 - 2023-07-26 =
+* **Added:** More robust minimum PHP version check (props [@dkotter](https://github.com/dkotter), [@ravinderk](https://github.com/ravinderk) via [#129](https://github.com/10up/convert-to-blocks/pull/129)).
 * **Changed:** Bump minimum required PHP version from 7.4 to 8.0 in our `composer.json` config (props [@c0ntax](https://github.com/c0ntax), [@Sidsector9](https://github.com/Sidsector9) via [#122](https://github.com/10up/convert-to-blocks/pull/122)).
 * **Fixed:** Parse error caused by a comma (props [@Sidsector9](https://github.com/Sidsector9), [@iamdharmesh](https://github.com/iamdharmesh), [@ravinderk](https://github.com/ravinderk), [@felipeelia](https://github.com/felipeelia) via [#123](https://github.com/10up/convert-to-blocks/pull/123)).
 * **Security:** Bump `minimist` from 1.2.0 to 1.2.7 and `mkdirp` from 0.5.1 to 0.5.6 (props [@dependabot](https://github.com/apps/dependabot) via [#117](https://github.com/10up/convert-to-blocks/pull/117)).

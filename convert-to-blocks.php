@@ -5,7 +5,7 @@
  * Description:       Convert classic editor posts to blocks on the fly.
  * Version:           1.2.1
  * Requires at least: 6.1
- * Requires PHP:      8
+ * Requires PHP:      8.0
  * Author:            10up
  * Author URI:        https://10up.com
  * License:           GPLv2 or later
