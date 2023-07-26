@@ -1,6 +1,6 @@
 {
   "name": "convert-to-blocks",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Convert to Blocks is a WordPress plugin that transforms classic editor content to blocks on the fly.",
   "author": {
     "name": "10up",
@@ -53,7 +53,7 @@
     "@wordpress/env": "^5.13.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
-    "browser-sync": "^2.27.10",
+    "browser-sync": "^2.29.3",
     "browser-sync-webpack-plugin": "^2.2.2",
     "browserslist": "^4.16.5",
     "caniuse-db": "^1.0.30001019",

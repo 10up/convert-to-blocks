@@ -14,11 +14,11 @@ jobs:
     name: eslint
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: install node v12
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v3
+    - name: Install node
+      uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version-file: '.nvmrc'
     - name: npm install
       run: npm install
     - name: eslint
@@ -32,11 +32,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Set PHP version
-      uses: shivammathur/setup-php@v1
+      uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.4'
+        php-version: '8.0'
         coverage: none
         tools: phpcs
     - name: composer install
