@@ -5,7 +5,7 @@
  * Description:       Convert classic editor posts to blocks on the fly.
  * Version:           1.2.1
  * Requires at least: 6.1
- * Requires PHP:      8
+ * Requires PHP:      8.0
  * Author:            10up
  * Author URI:        https://10up.com
  * License:           GPLv2 or later
@@ -43,6 +43,52 @@ function convert_to_blocks_get_setting( $name ) {
 	}
 
 	return apply_filters( 'convert_to_blocks_setting_' . $name, constant( $name ), \get_current_blog_id() );
+}
+
+/**
+ * Get the minimum version of PHP required by this plugin.
+ *
+ * @since 1.2.1
+ *
+ * @return string Minimum version required.
+ */
+function convert_to_blocks_minimum_php_requirement() {
+	return '8.0';
+}
+
+/**
+ * Whether PHP installation meets the minimum requirements
+ *
+ * @since 1.2.1
+ *
+ * @return bool True if meets minimum requirements, false otherwise.
+ */
+function convert_to_blocks_site_meets_php_requirements() {
+	return version_compare( phpversion(), convert_to_blocks_minimum_php_requirement(), '>=' );
+}
+
+if ( ! convert_to_blocks_site_meets_php_requirements() ) {
+	add_action(
+		'admin_notices',
+		function() {
+			?>
+			<div class="notice notice-error">
+				<p>
+					<?php
+					echo wp_kses_post(
+						sprintf(
+							/* translators: %s: Minimum required PHP version */
+							__( 'Convert to Blocks requires PHP version %s or later. Please upgrade PHP or disable the plugin.', 'convert-to-blocks' ),
+							esc_html( convert_to_blocks_minimum_php_requirement() )
+						)
+					);
+					?>
+				</p>
+			</div>
+			<?php
+		}
+	);
+	return;
 }
 
 if ( file_exists( __DIR__ . '/config.test.php' ) && defined( 'PHPUNIT_RUNNER' ) ) {

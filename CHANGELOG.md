@@ -4,7 +4,10 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
-## [1.2.1] - 2023-07-25
+## [1.2.1] - 2023-07-26
+### Added
+- More robust minimum PHP version check (props [@dkotter](https://github.com/dkotter), [@ravinderk](https://github.com/ravinderk) via [#129](https://github.com/10up/convert-to-blocks/pull/129)).
+
 ### Changed
 - Bump minimum required PHP version from 7.4 to 8.0 in our `composer.json` config (props [@c0ntax](https://github.com/c0ntax), [@Sidsector9](https://github.com/Sidsector9) via [#122](https://github.com/10up/convert-to-blocks/pull/122)).
 
@@ -119,6 +122,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Initial release of Convert to Blocks.
 
 [Unreleased]: https://github.com/10up/convert-to-blocks/compare/trunk...develop
+[1.2.1]: https://github.com/10up/convert-to-blocks/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/10up/convert-to-blocks/compare/1.1.1...1.2.0
 [1.1.1]: https://github.com/10up/convert-to-blocks/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/10up/convert-to-blocks/compare/1.0.2...1.1.0
