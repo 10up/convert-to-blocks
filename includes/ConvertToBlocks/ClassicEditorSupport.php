@@ -45,15 +45,15 @@ class ClassicEditorSupport {
 	 * @return bool
 	 */
 	public function enable_block_editor( $enabled, $post ) {
-		if ( ! $this->container->post_supports_convert_to_blocks( $post ) ) {
-			return false;
-		}
-
 		if ( $this->container->has_classic_param() ) {
 			return false;
 		}
 
-		return true;
+		if ( $this->container->post_supports_convert_to_blocks( $post ) ) {
+			return true;
+		}
+
+		return $enabled;
 	}
 
 }
