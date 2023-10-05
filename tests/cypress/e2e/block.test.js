@@ -19,16 +19,16 @@ describe("Convert test content to blocks", () => {
 		cy.get('#the-list .row-title');
 		cy.contains( '#the-list .row-title', 'Classic Post' ).click();
 
-		cy.get( 'h2[data-type="core/heading"]' ).should('exist');
-		cy.get( 'h3[data-type="core/heading"]' ).should('exist');
-		cy.get( 'h4[data-type="core/heading"]' ).should('exist');
-		cy.get( 'h5[data-type="core/heading"]' ).should('exist');
-		cy.get( 'h6[data-type="core/heading"]' ).should('exist');
-		cy.get( 'p[data-type="core/paragraph"]' ).should('exist');
-		cy.get( '.wp-block-post-content p[data-type="core/paragraph"] a' ).should('exist');
-		cy.get( 'ul[data-type="core/list"]' ).should('exist');
-		cy.get( 'ol[data-type="core/list"]' ).should('exist');
-		cy.get( 'figure[data-type="core/image"]' ).should('exist');
-		cy.get( 'blockquote[data-type="core/quote"]' ).should('exist');
+		cy.getBlockEditor().find( 'h2[data-type="core/heading"]' ).should('exist');
+		cy.getBlockEditor().find( 'h3[data-type="core/heading"]' ).should('exist');
+		cy.getBlockEditor().find( 'h4[data-type="core/heading"]' ).should('exist');
+		cy.getBlockEditor().find( 'h5[data-type="core/heading"]' ).should('exist');
+		cy.getBlockEditor().find( 'h6[data-type="core/heading"]' ).should('exist');
+		cy.getBlockEditor().find( 'p[data-type="core/paragraph"]' ).should('exist');
+		cy.getBlockEditor().find( '.wp-block-post-content p[data-type="core/paragraph"] a' ).should('exist');
+		cy.getBlockEditor().find( 'ul[data-type="core/list"]' ).should('exist');
+		cy.getBlockEditor().find( 'ol[data-type="core/list"]' ).should('exist');
+		cy.getBlockEditor().find( 'figure[data-type="core/image"]' ).should('exist');
+		cy.getBlockEditor().find( 'blockquote[data-type="core/quote"]' ).should('exist');
 	});
 });
