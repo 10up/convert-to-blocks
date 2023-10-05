@@ -1,5 +1,5 @@
 describe("Convert test content to blocks", () => {
-	before(() => {
+	beforeEach(() => {
 		cy.login();
 	});
 
