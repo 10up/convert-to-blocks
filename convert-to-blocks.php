@@ -3,7 +3,7 @@
  * Plugin Name:       Convert to Blocks
  * Plugin URI:        https://github.com/10up/convert-to-blocks
  * Description:       Convert classic editor posts to blocks on the fly.
- * Version:           1.2.1
+ * Version:           1.2.2
  * Requires at least: 6.1
  * Requires PHP:      8.0
  * Author:            10up
