@@ -28,3 +28,7 @@ Thumbs.db
 Desktop.ini
 
 config.local.php
+
+tests/cypress/videos
+tests/cypress/screenshots
+tests/cypress/reports

@@ -1,6 +1,6 @@
 {
   "name": "convert-to-blocks",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Convert to Blocks is a WordPress plugin that transforms classic editor content to blocks on the fly.",
   "author": {
     "name": "10up",
@@ -25,6 +25,8 @@
     "wp-env": "wp-env",
     "env:start": "wp-env start",
     "env:stop": "wp-env stop",
+    "env:reset": "wp-env clean all",
+    "env:destroy": "wp-env destroy",
     "cypress:open": "cypress open --config-file tests/cypress/config.js --e2e --browser chrome",
     "cypress:run": "cypress run --config-file tests/cypress/config.js",
     "env": "wp-env",
@@ -45,12 +47,12 @@
     "url": "https://github.com/10up/convert-to-blocks"
   },
   "devDependencies": {
-    "@10up/cypress-wp-utils": "^0.1.0",
+    "@10up/cypress-wp-utils": "^0.2.0",
     "@10up/eslint-config": "^2.1.1",
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@babel/register": "^7.7.7",
-    "@wordpress/env": "^5.13.0",
+    "@wordpress/env": "^8.9.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.29.3",
@@ -61,7 +63,8 @@
     "copy-webpack-plugin": "^5.1.1",
     "core-js": "^3.6.1",
     "cssnano": "^5.1.14",
-    "cypress": "^10.11.0",
+    "cypress": "^13.3.0",
+    "cypress-mochawesome-reporter": "^3.6.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-airbnb-base": "^14.2.0",

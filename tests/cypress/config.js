@@ -1,40 +1,47 @@
 const { defineConfig } = require('cypress');
-const { readConfig }   = require('@wordpress/env/lib/config');
+const { loadConfig } = require('@wordpress/env/lib/config');
 
 module.exports = defineConfig({
-  fixturesFolder: 'tests/cypress/fixtures',
-  screenshotsFolder: 'tests/cypress/screenshots',
-  videosFolder: 'tests/cypress/videos',
-  downloadsFolder: 'tests/cypress/downloads',
-  video: true,
-  e2e: {
-    setupNodeEvents(on, config) {
-      return setBaseUrl(on, config);
-    },
-    specPattern: 'tests/cypress/e2e/**/*.test.{js,jsx,ts,tsx}',
-    supportFile: 'tests/cypress/support/e2e.js'
-  },
-  defaultCommandTimeout: 30000,
-  retries: 3
+	fixturesFolder: 'tests/cypress/fixtures',
+	screenshotsFolder: 'tests/cypress/screenshots',
+	videosFolder: 'tests/cypress/videos',
+	downloadsFolder: 'tests/cypress/downloads',
+	video: false,
+	e2e: {
+		setupNodeEvents(on, config) {
+			return setBaseUrl(on, config);
+		},
+		specPattern: 'tests/cypress/e2e/**/*.test.{js,jsx,ts,tsx}',
+		supportFile: 'tests/cypress/support/e2e.js',
+	},
+	reporter: 'mochawesome',
+	reporterOptions: {
+		mochaFile: 'mochawesome-[name]',
+		reportDir: 'tests/cypress/reports',
+		overwrite: false,
+		html: false,
+		json: true,
+	},
+	chromeWebSecurity: false
 });
 
 /**
  * Set WP URL as baseUrl in Cypress config.
- * 
+ *
  * @param {Function} on    function that used to register listeners on various events.
  * @param {object} config  Cypress Config object.
  * @returns config Updated Cypress Config object.
  */
 const setBaseUrl = async (on, config) => {
-  const wpEnvConfig = await readConfig('wp-env');
+	const wpEnvConfig = await loadConfig('../../');
 
-  if (wpEnvConfig) {
-    const port = wpEnvConfig.env.tests.port || null;
+	if (wpEnvConfig) {
+		const port = wpEnvConfig.env.tests.port || null;
 
-    if (port) {
-      config.baseUrl = wpEnvConfig.env.tests.config.WP_SITEURL;
-    }
-  }
+		if (port) {
+			config.baseUrl = wpEnvConfig.env.tests.config.WP_SITEURL;
+		}
+	}
 
-  return config;
+	return config;
 };
