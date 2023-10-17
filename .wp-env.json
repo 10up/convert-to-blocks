@@ -1,6 +1,11 @@
 {
-	"plugins": [ "." ],
-	"mappings": {
-		"sample-post.txt": "./tests/cypress/fixtures/sample-post.txt"
-	}
+  "plugins": ["."],
+  "env": {
+    "tests": {
+      "mappings": {
+        "sample-post.txt": "./tests/cypress/fixtures/sample-post.txt",
+        "wp-cli.yml": "./tests/bin/wp-cli.yml"
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 describe("Admin can login and open dashboard", () => {
-  before(() => {
+  beforeEach(() => {
     cy.login();
   });
 
