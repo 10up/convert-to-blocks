@@ -40,11 +40,20 @@ class ClassicEditorSupportTest extends \WP_UnitTestCase {
 		$GLOBALS['current_screen'] = null;
 	}
 
-	function test_it_will_disable_block_editor_if_post_does_not_support_gutenbridge() {
-		$this->post_supports = false;
-		$actual = $this->support->enable_block_editor( true, 1 );
+	function test_it_will_enable_block_editor_if_post_supports_gutenbridge() {
+		$this->post_supports = true;
+		$supports_editor = $this->support->enable_block_editor( true, 1 );
+		$not_supports_editor = $this->support->enable_block_editor( false, 1 );
 
-		$this->assertFalse( $actual );
+		$this->assertTrue( $supports_editor && $not_supports_editor );
+	}
+
+	function test_wont_alter_editor_support_if_post_does_not_support_gutenbridge() {
+		$this->post_supports = false;
+		$supports_editor = $this->support->enable_block_editor( true, 1 );
+		$not_supports_editor = $this->support->enable_block_editor( false, 1 );
+
+		$this->assertTrue( $supports_editor && ! $not_supports_editor );
 	}
 
 	function test_it_will_disable_block_editor_if_classic_query_param_is_present() {
