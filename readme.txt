@@ -2,7 +2,7 @@
 Contributors:      10up, dsawardekar, tlovett1, jeffpaul
 Tags:              gutenberg, block, block migration, gutenberg migration, gutenberg conversion, convert to blocks
 Requires at least: 5.7
-Tested up to:      6.3
+Tested up to:      6.4
 Requires PHP:      8.0
 Stable tag:        1.2.2
 License:           GPLv2 or later
