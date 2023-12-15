@@ -1,0 +1,33 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "\/wp-admin\/edit.php?post_type=post",
+	"preferredVersions": {
+		"php": "8.0",
+		"wp": "latest"
+	},
+	"phpExtensionBundles": ["kitchen-sink"],
+	"steps": [
+		{
+			"step": "login",
+			"username": "admin",
+			"password": "password"
+		},
+		{
+			"step": "importFile",
+			"file": {
+				"resource": "url",
+        "url": "https:\/\/raw.githubusercontent.com\/WordPress\/theme-test-data\/42c0fdc29d0055c276fc9fdd335a672a8133c605\/theme-preview.xml"
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginZipFile": {
+				"resource": "wordpress.org\/plugins",
+				"slug": "convert-to-blocks"
+			},
+			"options": {
+				"activate": true
+			}
+		}
+	]
+}
