@@ -2,7 +2,9 @@
 
 > Transforms classic editor content to blocks on-the-fly.
 
-[![Support Level](https://img.shields.io/badge/support-stable-blue.svg)](#support-level) [![Build Status](https://travis-ci.org/10up/convert-to-blocks.svg?branch=develop)](https://travis-ci.org/10up/convert-to-blocks) [![Release Version](https://img.shields.io/github/release/10up/convert-to-blocks.svg)](https://github.com/10up/convert-to-blocks/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/convert-to-blocks?label=WordPress) [![GPLv2 License](https://img.shields.io/github/license/10up/convert-to-blocks.svg)](https://github.com/10up/convert-to-blocks/blob/develop/LICENSE.md)
+[![Support Level](https://img.shields.io/badge/support-stable-blue.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/convert-to-blocks.svg)](https://github.com/10up/convert-to-blocks/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/convert-to-blocks?label=WordPress) [![GPLv2 License](https://img.shields.io/github/license/10up/convert-to-blocks.svg)](https://github.com/10up/convert-to-blocks/blob/develop/LICENSE.md)
+
+[![E2E test](https://github.com/10up/convert-to-blocks/actions/workflows/cypress.yml/badge.svg)](https://github.com/10up/convert-to-blocks/actions/workflows/cypress.yml) [![Linting](https://github.com/10up/convert-to-blocks/actions/workflows/lint.yml/badge.svg)](https://github.com/10up/convert-to-blocks/actions/workflows/lint.yml) [![Dependency Review](https://github.com/10up/convert-to-blocks/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/10up/convert-to-blocks/actions/workflows/dependency-review.yml)
 
 ## Overview
 
