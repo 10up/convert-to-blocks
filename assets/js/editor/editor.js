@@ -49,7 +49,7 @@ class ConvertToBlocksEditorSupport {
 				loaded = true;
 
 				// This delay allows Gutenberg to initialize legacy content into freeform blocks
-				setTimeout(() => {
+				window._wpLoadBlockEditor.then(function () {
 					const result = transformer.execute();
 					const config = window.convert_to_blocks_agent || false;
 
@@ -69,7 +69,7 @@ class ConvertToBlocksEditorSupport {
 					client.save();
 
 					return null;
-				}, 500);
+				});
 
 				return null;
 			},
