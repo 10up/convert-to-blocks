@@ -49,8 +49,8 @@ class ConvertToBlocksEditorSupport {
 				loaded = true;
 
 				// This delay allows Gutenberg to initialize legacy content into freeform blocks
-				window._wpLoadBlockEditor.then(function () {
-					const result = transformer.execute();
+				window._wpLoadBlockEditor.then(async () => {
+					const result = await transformer.execute();
 					const config = window.convert_to_blocks_agent || false;
 
 					// if no migration config, then ignore this request
