@@ -132,16 +132,17 @@ class ClassicBlockTransformer {
 				observer.timeoutId = setTimeout(() => {
 					observer.disconnect();
 					resolve();
-				}, 100);
+				}, 500);
 			});
 
+			observer.timeoutId = null;
 			observer.observe(block, { childList: true, subtree: true });
 
 			// We resolve if there is no DOM manipulations happening
 			setTimeout(() => {
 				observer.disconnect();
 				resolve();
-			}, 100);
+			}, 500);
 		});
 	}
 
