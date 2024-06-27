@@ -132,7 +132,7 @@ class ClassicBlockTransformer {
 				observer.timeoutId = setTimeout(() => {
 					observer.disconnect();
 					resolve();
-				}, 500);
+				}, convertToBlocks.post_save_delay);
 			});
 
 			observer.timeoutId = null;
@@ -142,7 +142,7 @@ class ClassicBlockTransformer {
 			setTimeout(() => {
 				observer.disconnect();
 				resolve();
-			}, 500);
+			}, convertToBlocks.post_save_delay);
 		});
 	}
 
