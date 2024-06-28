@@ -70,9 +70,7 @@ class ClassicBlockTransformer {
 				.replaceBlocks(block.clientId, gutenbergBlocks);
 
 			if (Array.isArray(gutenbergBlocks)) {
-				const promises = gutenbergBlocks.map((block) =>
-					this.waitForDOMManipulation(block.clientId),
-				);
+				const promises = gutenbergBlocks.map((block) => this.waitForDOMManipulation(block));
 				await Promise.all(promises);
 			}
 
@@ -83,15 +81,16 @@ class ClassicBlockTransformer {
 	}
 
 	/**
-	 * Waits for DOM manipulation to finish.
+	 * Waits for a block's DOM manipulation to finish.
 	 *
-	 * @param {string} clientId The block ID.
+	 * @param {string} block The block being converted.
 	 *
 	 * @returns {Promise<void>} A promise that resolves when DOM manipulation is detected or when no DOM manipulation happens.
 	 */
-	async waitForDOMManipulation(clientId = '') {
+	async waitForDOMManipulation(block = '') {
 		let iframeElement;
-		let block;
+		let blockEl;
+		const { clientId } = block;
 
 		// Resolves after the editor iframe canvas is inserted.
 		await new Promise((resolve) => {
@@ -113,9 +112,9 @@ class ClassicBlockTransformer {
 					iframeElement.contentDocument || iframeElement.contentWindow.document;
 
 				if (iframeDocument.body) {
-					block = iframeDocument.getElementById(`block-${clientId}`);
+					blockEl = iframeDocument.getElementById(`block-${clientId}`);
 
-					if (block) {
+					if (blockEl) {
 						clearInterval(intervalId);
 						resolve();
 					}
@@ -123,7 +122,7 @@ class ClassicBlockTransformer {
 			}, 100);
 		});
 
-		return new Promise((resolve) => {
+		await new Promise((resolve) => {
 			const observer = new MutationObserver((mutationList, observer) => {
 				if (observer.timeoutId) {
 					clearTimeout(observer.timeoutId);
@@ -132,18 +131,28 @@ class ClassicBlockTransformer {
 				observer.timeoutId = setTimeout(() => {
 					observer.disconnect();
 					resolve();
-				}, convertToBlocks.post_save_delay);
+				}, 100);
 			});
 
 			observer.timeoutId = null;
-			observer.observe(block, { childList: true, subtree: true });
+			observer.observe(blockEl, { childList: true, subtree: true });
 
 			// We resolve if there is no DOM manipulations happening
 			setTimeout(() => {
 				observer.disconnect();
 				resolve();
-			}, convertToBlocks.post_save_delay);
+			}, 100);
 		});
+
+		// Recursively call waitForDOMManipulation on inner blocks
+		if (block.innerBlocks && block.innerBlocks.length > 0) {
+			await Promise.all(
+				block.innerBlocks.map((innerBlock) => this.waitForDOMManipulation(innerBlock)),
+			);
+		}
+
+		// Return a resolved promise to ensure function returns a promise
+		return Promise.resolve();
 	}
 
 	/**

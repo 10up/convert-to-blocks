@@ -37,18 +37,6 @@ class Assets {
 			true
 		);
 
-		$localised_data = array(
-			/**
-			 * Use this filter to change the post save delay in milliseconds when
-			 * running the `wp convert-to-blocks start` command.
-			 *
-			 * The delay is helpful when gallery blocks don't convert properly.
-			 */
-			'post_save_delay' => apply_filters( 'convert_to_blocks_post_save_delay', 1000 ),
-		);
-
-		wp_add_inline_script( 'convert_to_blocks_editor', 'const convertToBlocks = ' . wp_json_encode( $localised_data ) . ';' );
-
 		add_action(
 			'enqueue_block_editor_assets',
 			[ $this, 'do_assets' ],

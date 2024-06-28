@@ -4,7 +4,6 @@
 		"module": true,
 		"process": true,
 		"wp": true,
-		"lodash": true,
-		"convertToBlocks": true
+		"lodash": true
 	}
 }
