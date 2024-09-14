@@ -10,7 +10,7 @@
 
 Convert to Blocks is a WordPress plugin that transforms classic editor content to blocks on-the-fly. After installing Gutenberg or upgrading to WordPress 5.0+, your content will be displayed in "Classic Editor Blocks". While these blocks are completely functional and will display fine on the frontend of your website, they do not empower editors to fully make use of the block editing experience. In order to do so, your classic editor posts need to be converted to blocks. This plugin does that for you "on the fly". When an editor goes to edit a classic post, the content will be parsed into blocks. When the editor saves the post, the new structure will be saved into the database. This strategy reduces risk as you are only altering database values for content that needs to be changed.
 
-When combined with the [Block Catalog Plugin](https://github.com/10up-block-catalog/block-catalog), Convert to Blocks can be used to bulk convert only classic editor content to blocks. This is especially useful for sites with a combination of classic and block editor content.
+When combined with the [Block Catalog Plugin](https://github.com/10up/block-catalog), Convert to Blocks can be used to bulk convert only classic editor content to blocks. This is especially useful for sites with a combination of classic and block editor content.
 
 ### Bulk migration of Classic Editor items to the Block Editor
 
