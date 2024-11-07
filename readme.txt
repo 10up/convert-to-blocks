@@ -1,7 +1,8 @@
 === Convert to Blocks ===
 Contributors:      10up, dsawardekar, tlovett1, jeffpaul
 Tags:              block, block migration, gutenberg migration, gutenberg conversion, convert to blocks
-Tested up to:      6.6
+Requires at least: 6.5
+Tested up to:      6.7
 Stable tag:        1.3.1
 License:           GPL-2.0-or-later
 License URI:       https://spdx.org/licenses/GPL-2.0-or-later.html
