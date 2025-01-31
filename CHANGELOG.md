@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
+## [1.3.2] - 2025-02-03
+### Changed
+- Bump WordPress "tested up to" version 6.7 (props [@colinswinney](https://github.com/colinswinney), [@jeffpaul](https://github.com/jeffpaul) via [#188](https://github.com/10up/convert-to-blocks/pull/188), [#190](https://github.com/10up/convert-to-blocks/pull/190)).
+
+### Security
+- Bump `axios` from 1.6.8 to 1.7.4 (props [@dependabot](https://github.com/apps/dependabot), [@dkotter](https://github.com/dkotter) via [#180](https://github.com/10up/convert-to-blocks/pull/180)).
+- Bump `webpack` from 5.91.0 to 5.94.0 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#181](https://github.com/10up/convert-to-blocks/pull/181)).
+- Bump `ws` from 7.5.10 to 8.18.0 and `@wordpress/scripts` from 27.8.0 to 30.4.0 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#182](https://github.com/10up/convert-to-blocks/pull/182), [#189](https://github.com/10up/convert-to-blocks/pull/189)).
+- Bump `express` from 4.19.2 to 4.21.0 (props [@dependabot](https://github.com/apps/dependabot), [@iamdharmesh](https://github.com/iamdharmesh) via [#185](https://github.com/10up/convert-to-blocks/pull/185)).
+
+### Developer
+- Fix broken link in the README (props [@GaryJones](https://github.com/GaryJones), [@dkotter](https://github.com/dkotter) via [#184](https://github.com/10up/convert-to-blocks/pull/184)).
+- Add banner image to the README and update existing badges (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#183](https://github.com/10up/convert-to-blocks/pull/183)).
+
 ## [1.3.1] - 2024-08-20
 **Note that this release bumps the WordPress minimum version from 6.3 to 6.4.**
 
@@ -167,6 +181,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Initial release of Convert to Blocks.
 
 [Unreleased]: https://github.com/10up/convert-to-blocks/compare/trunk...develop
+[1.3.2]: https://github.com/10up/convert-to-blocks/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/10up/convert-to-blocks/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/10up/convert-to-blocks/compare/1.2.1...1.3.0
 [1.2.2]: https://github.com/10up/convert-to-blocks/compare/1.2.1...1.2.2
