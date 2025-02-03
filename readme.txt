@@ -1,9 +1,8 @@
 === Convert to Blocks ===
 Contributors:      10up, dsawardekar, tlovett1, jeffpaul
 Tags:              block, block migration, gutenberg migration, gutenberg conversion, convert to blocks
-Requires at least: 6.5
 Tested up to:      6.7
-Stable tag:        1.3.1
+Stable tag:        1.3.2
 License:           GPL-2.0-or-later
 License URI:       https://spdx.org/licenses/GPL-2.0-or-later.html
 
@@ -41,6 +40,13 @@ Nested / Inner Block support does not work with Gutenberg bundled with WordPress
 1. Bulk migration using the `wp convert-to-blocks start` WP-CLI command that converts posts iteratively in the browser without requireing any manual input.
 
 == Changelog ==
+
+= 1.3.2 - 2025-02-03 =
+* **Changed:** Bump WordPress "tested up to" version 6.7 (props [@colinswinney](https://github.com/colinswinney), [@jeffpaul](https://github.com/jeffpaul) via [#188](https://github.com/10up/convert-to-blocks/pull/188), [#190](https://github.com/10up/convert-to-blocks/pull/190)).
+* **Security:** Bump `axios` from 1.6.8 to 1.7.4 (props [@dependabot](https://github.com/apps/dependabot), [@dkotter](https://github.com/dkotter) via [#180](https://github.com/10up/convert-to-blocks/pull/180)).
+* **Security:** Bump `webpack` from 5.91.0 to 5.94.0 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#181](https://github.com/10up/convert-to-blocks/pull/181)).
+* **Security:** Bump `ws` from 7.5.10 to 8.18.0 and `@wordpress/scripts` from 27.8.0 to 30.4.0 (props [@dependabot](https://github.com/apps/dependabot), [@faisal-alvi](https://github.com/faisal-alvi) via [#182](https://github.com/10up/convert-to-blocks/pull/182), [#189](https://github.com/10up/convert-to-blocks/pull/189)).
+* **Security:** Bump `express` from 4.19.2 to 4.21.0 (props [@dependabot](https://github.com/apps/dependabot), [@iamdharmesh](https://github.com/iamdharmesh) via [#185](https://github.com/10up/convert-to-blocks/pull/185)).
 
 = 1.3.1 - 2024-08-20 =
 * **Changed:** Bump WordPress "tested up to" version 6.6 (props [@sudip-md](https://github.com/sudip-md), [@jeffpaul](https://github.com/jeffpaul), [@Sidsector9](https://github.com/Sidsector9), [@ankitguptaindia](https://github.com/ankitguptaindia) via [#174](https://github.com/10up/convert-to-blocks/pull/174)).
