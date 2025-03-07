@@ -266,9 +266,13 @@ class Settings {
 	 * Adds Settings link to the plugin list.
 	 *
 	 * @param array $links Array of links.
-	 * @return array
+	 * @return mixed
 	 */
-	public function add_settings_link( $links ): array {
+	public function add_settings_link( $links ): mixed {
+		if ( ! is_array( $links ) ) {
+			return $links;
+		}
+
 		$settings_link = sprintf(
 			'<a href="%s">%s</a>',
 			esc_url(
