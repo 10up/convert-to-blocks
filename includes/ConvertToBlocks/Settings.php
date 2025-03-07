@@ -53,7 +53,6 @@ class Settings {
 	public function register() {
 		// Configure variables and get post types.
 		$this->init();
-		$plugin_file = sprintf( '%1$s/%1$s.php', CONVERT_TO_BLOCKS_SLUG );
 
 		add_action( 'admin_menu', [ $this, 'add_menu' ] );
 		add_action( 'admin_init', [ $this, 'register_section' ], 10 );
