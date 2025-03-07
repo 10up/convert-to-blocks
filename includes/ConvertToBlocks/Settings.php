@@ -58,6 +58,7 @@ class Settings {
 		add_action( 'admin_init', [ $this, 'register_section' ], 10 );
 		add_action( 'admin_init', [ $this, 'register_fields' ], 20 );
 		add_action( 'admin_notices', [ $this, 'filter_notice' ], 10 );
+		add_filter( 'plugin_action_links', [ $this, 'add_settings_link' ], 10, 2 );
 	}
 
 	/**
@@ -258,6 +259,35 @@ class Settings {
 			</p>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Adds Settings link to the plugin list.
+	 *
+	 * @param array  $links       Array of links.
+	 * @param string $plugin_file Plugin file.
+	 *
+	 * @return array
+	 */
+	public function add_settings_link( $links, $plugin_file ): array {
+		if ( sprintf( '%1$s/%1$s.php', CONVERT_TO_BLOCKS_SLUG ) !== $plugin_file ) {
+			return $links;
+		}
+
+		$settings_link = sprintf(
+			'<a href="%s">%s</a>',
+			esc_url(
+				add_query_arg(
+					[
+						'page' => CONVERT_TO_BLOCKS_SLUG,
+					],
+					admin_url( 'options-general.php' )
+				)
+			),
+			esc_html__( 'Settings', 'convert-to-blocks' )
+		);
+
+		return [ $settings_link, ...$links ];
 	}
 
 }
