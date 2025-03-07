@@ -59,7 +59,7 @@ class Settings {
 		add_action( 'admin_init', [ $this, 'register_section' ], 10 );
 		add_action( 'admin_init', [ $this, 'register_fields' ], 20 );
 		add_action( 'admin_notices', [ $this, 'filter_notice' ], 10 );
-		add_filter( "plugin_action_links_{$plugin_file}", [ $this, 'add_settings_link' ] );
+		add_filter( 'plugin_action_links_' . CONVERT_TO_BLOCKS_PLUGIN_BASENAME, [ $this, 'add_settings_link' ] );
 	}
 
 	/**
