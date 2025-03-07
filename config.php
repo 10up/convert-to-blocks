@@ -19,6 +19,7 @@ convert_to_blocks_define( 'CONVERT_TO_BLOCKS_DIR', plugin_dir_path( __FILE__ ) )
 convert_to_blocks_define( 'CONVERT_TO_BLOCKS_URL', plugin_dir_url( __FILE__ ) );
 convert_to_blocks_define( 'CONVERT_TO_BLOCKS_SLUG', 'convert-to-blocks' );
 convert_to_blocks_define( 'CONVERT_TO_BLOCKS_DEFAULT_POST_TYPES', [ 'post', 'page' ] );
+convert_to_blocks_define( 'CONVERT_TO_BLOCKS_PLUGIN_BASENAME', plugin_basename( __DIR__ . '/convert-to-blocks.php' ) );
 
 /* Labels */
 
