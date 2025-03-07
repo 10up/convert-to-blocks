@@ -53,12 +53,13 @@ class Settings {
 	public function register() {
 		// Configure variables and get post types.
 		$this->init();
+		$plugin_file = sprintf( '%1$s/%1$s.php', CONVERT_TO_BLOCKS_SLUG );
 
 		add_action( 'admin_menu', [ $this, 'add_menu' ] );
 		add_action( 'admin_init', [ $this, 'register_section' ], 10 );
 		add_action( 'admin_init', [ $this, 'register_fields' ], 20 );
 		add_action( 'admin_notices', [ $this, 'filter_notice' ], 10 );
-		add_filter( 'plugin_action_links', [ $this, 'add_settings_link' ], 10, 2 );
+		add_filter( "plugin_action_links_{$plugin_file}", [ $this, 'add_settings_link' ] );
 	}
 
 	/**
@@ -264,16 +265,10 @@ class Settings {
 	/**
 	 * Adds Settings link to the plugin list.
 	 *
-	 * @param array  $links       Array of links.
-	 * @param string $plugin_file Plugin file.
-	 *
+	 * @param array $links Array of links.
 	 * @return array
 	 */
-	public function add_settings_link( $links, $plugin_file ): array {
-		if ( sprintf( '%1$s/%1$s.php', CONVERT_TO_BLOCKS_SLUG ) !== $plugin_file ) {
-			return $links;
-		}
-
+	public function add_settings_link( $links ): array {
 		$settings_link = sprintf(
 			'<a href="%s">%s</a>',
 			esc_url(
