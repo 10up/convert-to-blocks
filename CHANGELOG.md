@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file, per [the Keep a Changelog standard](http://keepachangelog.com/), and will adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] - TBD
+- Add plugin page link to settings page (props [@badasswp](https://github.com/badasswp) via [#195](https://github.com/10up/convert-to-blocks/pull/195)).
 
 ## [1.3.2] - 2025-02-03
 ### Changed
