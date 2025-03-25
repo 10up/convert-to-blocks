@@ -13,33 +13,42 @@ jobs:
   eslint:
     name: eslint
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
     - name: Install node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
       with:
         node-version-file: '.nvmrc'
+
     - name: npm install
       run: npm install
+
     - name: eslint
-      uses: icrawl/action-eslint@v1
+      uses: icrawl/action-eslint@ff2a58dcbc1aaec51815d58e8bf70962c4f2b557 # v1
       with:
         custom-glob: assets
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   phpcs:
     name: phpcs
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
     - name: Set PHP version
-      uses: shivammathur/setup-php@v2
+      uses: shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401 # v2.32.0
       with:
         php-version: '8.0'
         coverage: none
         tools: phpcs
+
     - name: composer install
       run: composer install
+
     - name: PHPCS check
       run: './vendor/bin/phpcs .'
