@@ -101,10 +101,10 @@ class PostTypeColumnSupport {
 		// phpcs:disable
 		if ( $this->is_block_editor_post( $post_id ) ) {
 			$icon  = $this->get_block_editor_column_icon();
-			$title = __( BLOCK_EDITOR_LABEL, 'convert-to-blocks' );
+			$title = __( 'Block Editor', 'convert-to-blocks' );
 		} else {
 			$icon  = $this->get_classic_editor_column_icon();
-			$title = __( CLASSIC_EDITOR_LABEL, 'convert-to-blocks' );
+			$title = __(  'Classic Editor', 'convert-to-blocks' );
 		}
 		// phpcs:enable
 
