@@ -88,7 +88,7 @@ class RESTSupport {
 
 		if ( 'edit' === $context ) {
 			$data = $response->get_data();
-			$raw  = $data['content']['raw'];
+			$raw  = $data['content']['raw'] ?? '';
 
 			$updated                = apply_filters( 'convert_to_blocks_raw_transform', $raw, $post, $request );
 			$data['content']['raw'] = $updated;

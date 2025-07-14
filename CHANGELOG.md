@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
+## [1.3.3] - 2025-07-14
+**Note that this release bumps the WordPress minimum version from 6.5 to 6.6.**
+
+### Added
+- Link to settings page from the plugin list page (props [@badasswp](https://github.com/badasswp), [@dkotter](https://github.com/dkotter) via [#195](https://github.com/10up/convert-to-blocks/pull/195)).
+
+### Changed
+- Bump WordPress "tested up to" version 6.8 (props [@jeffpaul](https://github.com/jeffpaul) via [#199](https://github.com/10up/convert-to-blocks/pull/199), [#200](https://github.com/10up/convert-to-blocks/pull/200)).
+- Bump WordPress minimum supported version to 6.6 (props [@jeffpaul](https://github.com/jeffpaul) via [#199](https://github.com/10up/convert-to-blocks/pull/199), [#200](https://github.com/10up/convert-to-blocks/pull/200)).
+
+### Fixed
+- Fix PHP warning due to undefined array key (props [@sksaju](https://github.com/sksaju), [@dkotter](https://github.com/dkotter) via [#202](https://github.com/10up/convert-to-blocks/pull/202)).
+- i18n functions being called too early, causing PHP Notices (props [@stormrockwell](https://github.com/stormrockwell), [@dkotter](https://github.com/dkotter), [@dsawardekar](https://github.com/dsawardekar) via [#203](https://github.com/10up/convert-to-blocks/pull/203)).
+
+### Security
+- Bump `cookie` from 0.4.2 to 0.7.1, `express` from 4.21.0 to 4.21.2, `@wordpress/e2e-test-utils-playwright` from 1.7.0 to 1.18.0, `serialize-javascript` from 6.0.0 to 6.0.2 and `mocha` from 10.4.0 to 11.1.0 (props [@dependabot](https://github.com/apps/dependabot), [@Sidsector9](https://github.com/Sidsector9) via [#194](https://github.com/10up/convert-to-blocks/pull/194)).
+- Bump `axios` from 1.7.4 to 1.8.3 (props [@dependabot](https://github.com/apps/dependabot), [@iamdharmesh](https://github.com/iamdharmesh) via [#196](https://github.com/10up/convert-to-blocks/pull/196)).
+- Bump `http-proxy-middleware` from 2.0.6 to 2.0.9 and `tar-fs` from 3.0.8 to 3.1.0 (props [@dependabot](https://github.com/apps/dependabot), [@dkotter](https://github.com/dkotter) via [#206](https://github.com/10up/convert-to-blocks/pull/206)).
+
+### Developer
+- Update all third-party actions our workflows rely on to use versions based on specific commit hashes (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#197](https://github.com/10up/convert-to-blocks/pull/197)).
+- Ensure our GitHub Actions all have proper permissions (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#204](https://github.com/10up/convert-to-blocks/pull/204)).
+
 ## [1.3.2] - 2025-02-03
 ### Changed
 - Bump WordPress "tested up to" version 6.7 (props [@colinswinney](https://github.com/colinswinney), [@jeffpaul](https://github.com/jeffpaul) via [#188](https://github.com/10up/convert-to-blocks/pull/188), [#190](https://github.com/10up/convert-to-blocks/pull/190)).
@@ -181,6 +204,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Initial release of Convert to Blocks.
 
 [Unreleased]: https://github.com/10up/convert-to-blocks/compare/trunk...develop
+[1.3.3]: https://github.com/10up/convert-to-blocks/compare/1.3.2...1.3.3
 [1.3.2]: https://github.com/10up/convert-to-blocks/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/10up/convert-to-blocks/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/10up/convert-to-blocks/compare/1.2.1...1.3.0

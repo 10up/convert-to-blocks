@@ -8,6 +8,8 @@ on:
   pull_request:
     branches:
       - develop
+permissions:
+  contents: read
 jobs:
   cypress:
     name: ${{ matrix.core.name }}
@@ -16,31 +18,40 @@ jobs:
       matrix:
         core:
           - {name: 'WP latest', version: 'latest', continue: false}
-          - {name: 'WP minimum', version: 'WordPress/WordPress#6.5', continue: false}
+          - {name: 'WP minimum', version: 'WordPress/WordPress#6.6', continue: false}
           - {name: 'WP trunk', version: 'WordPress/WordPress#master', continue: true}
+
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
     - name: Install dependencies
       run: npm ci
+
     - name: Composer (optional)
       run: composer install
       continue-on-error: true
-    - uses: actions/setup-node@v4
+
+    - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
       with:
         node-version-file: '.nvmrc'
+
     - name: Build (optional)
       run: npm ci && npm run build
       continue-on-error: true
+
     - name: Set the core version
       run: ./tests/bin/set-core-version.js ${{ matrix.core.version }}
+
     - name: Set up WP environment
       run: npm run env:start
+
     - name: Test
       run: npm run cypress:run
       continue-on-error: ${{ matrix.core.continue }}
+
     - name: Make artifacts available
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1 # v4.6.1
       if: failure()
       with:
         name: cypress-artifact

@@ -1,9 +1,8 @@
 === Convert to Blocks ===
 Contributors:      10up, dsawardekar, tlovett1, jeffpaul
 Tags:              block, block migration, gutenberg migration, gutenberg conversion, convert to blocks
-Requires at least: 6.6
 Tested up to:      6.8
-Stable tag:        1.3.2
+Stable tag:        1.3.3
 License:           GPL-2.0-or-later
 License URI:       https://spdx.org/licenses/GPL-2.0-or-later.html
 
@@ -42,6 +41,16 @@ Nested / Inner Block support does not work with Gutenberg bundled with WordPress
 
 == Changelog ==
 
+= 1.3.3 - 2025-07-14 =
+* **Added:** Link to settings page from the plugin list page (props [@badasswp](https://github.com/badasswp), [@dkotter](https://github.com/dkotter) via [#195](https://github.com/10up/convert-to-blocks/pull/195)).
+* **Changed:** Bump WordPress "tested up to" version 6.8 (props [@jeffpaul](https://github.com/jeffpaul) via [#199](https://github.com/10up/convert-to-blocks/pull/199), [#200](https://github.com/10up/convert-to-blocks/pull/200)).
+* **Changed:** Bump WordPress minimum supported version to 6.6 (props [@jeffpaul](https://github.com/jeffpaul) via [#199](https://github.com/10up/convert-to-blocks/pull/199), [#200](https://github.com/10up/convert-to-blocks/pull/200)).
+* **Fixed:** Fix PHP warning due to undefined array key (props [@sksaju](https://github.com/sksaju), [@dkotter](https://github.com/dkotter) via [#202](https://github.com/10up/convert-to-blocks/pull/202)).
+* **Fixed:** i18n functions being called too early, causing PHP Notices (props [@stormrockwell](https://github.com/stormrockwell), [@dkotter](https://github.com/dkotter), [@dsawardekar](https://github.com/dsawardekar) via [#203](https://github.com/10up/convert-to-blocks/pull/203)).
+* **Security:** Bump `cookie` from 0.4.2 to 0.7.1, `express` from 4.21.0 to 4.21.2, `@wordpress/e2e-test-utils-playwright` from 1.7.0 to 1.18.0, `serialize-javascript` from 6.0.0 to 6.0.2 and `mocha` from 10.4.0 to 11.1.0 (props [@dependabot](https://github.com/apps/dependabot), [@Sidsector9](https://github.com/Sidsector9) via [#194](https://github.com/10up/convert-to-blocks/pull/194)).
+* **Security:** Bump `axios` from 1.7.4 to 1.8.3 (props [@dependabot](https://github.com/apps/dependabot), [@iamdharmesh](https://github.com/iamdharmesh) via [#196](https://github.com/10up/convert-to-blocks/pull/196)).
+* **Security:** Bump `http-proxy-middleware` from 2.0.6 to 2.0.9 and `tar-fs` from 3.0.8 to 3.1.0 (props [@dependabot](https://github.com/apps/dependabot), [@dkotter](https://github.com/dkotter) via [#206](https://github.com/10up/convert-to-blocks/pull/206)).
+
 = 1.3.2 - 2025-02-03 =
 * **Changed:** Bump WordPress "tested up to" version 6.7 (props [@colinswinney](https://github.com/colinswinney), [@jeffpaul](https://github.com/jeffpaul) via [#188](https://github.com/10up/convert-to-blocks/pull/188), [#190](https://github.com/10up/convert-to-blocks/pull/190)).
 * **Security:** Bump `axios` from 1.6.8 to 1.7.4 (props [@dependabot](https://github.com/apps/dependabot), [@dkotter](https://github.com/dkotter) via [#180](https://github.com/10up/convert-to-blocks/pull/180)).
@@ -68,57 +77,12 @@ Nested / Inner Block support does not work with Gutenberg bundled with WordPress
 * **Security:** Bump `@babel/traverse` from 7.11.5 to 7.23.7 (props [@dependabot](https://github.com/apps/dependabot), [@dkotter](https://github.com/dkotter) via [#155](https://github.com/10up/convert-to-blocks/pull/155)).
 * **Security:** Remove old dependencies in favor of using `@wordpress/scripts` in our build workflow (props [@Sidsector9](https://github.com/Sidsector9), [@dkotter](https://github.com/dkotter) via [#167](https://github.com/10up/convert-to-blocks/pull/167)).
 
-= 1.2.2 - 2023-10-16 =
-* **Changed:** Bump WordPress "tested up to" version to 6.3 (props [@kmgalanakis](https://github.com/kmgalanakis), [@faisal-alvi](https://github.com/faisal-alvi), [@jeffpaul](https://github.com/jeffpaul), [@peterwilsoncc](https://github.com/peterwilsoncc) via [#132](https://github.com/10up/convert-to-blocks/pull/132), [#134](https://github.com/10up/convert-to-blocks/pull/134)
-* **Security:** Bump `@cypress/request` from 2.88.11 to 3.0.1 and `cypress` from 10.11.0 to 13.3.0 (props [@dependabot](https://github.com/apps/dependabot), [@iamdharmesh](https://github.com/apps/iamdharmesh), [@ravinderk](https://github.com/apps/ravinderk) via [#138](https://github.com/10up/convert-to-blocks/pull/138)).
-* **Security:** Bump `postcss` from 8.4.20 to 8.4.31 (props [@dependabot](https://github.com/apps/dependabot), [@dkotter](https://github.com/apps/dkotter) via [#139](https://github.com/10up/convert-to-blocks/pull/139)).
-* **Security:** Bump `fsevents` from 1.2.9 to 1.2.13 (props [@dependabot](https://github.com/apps/dependabot), [@ravinderk](https://github.com/apps/ravinderk) via [#140](https://github.com/10up/convert-to-blocks/pull/140)).
-
-= 1.2.1 - 2023-07-26 =
-* **Added:** More robust minimum PHP version check (props [@dkotter](https://github.com/dkotter), [@ravinderk](https://github.com/ravinderk) via [#129](https://github.com/10up/convert-to-blocks/pull/129)).
-* **Changed:** Bump minimum required PHP version from 7.4 to 8.0 in our `composer.json` config (props [@c0ntax](https://github.com/c0ntax), [@Sidsector9](https://github.com/Sidsector9) via [#122](https://github.com/10up/convert-to-blocks/pull/122)).
-* **Fixed:** Parse error caused by a comma (props [@Sidsector9](https://github.com/Sidsector9), [@iamdharmesh](https://github.com/iamdharmesh), [@ravinderk](https://github.com/ravinderk), [@felipeelia](https://github.com/felipeelia) via [#123](https://github.com/10up/convert-to-blocks/pull/123)).
-* **Security:** Bump `minimist` from 1.2.0 to 1.2.7 and `mkdirp` from 0.5.1 to 0.5.6 (props [@dependabot](https://github.com/apps/dependabot) via [#117](https://github.com/10up/convert-to-blocks/pull/117)).
-* **Security:** Bump `ini` from 1.3.5 to 1.3.8 (props [@dependabot](https://github.com/apps/dependabot) via [#119](https://github.com/10up/convert-to-blocks/pull/119)).
-* **Security:** Bump `browser-sync` from 2.27.10 to 2.29.3 and removes `qs` (props [@dependabot](https://github.com/apps/dependabot) via [#120](https://github.com/10up/convert-to-blocks/pull/120)).
-* **Security:** Bump `word-wrap` from 1.2.3 to 1.2.5 (props [@dependabot](https://github.com/apps/dependabot) via [#127](https://github.com/10up/convert-to-blocks/pull/127)).
-
-= 1.2.0 - 2023-06-27 =
-**Note that this release bumps the WordPress minimum version from 5.7 to 6.1 and the PHP minimum version from 7.4 to 8.0.**
-
-* **Added:** Settings UI for managing supported post types (props [@akshitsethi](https://github.com/akshitsethi), [@dinhtungdu](https://github.com/dinhtungdu), [@Sidsector9](https://github.com/Sidsector9), [@jayedul](https://github.com/jayedul), [@dsawardekar](https://github.com/dsawardekar), [@terrance-orletsky-d7](https://github.com/terrance-orletsky-d7), [@ouun](https://github.com/ouun) via [#66](https://github.com/10up/convert-to-blocks/pull/66), [#104](https://github.com/10up/convert-to-blocks/pull/104), [#112](https://github.com/10up/convert-to-blocks/pull/112), [#114](https://github.com/10up/convert-to-blocks/pull/114)).
-* **Added:** Filter hook `convert_to_blocks_update_posts_query_params` to modify `WP_Query` parameters to query posts that need to be migrated (props [@kmgalanakis](https://github.com/kmgalanakis), [@Sidsector9](https://github.com/Sidsector9), [@sanketio](https://github.com/sanketio) via [#113](https://github.com/10up/convert-to-blocks/pull/113)).
-* **Added:** Cypress end-to-end tests (props [@barneyjeffries](https://github.com/barneyjeffries), [@jeffpaul](https://github.com/jeffpaul), [@iamdharmesh](https://github.com/iamdharmesh), [@Sidsector9](https://github.com/Sidsector9), [@vikrampm1](https://github.com/vikrampm1) via [#106](https://github.com/10up/convert-to-blocks/pull/106)).
-* **Changed:** Bump PHP minimum supported version from 7.4 to 8.0 (props [@barneyjeffries](https://github.com/barneyjeffries), [@jeffpaul](https://github.com/jeffpaul), [@iamdharmesh](https://github.com/iamdharmesh), [@Sidsector9](https://github.com/Sidsector9), [@vikrampm1](https://github.com/vikrampm1) via [#106](https://github.com/10up/convert-to-blocks/pull/106)).
-* **Changed:** Bump WordPress minimum supported version from 5.7 to 6.1 (props [@barneyjeffries](https://github.com/barneyjeffries), [@jeffpaul](https://github.com/jeffpaul), [@iamdharmesh](https://github.com/iamdharmesh), [@Sidsector9](https://github.com/Sidsector9), [@vikrampm1](https://github.com/vikrampm1) via [#106](https://github.com/10up/convert-to-blocks/pull/106)).
-* **Changed:** Bump WordPress "tested up to" version 6.2 (props [@Sidsector9](https://github.com/Sidsector9) via [#115](https://github.com/10up/convert-to-blocks/pull/115)).
-* **Changed:** Updated the Dependency Review GitHub Action (props [@jeffpaul](https://github.com/jeffpaul) via [#109](https://github.com/10up/convert-to-blocks/pull/109)).
-* **Changed:** WordPress.org Deploy action updated to use Node 16 (props [@dkotter](https://github.com/dkotter) via [#116](https://github.com/10up/convert-to-blocks/pull/116)).
-
-= 1.1.1 - 2023-01-05 =
-**Note that this version bumps the minimum PHP version from 7.0 to 7.4 and the minimum WordPress version from 5.4 to 5.7.**
-
-* **Added:** Bulk migration demo to readme (props [@jeffpaul](https://github.com/jeffpaul), [@dsawardekar](https://github.com/dsawardekar) via [#79](https://github.com/10up/convert-to-blocks/pull/79)).
-* **Added:** Release build GitHub Action to build a release zip used for testing (props [@dkotter](https://github.com/dkotter) via [#98](https://github.com/10up/convert-to-blocks/pull/98)).
-* **Changed:** Bump WordPress minimum version from 5.4 to 5.7 and PHP minimum version from 7.0 to 7.4 (props [@zamanq](https://github.com/zamanq), [@jeffpaul](https://github.com/jeffpaul), [@faisal-alvi](https://github.com/faisal-alvi), [@mehul0810](https://github.com/mehul0810) via [#80](https://github.com/10up/convert-to-blocks/pull/80)).
-* **Changed:** Bump WordPress "tested up to" version to 6.1 props [@peterwilsoncc](https://github.com/peterwilsoncc), [@faisal-alvi](https://github.com/faisal-alvi), [@cadic](https://github.com/cadic) via [#88](https://github.com/10up/convert-to-blocks/pull/88), [#91](https://github.com/10up/convert-to-blocks/pull/91)).
-* **Removed:** `is-svg` as it is no longer used after updating ancestor dependency `postcss-svgo` (props [@dependabot](https://github.com/apps/dependabot) via [#85](https://github.com/10up/convert-to-blocks/pull/85)).
-* **Fixed:** WP-CLI helptext that is causing an unknown parameter error (props [@dsawardekar](https://github.com/dsawardekar), [@jeffpaul](https://github.com/jeffpaul), [@norcross](https://github.com/norcross) via [#78](https://github.com/10up/convert-to-blocks/pull/78)).
-* **Security:** Bump `socket.io-parser` from 3.2.0 to 4.2.1 and `browser-sync` from 2.26.7 to 2.27.10 (props [@dependabot](https://github.com/apps/dependabot) via [#81](https://github.com/10up/convert-to-blocks/pull/81)).
-* **Security:** Bump `minimatch` from 3.0.4 to 3.1.2 (props [@dependabot](https://github.com/apps/dependabot) via [#82](https://github.com/10up/convert-to-blocks/pull/82)).
-* **Security:** Bump `nth-check` from 1.0.2 to 2.1.1 and `cssnano` from 4.1.10 to 5.1.14 (props [@dependabot](https://github.com/apps/dependabot) via [#84](https://github.com/10up/convert-to-blocks/pull/84)).
-* **Security:** Bump `postcss-svgo` from 4.0.2 to 4.0.3 (props [@dependabot](https://github.com/apps/dependabot) via [#85](https://github.com/10up/convert-to-blocks/pull/85)).
-* **Security:** Bump `minimist` from 1.2.0 to 1.2.7 and `mkdirp` from 0.5.1 to 0.5.6 (props [@dependabot](https://github.com/apps/dependabot) via [#86](https://github.com/10up/convert-to-blocks/pull/86)).
-* **Security:** Bump `loader-utils` from 1.2.3 to 1.4.2 and `webpack-cli` from 3.3.10 to 3.3.12 (props [@dependabot](https://github.com/apps/dependabot) via [#89](https://github.com/10up/convert-to-blocks/pull/89)).
-* **Security:** Bump `glob-parent` from 5.1.0 to 5.1.2 and `watchpack` from 1.6.0 to 1.7.5 (props [@dependabot](https://github.com/apps/dependabot) via [#90](https://github.com/10up/convert-to-blocks/pull/90)).
-* **Security:** Bump `kind-of` from 6.0.2 to 6.0.3 (props [@dependabot](https://github.com/apps/dependabot) via [#93](https://github.com/10up/convert-to-blocks/pull/93)).
-* **Security:** Bump `serialize-javascript` from 2.1.2 to 4.0.0 and `terser-webpack-plugin` from 1.4.3 to 1.4.5 (props [@dependabot](https://github.com/apps/dependabot) via [#94](https://github.com/10up/convert-to-blocks/pull/94)).
-* **Security:** Bump `engine.io` from 6.2.0 to 6.2.1 (props [@dependabot](https://github.com/apps/dependabot) via [#95](https://github.com/10up/convert-to-blocks/pull/95)).
-* **Security:** Bump `decode-uri-component` from 0.2.0 to 0.2.2 (props [@dependabot](https://github.com/apps/dependabot) via [#97](https://github.com/10up/convert-to-blocks/pull/97)).
-
 [View historical changelog details here](https://github.com/10up/convert-to-blocks/blob/develop/CHANGELOG.md).
 
 == Upgrade Notice ==
+
+= 1.3.3 =
+Note that this release bumps the WordPress minimum version from 6.5 to 6.6.
 
 = 1.3.1 =
 Note that this release bumps the WordPress minimum version from 6.3 to 6.4.
