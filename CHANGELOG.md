@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
+## [1.3.4] - 2025-07-15
+### Fixed
+- Ensure no PHP error is thrown on the plugin list screen when running PHP 8.0 (props [@dinhac](https://wordpress.org/support/users/dinhac/), [@dkotter](https://github.com/dkotter), [@faisal-alvi](https://github.com/faisal-alvi) via [#210](https://github.com/10up/convert-to-blocks/pull/210)).
+
+### Developer
+- Ensure our final release asset gets attached properly to the release (props [@dkotter](https://github.com/dkotter) via [#209](https://github.com/10up/convert-to-blocks/pull/209)).
+
 ## [1.3.3] - 2025-07-14
 **Note that this release bumps the WordPress minimum version from 6.5 to 6.6.**
 
@@ -204,6 +211,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - Initial release of Convert to Blocks.
 
 [Unreleased]: https://github.com/10up/convert-to-blocks/compare/trunk...develop
+[1.3.4]: https://github.com/10up/convert-to-blocks/compare/1.3.3...1.3.4
 [1.3.3]: https://github.com/10up/convert-to-blocks/compare/1.3.2...1.3.3
 [1.3.2]: https://github.com/10up/convert-to-blocks/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/10up/convert-to-blocks/compare/1.3.0...1.3.1
