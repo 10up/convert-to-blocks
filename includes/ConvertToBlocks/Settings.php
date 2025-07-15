@@ -272,20 +272,21 @@ class Settings {
 			return $links;
 		}
 
-		$settings_link = sprintf(
-			'<a href="%s">%s</a>',
-			esc_url(
-				add_query_arg(
-					[
-						'page' => CONVERT_TO_BLOCKS_SLUG,
-					],
-					admin_url( 'options-general.php' )
-				)
+		$action_links = [
+			'settings' => sprintf(
+				'<a href="%s">%s</a>',
+				esc_url(
+					add_query_arg(
+						[
+							'page' => CONVERT_TO_BLOCKS_SLUG,
+						],
+						admin_url( 'options-general.php' )
+					)
+				),
+				esc_html__( 'Settings', 'convert-to-blocks' )
 			),
-			esc_html__( 'Settings', 'convert-to-blocks' )
-		);
+		];
 
-		return [ $settings_link, ...$links ];
+		return array_merge( $action_links, $links );
 	}
-
 }
