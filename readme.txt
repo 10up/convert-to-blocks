@@ -41,6 +41,9 @@ Nested / Inner Block support does not work with Gutenberg bundled with WordPress
 
 == Changelog ==
 
+= 1.3.4 - 2025-07-15 =
+* **Fixed:** Ensure no PHP error is thrown on the plugin list screen when running PHP 8.0 (props [@dinhac](https://wordpress.org/support/users/dinhac/), [@dkotter](https://github.com/dkotter), [@faisal-alvi](https://github.com/faisal-alvi) via [#210](https://github.com/10up/convert-to-blocks/pull/210)).
+
 = 1.3.3 - 2025-07-14 =
 * **Added:** Link to settings page from the plugin list page (props [@badasswp](https://github.com/badasswp), [@dkotter](https://github.com/dkotter) via [#195](https://github.com/10up/convert-to-blocks/pull/195)).
 * **Changed:** Bump WordPress "tested up to" version 6.8 (props [@jeffpaul](https://github.com/jeffpaul) via [#199](https://github.com/10up/convert-to-blocks/pull/199), [#200](https://github.com/10up/convert-to-blocks/pull/200)).
