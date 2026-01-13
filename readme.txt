@@ -35,6 +35,10 @@ By default it will not.
 
 Nested / Inner Block support does not work with Gutenberg bundled with WordPress Core <=5.7.2. This feature needs the Gutenberg Plugin >=10.9.0.
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the Convert to Blocks plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/011d049e-a225-4b04-b405-1556be2240b8).  The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Screenshots ==
 
 1. Bulk migration using the `wp convert-to-blocks start` WP-CLI command that converts posts iteratively in the browser without requireing any manual input.
