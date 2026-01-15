@@ -1,5 +1,14 @@
 const { defineConfig } = require('cypress');
-const { loadConfig } = require('@wordpress/env/lib/config');
+const path = require( 'path' );
+
+// Resolve the package directory
+const wpEnvPackagePath = require.resolve( '@wordpress/env/package.json' );
+const wpEnvLibPath = path.join( path.dirname( wpEnvPackagePath ), 'lib' );
+
+// Directly require the files using their resolved paths
+const { loadConfig } = require( path.join( wpEnvLibPath, 'config', 'index.js' ) );
+const getCacheDirectory = require( path.join( wpEnvLibPath, 'config', 'get-cache-directory.js' ) );
+
 
 module.exports = defineConfig({
 	fixturesFolder: 'tests/cypress/fixtures',
@@ -33,7 +42,8 @@ module.exports = defineConfig({
  * @returns config Updated Cypress Config object.
  */
 const setBaseUrl = async (on, config) => {
-	const wpEnvConfig = await loadConfig('../../');
+  const cacheDirectory = await getCacheDirectory();
+  const wpEnvConfig = await loadConfig( cacheDirectory );
 
 	if (wpEnvConfig) {
 		const port = wpEnvConfig.env.tests.port || null;
