@@ -10,7 +10,7 @@
   },
   "license": "GPL-2.0-or-later",
   "scripts": {
-    "test": "phpunit",
+    "test:php": "wp-env run tests-cli --env-cwd=wp-content/plugins/convert-to-blocks vendor/bin/phpunit -c phpunit.xml.dist",
     "start": "composer install && npm install && npm run build",
     "build": "NODE_ENV=production wp-scripts build",
     "watch": "NODE_ENV=development wp-scripts start",
