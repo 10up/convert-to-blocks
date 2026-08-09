@@ -16,7 +16,7 @@ class MigrationClient {
 	}
 
 	/**
-	 * Saves the curent post by manually dispatching savePost.
+	 * Saves the current post by manually dispatching savePost.
 	 */
 	save() {
 		// don't rerun after save

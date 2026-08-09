@@ -41,7 +41,7 @@ Please report security bugs found in the source code of the Convert to Blocks pl
 
 == Screenshots ==
 
-1. Bulk migration using the `wp convert-to-blocks start` WP-CLI command that converts posts iteratively in the browser without requireing any manual input.
+1. Bulk migration using the `wp convert-to-blocks start` WP-CLI command that converts posts iteratively in the browser without requiring any manual input.
 
 == Changelog ==
 
