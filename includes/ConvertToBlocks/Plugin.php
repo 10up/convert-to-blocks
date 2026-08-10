@@ -90,7 +90,7 @@ class Plugin {
 		}
 	}
 
-	/* WordPress Lifecyle Hooks */
+	/* WordPress Lifecycle Hooks */
 
 	/**
 	 * Initializes the Plugin modules
