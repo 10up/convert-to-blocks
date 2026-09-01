@@ -142,7 +142,7 @@ class PostTypeColumnSupport {
 	}
 
 	/**
-	 * Retruns the icon to indicate that a post was created in the classic
+	 * Returns the icon to indicate that a post was created in the classic
 	 * editor.
 	 *
 	 * @return string

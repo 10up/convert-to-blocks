@@ -1,7 +1,7 @@
 === Convert to Blocks ===
 Contributors:      10up, dsawardekar, tlovett1, jeffpaul
 Tags:              block, block migration, gutenberg migration, gutenberg conversion, convert to blocks
-Tested up to:      7.0
+Tested up to:      7.1
 Stable tag:        1.3.4
 License:           GPL-2.0-or-later
 License URI:       https://spdx.org/licenses/GPL-2.0-or-later.html
@@ -41,7 +41,7 @@ Please report security bugs found in the source code of the Convert to Blocks pl
 
 == Screenshots ==
 
-1. Bulk migration using the `wp convert-to-blocks start` WP-CLI command that converts posts iteratively in the browser without requireing any manual input.
+1. Bulk migration using the `wp convert-to-blocks start` WP-CLI command that converts posts iteratively in the browser without requiring any manual input.
 
 == Changelog ==
 

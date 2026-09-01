@@ -49,7 +49,7 @@
     "@10up/cypress-wp-utils": "^0.6.0",
     "@10up/eslint-config": "^4.0.0",
     "@wordpress/env": "^10.37.0",
-    "@wordpress/scripts": "^31.2.0",
+    "@wordpress/scripts": "^34.0.0",
     "cypress-mochawesome-reporter": "^3.6.0",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
