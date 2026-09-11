@@ -46,7 +46,7 @@
     "url": "https://github.com/10up/convert-to-blocks"
   },
   "devDependencies": {
-    "@10up/cypress-wp-utils": "^0.6.0",
+    "@10up/cypress-wp-utils": "^0.7.2",
     "@10up/eslint-config": "^4.0.0",
     "@wordpress/env": "^10.37.0",
     "@wordpress/scripts": "^34.2.0",
