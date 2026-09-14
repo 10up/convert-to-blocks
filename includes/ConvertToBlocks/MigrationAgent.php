@@ -223,7 +223,8 @@ class MigrationAgent {
 			$post_in = array_map( 'intval', $post_in );
 			$post_in = array_filter( $post_in );
 
-			$query_params['post__in'] = $post_in;
+			$query_params['post__in']  = $post_in;
+			$query_params['post_type'] = 'any';
 		}
 
 		$query = new \WP_Query( $query_params );
