@@ -85,6 +85,8 @@ class Plugin {
 		$this->rest_support = new RESTSupport();
 		$this->register( $this->rest_support );
 
+		$this->register( new Abilities() );
+
 		if ( $this->is_wp_cli() ) {
 			$this->init_commands();
 		}
