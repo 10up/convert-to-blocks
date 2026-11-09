@@ -82,6 +82,10 @@ DESCRIPTION
 
 ```
 
+## Abilities API
+
+On WordPress versions with the [Abilities API](https://make.wordpress.org/ai/2025/07/17/abilities-api/), the plugin registers the `convert-to-blocks/start-migration` ability, the equivalent of `wp convert-to-blocks start`. It accepts the same options (`post_type`, `per_page`, `page`, `only`, `catalog`, `reset`), requires the `manage_options` capability, and returns the `url` that must be opened in a browser to run the migration along with the `total` number of posts to migrate.
+
 ## Frequently Asked Questions
 
 ### How Do I Know It's Working?
