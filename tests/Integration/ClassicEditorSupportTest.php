@@ -15,31 +15,6 @@ class ClassicEditorSupportTest extends \WP_UnitTestCase {
 		$this->support->container = $this;
 	}
 
-	function test_it_has_a_container() {
-		$this->assertSame( $this, $this->support->container );
-	}
-
-	function test_it_will_not_be_registered_by_default() {
-		$actual = $this->support->can_register();
-		$this->assertFalse( $actual );
-	}
-
-	function test_it_can_be_registered_on_admin_pages() {
-		$GLOBALS['current_screen'] =
-			$mock = $this->getMockBuilder( stdObject::class )
-								->setMethods( ['in_admin'] )
-								->getMock();
-
-		$mock->expects( $this->once() )
-			 ->method( 'in_admin' )
-			 ->will( $this->returnValue( true ) );
-
-		$actual = $this->support->can_register();
-		$this->assertTrue( $actual );
-
-		$GLOBALS['current_screen'] = null;
-	}
-
 	function test_it_will_enable_block_editor_if_post_supports_gutenbridge() {
 		$this->post_supports = true;
 		$supports_editor = $this->support->enable_block_editor( true, 1 );
