@@ -2,10 +2,12 @@
 /.git
 /.github
 /.wordpress-org
+/artifacts
 /assets
 /bin
 /config
 /node_modules
+/release
 /tests
 
 # Files
@@ -17,6 +19,7 @@ composer.json
 composer.lock
 CONTRIBUTING.md
 CREDITS.md
+eslint.config.mjs
 LICENSE.md
 package-lock.json
 package.json
