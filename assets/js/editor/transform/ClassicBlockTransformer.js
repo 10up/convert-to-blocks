@@ -16,7 +16,7 @@ class ClassicBlockTransformer {
 	/**
 	 * Runs the Classic to Gutenberg Block transform on the current document.
 	 *
-	 * @returns {boolean} The result of the transformation.
+	 * @return {boolean} The result of the transformation.
 	 */
 	execute() {
 		const coreEditor = this.wp.data.select('core/block-editor');
@@ -37,8 +37,8 @@ class ClassicBlockTransformer {
 	 * Note: This function is called recursively. Specifying a very high
 	 * maxDepth can crash the browser.
 	 *
-	 * @param {Array}  blocks The list of blocks to convert
-	 * @param {number} depth The current call stack depth
+	 * @param {Array}  blocks   The list of blocks to convert
+	 * @param {number} depth    The current call stack depth
 	 * @param {number} maxDepth The maximum allowed depth
 	 */
 	convertBlocks(blocks, depth = 1, maxDepth = 3) {
@@ -63,7 +63,7 @@ class ClassicBlockTransformer {
 	 * If the specified block is a freeform / classic block, replaces it
 	 * with corresponding Gutenberg blocks
 	 *
-	 * @param {object} block The current block object
+	 * @param {Object} block The current block object
 	 */
 	transform(block) {
 		if (this.isFreeformBlock(block)) {
@@ -81,8 +81,8 @@ class ClassicBlockTransformer {
 	 * Uses the Core Raw HTML Block Handler to convert classic block to
 	 * corresponding blocks
 	 *
-	 * @param {object} block The block object
-	 * @returns {object}
+	 * @param {Object} block The block object
+	 * @return {Object} The blocks parsed from the block's content.
 	 */
 	blockHandler(block) {
 		const { blocks } = this.wp;
@@ -98,7 +98,7 @@ class ClassicBlockTransformer {
 	 * Checks if the blocks specified are valid
 	 *
 	 * @param {Array} blocks The array of blocks
-	 * @returns {boolean}
+	 * @return {boolean} True if there is at least one block.
 	 */
 	validBlocks(blocks) {
 		return blocks && blocks.length > 0;
@@ -107,8 +107,8 @@ class ClassicBlockTransformer {
 	/**
 	 * Checks if the specified block is a freeform/classic block
 	 *
-	 * @param {object} block The block object
-	 * @returns {boolean}
+	 * @param {Object} block The block object
+	 * @return {boolean} True if the block is a freeform block.
 	 */
 	isFreeformBlock(block) {
 		return block.name === 'core/freeform';

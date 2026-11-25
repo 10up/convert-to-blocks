@@ -30,9 +30,11 @@ Desktop.ini
 
 config.local.php
 
-tests/cypress/videos
-tests/cypress/screenshots
-tests/cypress/reports
 /tests/_output/*
 /tests/.phpunit.result.cache
 !/tests/_output/.gitkeep
+
+# Tests
+/artifacts
+/release
+.wp-env.test.override.json

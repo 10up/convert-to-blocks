@@ -1,80 +1,177 @@
-name: PHPUnit Tests
+name: Test
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - develop
-      - trunk
+    branches: [ develop, trunk ]
   pull_request:
-    branches:
-      - develop
+    types: [ opened, synchronize, reopened ]
 
-permissions:
-  contents: read
+# Cancel superseded runs on the same PR.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+  cancel-in-progress: true
+
+# Disable permissions for all available scopes by default.
+# Any needed permissions should be configured at the job level.
+permissions: {}
 
 jobs:
   phpunit:
-    name: Test PHP ${{ matrix.php }} WP ${{ matrix.wp }}
-    runs-on: ubuntu-latest
+    name: PHP ${{ matrix.php }} / WP ${{ matrix.wp }}${{ matrix.multisite && ' multisite' || '' }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
-        php: [ '8.4', '8.3', '8.2', '8.1', '8.0' ]
-        wp: [ latest, trunk ]
+        php: [ '8.0', '8.1', '8.2', '8.3', '8.4', '8.5' ]
+        wp: [ '6.6', latest, trunk ]
+        multisite: [ false ]
+        include:
+          - { php: '8.5', wp: '6.6', multisite: true }
+          - { php: '8.5', wp: latest, multisite: true }
+          - { php: '8.5', wp: trunk, multisite: true }
     env:
       WP_ENV_PHP_VERSION: ${{ matrix.php }}
-      WP_ENV_CORE: ${{ matrix.wp == 'trunk' && 'WordPress/WordPress' || format( 'https://wordpress.org/wordpress-{0}.zip', matrix.wp ) }}
+      # Name the branch: a bare WordPress/WordPress has installed WordPress 1.5.3-beta1.
+      WP_ENV_CORE: ${{ matrix.wp == 'trunk' && 'WordPress/WordPress#master' || format( 'https://wordpress.org/wordpress-{0}.zip', matrix.wp ) }}
 
     steps:
+      # Lets the container write files the runner user owns.
       - name: Configure environment variables
         run: |
           echo "PHP_FPM_UID=$(id -u)" >> "$GITHUB_ENV"
           echo "PHP_FPM_GID=$(id -g)" >> "$GITHUB_ENV"
 
       - name: Checkout repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      ##
-      # This allows Composer dependencies to be installed using a single step.
-      #
-      # Since the tests are currently run within the Docker containers where the PHP version varies,
-      # the same PHP version needs to be configured for the action runner machine so that the correct
-      # dependency versions are installed and cached.
-      ##
+      # Same PHP on the runner as in the container, so Composer resolves for it.
       - name: Set up PHP
-        uses: shivammathur/setup-php@ec406be512d7077f68eed36e63f4d91bc006edc4 # v2.35.4
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
-          php-version: '${{ matrix.php }}'
+          php-version: ${{ matrix.php }}
           coverage: none
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@3cf229dc2919194e9e36783941438d17239e8520 # v3.1.1
+        uses: ramsey/composer-install@65e4f84970763564f46a70b8a54b90d033b3bdda # 4.0.0
 
-      - name: Setup Node
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          cache: 'npm'
           node-version-file: '.nvmrc'
+          cache: npm
 
-      - name: Install NPM dependencies
+      - name: Install npm dependencies
         run: npm ci
 
-      - name: Start the Docker testing environment
-        uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3.0.2
+      - name: Build assets
+        run: npm run build
+
+      - name: Start the test environment
+        uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 # v4.0.0
         with:
           timeout_minutes: 10
           max_attempts: 3
-          command: |
-            npm run env:start
+          command: npm run wp-env:test start
 
       - name: Log versions
         run: |
-          npm run env -- run cli php -- -v
-          npm run env -- run cli wp core version
+          npm run wp-env:test -- run cli php -- -v
+          npm run wp-env:test -- run cli wp core version
 
-      - name: Run PHPUnit tests
-        id: phpunit
+      - name: Run PHPUnit
+        run: npm run ${{ matrix.multisite && 'test:php:multisite' || 'test:php' }}
+
+  # The same release package the deploy workflow ships (.distignore, no dev dependencies).
+  build:
+    name: Build release zip
+    permissions:
+      contents: read
+    uses: ./.github/workflows/build-release-zip.yml
+
+  e2e:
+    name: E2E / WP ${{ matrix.wp }}
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        wp: [ '6.6', latest, trunk ]
+    env:
+      WP_ENV_CORE: ${{ matrix.wp == 'trunk' && 'WordPress/WordPress#master' || format( 'https://wordpress.org/wordpress-{0}.zip', matrix.wp ) }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Download release package
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: ${{ github.event.repository.name }}
+          path: release/convert-to-blocks
+
+      # Run the tests against the package instead of the checkout.
+      - name: Point the test environment at the release package
         run: |
-          npm run test:php
+          cat > .wp-env.test.override.json <<'JSON'
+          {
+            "plugins": [ "./release/convert-to-blocks" ],
+            "mappings": {
+              "/wp-content/plugins/convert-to-blocks": "./release/convert-to-blocks"
+            }
+          }
+          JSON
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Start the test environment
+        uses: nick-fields/retry@ad984534de44a9489a53aefd81eb77f87c70dc60 # v4.0.0
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npm run wp-env:test start
+
+      - name: Get Playwright version
+        id: playwright-version
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
+
+      # Only the chromium project runs.
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E tests
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+        run: npm run test:e2e
+
+      - name: Upload E2E artifacts
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: playwright-results-wp-${{ matrix.wp }}
+          path: artifacts/test-results
+          retention-days: 7
+          if-no-files-found: ignore
