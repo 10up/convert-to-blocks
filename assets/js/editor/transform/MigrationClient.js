@@ -7,7 +7,7 @@ class MigrationClient {
 	/**
 	 * Initializes the client with the specified config settings.
 	 *
-	 * @param {object} config The convert to blocks config
+	 * @param {Object} config The convert to blocks config
 	 */
 	constructor(config) {
 		this.config = config;
@@ -53,7 +53,7 @@ class MigrationClient {
 	/**
 	 * Checks if there is a post in the queue.
 	 *
-	 * @returns {boolean} True or false if next is present.
+	 * @return {boolean} True or false if next is present.
 	 */
 	hasNext() {
 		if (this.didNext) {
@@ -82,7 +82,7 @@ class MigrationClient {
 	/**
 	 * Checks if the next migration post data is present in config.
 	 *
-	 * @returns {boolean} True or false if next config is present
+	 * @return {boolean} True or false if next config is present
 	 */
 	hasNextConfig() {
 		if (!this.config) {

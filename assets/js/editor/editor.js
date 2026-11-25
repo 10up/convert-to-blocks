@@ -11,7 +11,7 @@ class ConvertToBlocksEditorSupport {
 	/**
 	 * Returns the singleton instance of ConvertToBlocksEditorSupport.
 	 *
-	 * @returns {ConvertToBlocksEditorSupport}
+	 * @return {ConvertToBlocksEditorSupport} The shared instance.
 	 */
 	static getInstance() {
 		if (!this.instance) {
@@ -25,7 +25,10 @@ class ConvertToBlocksEditorSupport {
 	 * Activates the ConvertToBlocksEditorSupport
 	 */
 	enable() {
-		document.addEventListener('DOMContentLoaded', this.didBlockEditorLoad.bind(this));
+		document.addEventListener(
+			'DOMContentLoaded',
+			this.didBlockEditorLoad.bind(this)
+		);
 	}
 
 	/**
@@ -50,6 +53,8 @@ class ConvertToBlocksEditorSupport {
 
 				// This delay allows Gutenberg to initialize legacy content into freeform blocks
 				setTimeout(() => {
+					// execute() converts the blocks, so it must run before the early return.
+					// eslint-disable-next-line @wordpress/no-unused-vars-before-return
 					const result = transformer.execute();
 					const config = window.convert_to_blocks_agent || false;
 
